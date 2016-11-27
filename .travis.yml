@@ -6,8 +6,6 @@ branches:
     - blog-source
 
 before_install:
-  - npm install -g hexo
-  - npm install -g hexo-cli
   - openssl aes-256-cbc -K $encrypted_dbe64650dc62_key -iv $encrypted_dbe64650dc62_iv -in .travis/id_rsa_blog.enc -out ~/.ssh/id_rsa -d
   - chmod 600 ~/.ssh/id_rsa
   - eval $(ssh-agent)
