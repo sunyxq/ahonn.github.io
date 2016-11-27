@@ -1,0 +1,28 @@
+language: node_js
+node_js: stable
+
+branches:
+  only:
+    - blog-source
+
+before_install:
+  - npm install -g hexo
+  - npm install -g hexo-cli
+  - openssl aes-256-cbc -K $encrypted_dbe64650dc62_key -iv $encrypted_dbe64650dc62_iv -in .travis/id_rsa_blog.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp .travis/ssh_config ~/.ssh/config
+  - npm install -g hexo-cli
+  - git clone -b ahonn https://github.com/ahonn/hexo-theme-even.git themes/even
+
+install:
+  - npm install
+
+script:
+  - hexo generate
+
+after_success:
+  - git config --global user.name "ahonn"
+  - git config --global user.email "ahonn95@outlook.com"
+  - hexo deploy
