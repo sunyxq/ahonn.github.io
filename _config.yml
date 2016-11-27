@@ -81,6 +81,3 @@ deploy:
   - type: git
     repo: git@github.com:ahonn/ahonn.github.io.git
     branch: master
-  - type: git
-    repo: git@git.coding.net:yuexun/yuexun.git
-    branch: coding-pages
