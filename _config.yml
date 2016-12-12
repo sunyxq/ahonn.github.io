@@ -68,7 +68,7 @@ archive_generator:
   daily: false
 
 tag_generator:
-  per_page: 15
+  per_page: 
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
