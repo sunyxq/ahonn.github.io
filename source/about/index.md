@@ -1,7 +1,6 @@
 ---
 title: about
-layout: about
-date: 2016-09-19 23:57:53
+layout: page
 ---
 
 ## 关于
