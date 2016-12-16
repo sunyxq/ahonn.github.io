@@ -412,4 +412,4 @@ body {
 
 本文并没有提及有关页面 JavaScript 的部分，实际上与写 CSS 样式相同。在 `source/js` 中写 JavaScript 脚本，然后在模板中引入即可。
 
-最后，文中的代码都在 []() 中。感谢阅读，希望对你有所帮助。
+文中的代码都在 [theme-example](https://github.com/ahonn/theme-example) 中。感谢阅读，希望对你有所帮助。
