@@ -119,10 +119,11 @@ theme: theme-example
 实际上我们需要让导航菜单根据我们的需要显示不同的项，上面这种写法不方便修改。所以我们会在主题的配置文件中添加导航菜单的配置。在 `thmem-demo` 下新建主题的配置文件 `_config.yml`，在其中添加需要配置的字段。然后可以通过 `theme` 这个变量来拿到该配置文件中的配置。
 
 `theme-demo/_config.yml`:
+
 ``` yml
 menu:
   Home: /
-  Archive: /archives
+  Archives: /archives
 ```
 
 这样我们就可以在 `header.ejs` 中使用 `theme.menu` 获取到导航菜单的设置。将 `header.ejs` 修改为：
@@ -149,7 +150,7 @@ menu:
 ``` yml
 menu:
   Home: /
-  Archive: /archives
+  Archives: /archives
   Github: https://github.com/ahonn
 ```
 
@@ -406,9 +407,73 @@ body {
 }
 ```
 
+## 国际化
+还记得我们一开始创建的 `languages` 文件夹吗？没错，它是用来添加多种语言，用于 i18n 的。站点的语言设置为站点配置文件中的 `language`。
+
+当该字段为空时，默认使用的是 `languages/default.yml` 这个文件。那么现在我们来添加这个文件，我们决定主题的默认语言是英文：
+
+``` yml
+Menu:
+  Home: Home
+  Archives: Archives
+  Github: Github
+
+Paginator:
+  Prev: Prev
+  Next: Next
+```
+
+目前我们需要主题根据选择的语言自动修改的有上面这些，接着我们需要修改 `header.ejs` 与 `paginator.ejs` 这两个文件：
+
+`_partial/header.ejs`
+``` html
+<header class="header">
+  <div class="blog-title">
+    <a href="<%- url_for() %>" class="logo"><%= config.title %></a>
+  </div>
+  <nav class="navbar">
+    <ul class="menu">
+      <% for (name in theme.menu) { %>
+        <li class="menu-item">
+          <a href="<%- url_for(theme.menu[name]) %>" class="menu-item-link"><%- __('Menu.' + name) %></a>
+        </li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
+```
+
+`_partial/paginator.ejs`:
+``` html
+<% if (page.total > 1){ %>
+  <nav class="page-nav">
+    <%- paginator({
+      prev_text: "&laquo;" + __('Paginator.Prev'),
+      next_text: __('Paginator.Next') + "&raquo;"
+    }) %>
+  </nav>
+<% } %>
+```
+
+修改之后其实与之前相比没有什么变化，起码看起来是。现在我们添加一个中文的文件：
+
+`languages/zh-CN.yml`
+``` yml
+Menu:
+  Home: 首页
+  Archives: 归档
+  Github: 交友
+
+Paginator:
+  Prev: 上一页
+  Next: 下一页
+```
+
+然后我们将站点配置文件中的 `language` 字段修改为 `zh-CN`（与 `zh-CN.yml` 文件名相同）。再次访问站点之后就会发现导航与分页部分的文字变成了中文。
+
 ## 最后总结
 
-如果你有耐心看我废话了这么多的话，恭喜你，你应该对怎么去写一个 Hexo 主题有了一定的了解。其实说白了，Hexo 就是把那些 Markdown 文件按照不同的布局模板，填上对应的数据生成 HTML 页面，复制 `source` 中的到生成的 `public` 文件夹中。中间会把需要编译的 stylus/less/sass 等文件编译。
+如果你有耐心看我废话了这么多的话，恭喜你，你应该对怎么去写一个 Hexo 主题有了一定的了解。其实说白了，Hexo 就是把那些 Markdown 文件按照不同的布局模板，填上对应的数据生成 HTML 页面，复制 `source` 中的到生成的 `public` 文件夹中，中间过程会把需要编译的 stylus/less/sass 等文件编译。
 
 本文并没有提及有关页面 JavaScript 的部分，实际上与写 CSS 样式相同。在 `source/js` 中写 JavaScript 脚本，然后在模板中引入即可。
 
