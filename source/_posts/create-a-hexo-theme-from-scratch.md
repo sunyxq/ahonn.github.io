@@ -15,6 +15,8 @@ tags:
 
 本文使用的模板引擎为 [ejs](http://www.embeddedjs.com/)，使用的 CSS 预处理器为 [stylus](http://stylus-lang.com/)。这也是 hexo 项目预装了的 render 插件，如果想使用其他模板引擎或者其他 CSS 预处理器，可以安装相对应的 render 插件。例如我的 [Even](https://github.com/ahonn/hexo-theme-even) 主题使用的是 Swig 与 SCSS。
 
+本文的代码： [theme-example](https://github.com/ahonn/theme-example) 。
+
 <!-- more -->
 
 ## 目录结构
@@ -477,4 +479,4 @@ Paginator:
 
 本文并没有提及有关页面 JavaScript 的部分，实际上与写 CSS 样式相同。在 `source/js` 中写 JavaScript 脚本，然后在模板中引入即可。
 
-文中的代码都在 [theme-example](https://github.com/ahonn/theme-example) 中。感谢阅读，希望对你有所帮助。
+感谢阅读，希望对你有所帮助。
