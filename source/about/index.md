@@ -3,16 +3,12 @@ title: about
 layout: page
 ---
 
-## 关于
-大三汪，软件工程。正在折腾前端。
+## About Me
 
-喜欢 Coding 所带来的正反馈。
+软件工程大三汪
 
-- Email: [ahonn95@outlook.com](mailto:ahonn95@outlook.com)
-- Github: [@ahonn](https://github.com/ahonn)
-- Zhihu: [@ahonn](https://www.zhihu.com/people/ahonn)
+热爱折腾，不过都尽是瞎折腾
 
-## 友链
-- [yzzting](http://www.yzz1995.cn/)
-- [XenK0u](http://henbukexue.science/)
-- [Leyar](https://www.ileyar.com/)
+经常性死宅，美剧看起来没完没了
+
+敲代码不能没有音乐，喜欢阿卡贝拉
