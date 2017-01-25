@@ -3,7 +3,6 @@ title: JavaScript 继承的那些事
 date: 2017-01-24 23:15:02
 tags:
   - JavaScript
-  - Bable
 ---
 
 众所周知，JavaScript 的继承是实现继承，而没有 Java 中的接口继承。这是因为 JavaScript 中函数没有签名，而实现继承依靠的是原型链来实现的。
