@@ -7,7 +7,7 @@ title: Ahonn
 subtitle:
 description: The harder you work, the luckier you get.
 author: Ahonn
-language: en
+language: 
 timezone:
 since: 2015
 # URL
@@ -69,6 +69,14 @@ archive_generator:
 
 tag_generator:
   per_page: 
+
+search:
+  path: search.xml
+  field: post
+
+feed:
+  type: atom
+  path: atom.xml
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
