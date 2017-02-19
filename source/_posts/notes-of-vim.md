@@ -16,6 +16,8 @@ tags:
 
 以前看别人的 `.vimrc` 配置，里面有些编辑器的基本配置，也不知道是哪里查的。原来这些配置可以在编辑器中输入 `:help options` 进行查看。
 
+<!-- more -->
+
 ### 缩进
 关于缩进的配置，主要设置了 `autoindent`, `smartindent` 和 `expandtab` 这三个选项。
 
