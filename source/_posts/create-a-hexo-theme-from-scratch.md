@@ -200,7 +200,7 @@ Hexo 提供了 `excerpt` 属性来获取文章的摘录部分，不过这里需�
 
 由于 Hexo 在新建项目的时候会安装 `hexo-renderer-stylus` 这个插件，所以我们无需其他步骤，只需要将样式文件放到 `css` 文件夹中。Hexo 在生成页面的时候会将 `source` 中的所有文件复制到生成的 `public` 文件中，并且在此之前会编译 styl 为 css 文件。
 
-在 `css` 文件夹中创建 `style.styl`，编写一些基础的样式，并把所有样式 `import` 到这个文件。所以最终编译之后只会有 `style.css` 一个文件。创建 `_partial/header.styl` 与 `_partial/post.style` 存放页面导航以及文章的样式，并且在 `style.styl` 中 `import` 这两个文件。 
+在 `css` 文件夹中创建 `style.styl`，编写一些基础的样式，并把所有样式 `import` 到这个文件。所以最终编译之后只会有 `style.css` 一个文件。创建 `_partial/header.styl` 与 `_partial/post.styl` 存放页面导航以及文章的样式，并且在 `style.styl` 中 `import` 这两个文件。 
 
 `_partial/header.styl`:
 

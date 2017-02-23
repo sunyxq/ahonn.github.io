@@ -25,7 +25,7 @@ tags:
 - `smartindent` 选项智能自动缩进
 - `expandtab` 选项将 tab 转换为空格
 
-``` viml
+``` vim
 set autoindent
 set smartindent
 set expandtab
@@ -34,7 +34,7 @@ set expandtab
 ### 行号
 显示行号是硬需求，但是与其他编辑器不同，在 vim 上还有相对行号。
 
-``` viml
+``` vim
 set number
 set relativenumber
 ```
@@ -49,7 +49,7 @@ $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ```
 
 为了方便管理再新建一个 `.vimrc.bundles` 来单独存放插件列表：
-``` viml
+``` vim
 set nocompatible    " be iMproved, required
 filetype off        " requried
 set rtp+=~/.vim/bundle/vundle/
@@ -68,7 +68,7 @@ filetype plugin indent on
 
 以后添加插件的时候只需要在这个文件里面添加一行：
 
-``` viml
+``` vim
 Bundle 'xxx'
 ```
 
@@ -87,7 +87,7 @@ Bundle 'xxx'
 安装完之后主要是设置一下出发的快捷键，默认的快捷键是 `Ctrl + y`。
 我把快捷键修改成 `Ctrl + e` 比较顺手。
 
-``` viml
+``` vim
 " Emmet.vim
 let g:user_emmet_expandabbr_key = '<c-e>'
 ```
@@ -96,7 +96,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 目录树就基本上也就是使用 [NERDTree](https://github.com/scrooloose/nerdtree)。
 
 开启目录树的快捷键修改为 `Ctrl + b`，然后当 vim 只剩目录树显示的时候自动退出。
-``` viml
+``` vim
 " NERDTree 
 map <c-b> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
@@ -108,7 +108,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeT
 
 关于这个插件网上有很多插件，我就不啰嗦了。这里主要是抄的百度 EFE 的配置：
 
-``` viml
+``` vim
 " YouCompleteMe
 " http://efe.baidu.com/blog/vim-javascript-completion/#youcompleteme
 let g:ycm_min_num_of_chars_for_completion = 3 
@@ -136,6 +136,4 @@ let g:ycm_semantic_triggers = {
 ```
 
 ## 总结
-折腾了一下午，终于算是搞定了。其实过程还是蛮好玩的，有机会还想写写插件玩玩。
-
-之后就抛弃 VS Code，开始 Vim 之旅感受一下双手不离键盘，效率爆棚。
+折腾了一下午，终于算是搞定了。其实过程还是蛮好玩的，有机会还想写写插件玩玩。抛弃 VS Code，开始 Vim 之旅感。
