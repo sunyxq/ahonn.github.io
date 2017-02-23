@@ -311,6 +311,8 @@ body {
 
 ![](http://ww3.sinaimg.cn/large/006tNc79gw1fasg7y42bqj314h0i6jv1.jpg)
 
+**注意，这里会报错。原因是生成文章页时没有找到对应的模版，所以使用了首页的模版，但文章页并没有 `page.posts` 这个属性（undefined 没有 each 方法）。新建 post.ejs 即可解决，或直接跳过直到完成文章页模版。**
+
 ## 添加分页
 在站点的 `source/_post/` 目录下存放的是我们的文章，现在我们把原本的 `hello-world.md` 复制黏贴 10+ 次，再查看站点首页。会发现，首页只显示了 10 篇文章。
 
