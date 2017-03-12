@@ -6,6 +6,9 @@ tags:
   - Front-end
 ---
 
+> 答 [中级前端工程师面试 我想问的几个问题](https://zhuanlan.zhihu.com/p/25701897) 中的几个问题，感谢 [@SimplyY
+](https://www.zhihu.com/people/simplyy/answers)
+
 ## 我最大的优势以及为什么选择前端
 
 - 我最大的优势是自学能力与理解能力强，并且不给自己套上『我是前端程序员』的枷锁，对于所有技术保持好奇心，不畏惧舒适圈外的事物并敢于尝试。
