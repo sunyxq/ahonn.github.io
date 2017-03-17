@@ -9,7 +9,7 @@ tags:
 接着3月1号收到了内推的通知邮件，完善信息后很快就接到了一面的电话（3月3号）。
 
 ## 一面
-面试了大概20分钟左右，整体内容还是比较偏基础。一开始是正常流程的自我介绍，说说三分钟自我介绍，但是我语速比较快的不到两分钟的介绍完了。(刚好是临近中午，原本打算吃饭的，要是去吃饭的话就得在路上面了...）
+面试了大概20分钟左右，整体内容还是比较偏基础。一开始是正常流程的自我介绍，说是三分钟自我介绍，但是我语速比较快的不到两分钟的介绍完了。(刚好是临近中午，原本打算吃饭的，要是去吃饭的话就得在路上面了...）
 
 ### CSS 垂直居中
 这个写过一篇博文专门总结过，不过面试的时候还是太过紧张没有答全。主要是 Flexbox 布局的垂直居中比较容易忘记。
@@ -26,7 +26,7 @@ tags:
 区别的话基本上只要看过书或者刷过面试题都会知道，但 `call()` 与 `apply()` 之间的性能差别就不是那么常见了。
 比较幸运的是，之前在阅读 underscore 源码的时候有注意到这个细节，为此也写过另外的文章：[从 optimizeCb 说起](http://www.ahonn.me/2016/05/03/starting-from-the-optimizeCb/)。
 
-实践证明在知道调用函数的参数数量时，使用 `call()` 的性能会优于 `apply()`。主要在实现的过程中 `apply()` 需要完成额外的操作（判断第二个参数类数组的长度，etc.）。具体为什么有这种差别，可以在 ECMAScript Language Specification 中查看 [Function.prototype.apply](https://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.3) 与 [Function.prototype.call](https://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.4) 的具体实现差异。
+实践证明，在知道调用函数的参数数量时，使用 `call()` 的性能会优于 `apply()`。主要在实现的过程中 `apply()` 需要完成额外的操作（判断第二个参数类数组的长度，etc.）。具体为什么有这种差别，可以在 ECMAScript Language Specification 中查看 [Function.prototype.apply](https://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.3) 与 [Function.prototype.call](https://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.4) 的具体实现差异。
 
 **参考链接**
 - [javascript - What is the difference between call and apply? - Stack Overflow](http://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-and-apply)
@@ -125,14 +125,14 @@ Function.prototype.bind = Function.prototype.bind || function (context) {
 维护的过程中的收获就是，当站在自己的角度看问题与在别人的角度看完全是不一样的，或许有个功能我并不需要，但是有人提了，我就得站在『用户』的角度去思考，去实现。『用户』只关心能不能用，好不好用，而并不关心代码写得怎么样。
 
 ### 实习期间遇到得难题
-可能我做的工作相对简单，就算不会基本上靠搜索引擎都能够解决。**我觉得能用 Google 解决的问题不算难题。**以我现在的水平，还达不到遇到的难题 Google 搜索不到的😹
+可能我做的工作相对简单，就算不会，基本上靠搜索引擎都能够解决。**我觉得能用 Google 解决的问题不算难题。**以我现在的水平，还达不到遇到的难题 Google 搜索不到的😹
 
 ## 三面
 三面基本上没有问太过具体的前端相关的问题，大部分是在聊聊看法，聊聊项目。
 
 开始让我用纸画出博客的设计，其实主要还是主题，没什么难度，毕竟代码都是我自己写的。
 
-然后让我介绍一下我熟悉的一个框架，说的 React，提及到了 Vitrual DOM 和 diff 算法，说了一下 diff 算法的大概策略。还有说到组件化，单向数据流等等。幸运的是，我在二面之前把 『深入 React 技术栈』这本书刷了个大改，基本上都是结合之前写过的代码，在此之上吹。
+然后让我介绍一下我熟悉的一个框架，说的 React，提及到了 Vitrual DOM 和 diff 算法，说了一下 diff 算法的大概策略。还有说到组件化，单向数据流等等。幸运的是，我在二面之前刷了 『深入 React 技术栈』这本书，结合之前的实践能够说个大概。
 
 中间有聊到兴趣爱好，我想了想好像只有写代码。听歌应该也算？写代码的时候必定要听歌。我记得去年国庆有一天从起床写到晚上睡觉，差不多写了 11 个小时，那时候正在折腾 React 与 Meteor。我自己都觉得不可思议。
 
