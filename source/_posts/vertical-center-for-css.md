@@ -60,7 +60,7 @@ tags:
 ``` CSS
 .chilren {
   margin: 50% auto 0;
-  transform: translateY(-50%);
+  transform: translateY(50%);
 }
 ```
 
