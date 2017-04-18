@@ -5,7 +5,6 @@ tags:
   - Vim
 category: 技术
 ---
-
 ![](https://ww2.sinaimg.cn/large/006tNc79gy1fe1885ws5rj315w0n4n12.jpg)
 
 很久之前就听说过 neovim，但一直没有怎么了解过。昨天下午折腾了一下，彻底转投 neovim 了。
