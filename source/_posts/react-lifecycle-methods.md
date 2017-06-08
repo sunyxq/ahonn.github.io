@@ -1,9 +1,8 @@
 ---
 title: React 生命周期函数小结
 date: 2016-10-02 01:10:17
-tags:
-  - JavaScript
-  - React
+tags: ['JavaScript', '前端', 'React']
+categories: ['技术']
 ---
 
 生命周期函数是指，在组件生命周期上的特定点上执行的各个函数。
@@ -15,7 +14,7 @@ React 的组件声明周期函数分为三种：挂载，更新以及卸载。
 ### componentWillMount
 只调用一次，在客户端与服务端都执行。在初始化渲染之前被调用。
 
-<!-- more -->
+<!--more-->
 
 ### componentDidMount
 只调用一次，在客户端执行，不在服务端执行。在初始化渲染之后被调用。

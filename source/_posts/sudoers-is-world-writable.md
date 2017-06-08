@@ -1,8 +1,8 @@
 ---
 title: sudoers is world writable
 date: 2015-08-30 12:00:00
-tags:
-    - Ubuntu
+tags: ['Linux']
+categories: ['技术']
 ---
 > 记录以避免再次犯错
 
@@ -12,7 +12,7 @@ tags:
 	sudo: /etc/sudoers is world writable
 	sudo: no valid sudoers sources found, quitting
 
-<!-- more -->
+<!--more-->
 
 这是因为sudoers的权限不对而出现的问题。
 

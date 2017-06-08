@@ -1,8 +1,8 @@
 ---
 title: 不合常理的变量提升
 date: 2016-04-28 21:56:42
-tags:
-  - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 ## 变量提升
@@ -19,7 +19,7 @@ int main() {
   int n = 2;
 }
 ```
-<!-- more -->
+<!--more-->
 
 ### 并不完全正确
 实际上合乎常理的预期并不是“完全正确”的，在 JavaScript 中并不符合直觉。

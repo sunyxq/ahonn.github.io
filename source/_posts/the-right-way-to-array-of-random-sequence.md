@@ -1,10 +1,8 @@
 ---
 title: 数组乱序的正确姿势
 date: 2016-07-25 10:53:19
-tags:
-  - JavaScript
-  - Underscore
-  - 算法
+tags: ['JavaScript', '前端', 'Underscore']
+categories: ['技术']
 ---
 
 在 `underscore` 中有一个函数，其作用是将数组乱序排序，实现如下：
@@ -25,7 +23,7 @@ _.shuffle = function(obj) {
   return shuffled;
 };
 ```
-<!-- more -->
+<!--more-->
 
 其中使用的数组乱序的算法是 [Fisher–Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)。这是一个 O(n) 复杂度的随机排列数组元素的经典算法。
 

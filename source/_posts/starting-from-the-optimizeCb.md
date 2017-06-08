@@ -1,9 +1,8 @@
 ---
 title: 从 optimizeCb 说起
 date: 2016-05-03 10:24:20
-tags:
-  - Underscore
-  - JavaScript
+tags: ['JavaScript', '前端', 'Underscore']
+categories: ['技术']
 ---
 
 ## optimizeCb
@@ -36,7 +35,7 @@ var optimizeCb = function(func, context, argCount) {
 };
 ```
 
-<!-- more -->
+<!--more-->
 它是这样处理回调的，当回调函数指定上下文环境时，根据 `argCount` 来分情况使用 `call`，不同情况的
 区别只是 `call` 除了上下文环境之外的函数参数的个数不同。
 

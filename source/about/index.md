@@ -13,4 +13,3 @@ layout: page
 
 敲代码不能没有音乐，喜欢 Acapella
 
-**找暑假实习中，简历见 [Resume](/resume)**

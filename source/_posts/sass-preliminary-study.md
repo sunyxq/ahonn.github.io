@@ -1,16 +1,15 @@
 ---
 title: Sass 初探
 date: 2016-06-07 21:57:57
-tags:
-  - CSS
-  - Sass
+tags: ['CSS', 'Sass']
+categories: ['技术']
 ---
 ## 为什么学 Sass
 
 说起来其实很早就知道 `Sass` 这东西。刚开始写 Even 这个博客主题的时候就有在考虑是要用 `Less` 还是`Sass`，最后用了变量名用 `@` 开头的 Less（可能是 PHP 的原因，对 `$` 开头的变量名没什么好感）。
 
 最近正在看 `Foundation`，源码是用 Sass 写的。`Bootstrap` 之前也是用 Less 的，不过后来也转向了 Sass。然后发现 `Foundation` 写得挺不错的，看看博客主题写的代码，简直不能看。正好打算把主题给重构重构，就顺手学学 Sass，用 Sass 写。
-<!-- more -->
+<!--more-->
 
 ## Sass 是什么
 

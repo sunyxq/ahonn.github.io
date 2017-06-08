@@ -1,10 +1,8 @@
 ---
 title: 在 PHP 中如何预防 SQL 注入
 date: 2015-12-21 13:22:28
-tags:
-	- StackOverflow
-	- PHP
-	- SQL
+tags: ['PHP', 'SQL']
+categories: ['技术']
 ---
 > 翻译自 Stack Overflow: [How can I prevent SQL-injection in PHP?](http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php) 中的高票答案
 
@@ -15,7 +13,7 @@ $unsafe_variable = $_POST['user_input'];
 
 mysql_query("INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')");
 ```
-<!-- more -->
+<!--more-->
 
 上面的例子，会因为用户输入像 `value'); DROP TABLE table;--` 这样的数据，使得 SQL 语句变成：
 ``` 

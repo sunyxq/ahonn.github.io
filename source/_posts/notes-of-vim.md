@@ -1,8 +1,8 @@
 ---
 title: Vim 折腾记
 date: 2017-02-19 22:37:54
-tags:
-  - Vim
+tags: ['Vim', '折腾']
+categories: ['技术']
 ---
 
 昨天在微信读书上面看到了池建强的《MacTalk 人生元编程》，然后花了差不多一天看完，其中有篇有关于 Vim 的文章提起了我对这个编辑器的再一次兴趣（对的，我对它感兴趣很多次了，每次都懒..）。
@@ -16,7 +16,7 @@ tags:
 
 以前看别人的 `.vimrc` 配置，里面有些编辑器的基本配置，也不知道是哪里查的。原来这些配置可以在编辑器中输入 `:help options` 进行查看。
 
-<!-- more -->
+<!--more-->
 
 ### 缩进
 关于缩进的配置，主要设置了 `autoindent`, `smartindent` 和 `expandtab` 这三个选项。
@@ -25,7 +25,7 @@ tags:
 - `smartindent` 选项智能自动缩进
 - `expandtab` 选项将 tab 转换为空格
 
-``` vim
+```
 set autoindent
 set smartindent
 set expandtab
@@ -34,7 +34,7 @@ set expandtab
 ### 行号
 显示行号是硬需求，但是与其他编辑器不同，在 vim 上还有相对行号。
 
-``` vim
+```
 set number
 set relativenumber
 ```
@@ -44,12 +44,13 @@ set relativenumber
 
 创建文件夹 `~/.vim` 和配置文件 `~/.vimrc`，并安装 Vundle:
 
-``` sh
+``` bash
 $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 ```
 
 为了方便管理再新建一个 `.vimrc.bundles` 来单独存放插件列表：
-``` vim
+
+```
 set nocompatible    " be iMproved, required
 filetype off        " requried
 set rtp+=~/.vim/bundle/vundle/
@@ -68,7 +69,7 @@ filetype plugin indent on
 
 以后添加插件的时候只需要在这个文件里面添加一行：
 
-``` vim
+```
 Bundle 'xxx'
 ```
 
@@ -87,7 +88,7 @@ Bundle 'xxx'
 安装完之后主要是设置一下出发的快捷键，默认的快捷键是 `Ctrl + y`。
 我把快捷键修改成 `Ctrl + e` 比较顺手。
 
-``` vim
+```
 " Emmet.vim
 let g:user_emmet_expandabbr_key = '<c-e>'
 ```
@@ -96,7 +97,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 目录树就基本上也就是使用 [NERDTree](https://github.com/scrooloose/nerdtree)。
 
 开启目录树的快捷键修改为 `Ctrl + b`，然后当 vim 只剩目录树显示的时候自动退出。
-``` vim
+```
 " NERDTree 
 map <c-b> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
@@ -108,7 +109,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeT
 
 关于这个插件网上有很多插件，我就不啰嗦了。这里主要是抄的百度 EFE 的配置：
 
-``` vim
+```
 " YouCompleteMe
 " http://efe.baidu.com/blog/vim-javascript-completion/#youcompleteme
 let g:ycm_min_num_of_chars_for_completion = 3 

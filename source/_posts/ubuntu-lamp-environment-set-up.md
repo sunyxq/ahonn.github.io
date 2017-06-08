@@ -1,8 +1,8 @@
 ---
 title: Ubuntu 下 LAMP环境搭建
 date: 2015-08-24 12:00:00
-tags:
-    - Ubuntu
+tags: ['Ubuntu', 'PHP']
+categories: ['技术']
 ---
 
 ## 安装
@@ -24,7 +24,7 @@ $ sudo apt-get install mysql-server
 $ sudo apt-get install mysql-client
 ```
 
-<!-- more -->
+<!--more-->
 ### 安装其他模块
 ```
 $ sudo apt-get install libapache2-mod-php5

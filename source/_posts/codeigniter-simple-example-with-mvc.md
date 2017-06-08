@@ -1,9 +1,8 @@
 ---
 title: CodeIgniter MVC简单示例
 date: 2015-12-13 22:50:06
-tags:
-	- CodeIgniter
-	- PHP
+tags: ['CodeIgniter', 'PHP']
+categories: ['技术']
 ---
 
 > 通过使用 CodeIgniter 写一个 Hello World 程序来学习框架的基本使用。
@@ -18,7 +17,7 @@ tags:
 
 `controllers`表示调用的控制器的类，`method`表示调用的类中的函数或方法，`argument`以及后面的表示传给控制器的参数。
 
-<!-- more -->
+<!--more-->
 在开启 Apache 服务器的 `mod_rewirite` 模块下可以添加一个 `.htaccess` 文件隐藏 `index.php`，使得 URL 变成 `http://example.com/index.php/controllers/method/arguments`
 
 .htaccess

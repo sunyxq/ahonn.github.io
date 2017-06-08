@@ -1,9 +1,8 @@
 ---
 title: CodeIgniter 框架概述
 date: 2015-12-11 20:29:29
-tags:
-	- CodeIgniter
-	- PHP
+tags: ['CodeIgiter', 'PHP']
+categories: ['技术']
 ---
 
 > 虽然已经学习 CodeIgniter 框架有一段时间了，但是想想还是从头开始学习一下这个轻框架，随便将学习的过程记录下来。
@@ -17,7 +16,7 @@ tags:
 
 对于正准备接触框架的PHPer，CodeIgniter 是一个不错的选择。
 
-<!-- more -->
+<!--more-->
 
 ## 应用程序流程
 - CodeIgniter 应用程序是单一入口的，所有的请求都是通过 index.php 去接收，index.php 还是初始化各种基本资源的地方。

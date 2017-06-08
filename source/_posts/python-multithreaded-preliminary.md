@@ -1,10 +1,8 @@
 ---
 title: Python 多线程初步了解
 date: 2016-02-20 20:56:39
-tags:
-    - Python
-    - thread
-    - threading
+tags: ['Python']
+categories: ['技术']
 ---
 这两天在写 [Nada](https://www.github.com/ahonn/Nada) 的下载功能，遇到一个问题，在下载歌曲的时候整个界面都会卡住，必须等待下载完成才能够恢复，因为写的时候是直接顺序执行的，没有多线程。之前在写播放功能的时候是参考了别人的代码，自己其实对多线程部分不是很了解。然后趁着晚上了解一下 Python 的 thread 和 treading 模块。
 
@@ -14,7 +12,7 @@ Pyhton 标准库提供了 thread 和 threading 模块来支持多线程，这意
 ## thread 模块
 thread 模块是以低级、原始的方式来处理和控制线程，提供了一个简单的锁（相对于 threading 模块的锁的感觉来说的确是比较简单）。相对于 threading 模块来说，thread 模块更加灵活。
 
-<!-- more -->
+<!--more-->
 - `thread.start_new_thread(function, args [, kwargs])`
   创建一个新的线程，返回该线程的标识符。线程执行后将制动退出，即函数执行完毕。当遇到未处理的异常时也将退出，但不影响其他线程。
   * `function`：线程执行的函数。

@@ -1,9 +1,8 @@
 ---
 title: Jade 模板引擎
 date: 2016-02-29 09:47:15
-tags:
-    - Jade
-    - HTML
+tags: ['Jade', '前端']
+categories: ['技术']
 ---
 最近在改一个 Hexo 的主题 [apollo](https://github.com/pinggod/hexo-theme-apollo)。然后看到这个主题用的是叫做 Jade 的模版引擎写的。之前了解过几个模版引擎 ejs，swig 什么的，但是这些都是在原有的 HTML 中插标签，看起来有点乱。看到 Jade 后就深深的被它那如同 Python 的缩进语法深深吸引了，遂上网学习一发。  
 
@@ -14,7 +13,7 @@ Jade 是 JavaScript 实现的，供 Node 使用，原生支持 Express。但也�
 
 添加文档类型可以通过 `!!!`  或者 `doctype ` 来添加。
 
-<!-- more -->
+<!--more-->
 ### 标签、属性
 
  Jade 写起来就跟在 Sublime Text 中用 Emmet 写 HTML 一样。标签直接写，Class 用 `.`，ID 用 `#`。不同的是，层级关系 Jade 使用缩进表示，类似于 Python，而 Emmet 插件的写法是只有一行的。结果写出来就是这个样子滴：

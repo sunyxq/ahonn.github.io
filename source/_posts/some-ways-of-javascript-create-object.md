@@ -1,8 +1,8 @@
 ---
 title: JavaScript 创建对象的一些姿势
 date: 2016-11-30 18:52:21
-tags:
-  - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 ## 工厂模式
@@ -22,7 +22,7 @@ function createPerson(name, age) {
 var p = createPerson("ahonn", 21)
 ```
 
-<!-- more -->
+<!--more-->
 
 但工厂模式产生的对象依旧为 Object 类型，只是在对象上添加了一些属性。
 

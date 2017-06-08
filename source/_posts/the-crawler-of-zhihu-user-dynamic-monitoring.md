@@ -1,9 +1,8 @@
 ---
 title: 知乎用户动态监控爬虫
 date: 2015-11-25 12:00:00
-tags:
-    - Python
-    - Zhihu
+tags: ['Python', '知乎']
+categories: ['技术']
 ---
 
 > 根据极客学院的Python爬虫教程写的一个单线程简易爬虫。可以监控知乎用户动态，当有新动态时发送邮件通知。
@@ -15,7 +14,7 @@ tags:
 - 拼接数据，判断是否已经保持在文件中，即判断是否为新动态。
 - 若是新动态，使用python的smtplib模块发送收件到设置的邮箱中并保存到本地文件，否则略过。
 
-<!-- more -->
+<!--more-->
 #### 模块
 `os`
 `time`
@@ -24,7 +23,7 @@ tags:
 `MIMEText`
 `requests`
 `smtplib`
-<!-- more -->
+<!--more-->
 
 #### zhihu类：获取与匹配，保持内容
 

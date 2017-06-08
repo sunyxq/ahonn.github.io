@@ -1,8 +1,8 @@
 ---
 title: 作用域与闭包
 date: 2016-04-04 22:43:59
-tags:
-  - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 ## 作用域
@@ -19,7 +19,7 @@ JavaScript 变量的作用域分为两种，全局和局部。
 
 在 JavaScript 中声明全局变量有两种方式，一种是在全局环境下使用 `var` 声明，另一种是在任何地方直接初始化变量，那么它将会是全局变量。
 
-<!-- more -->
+<!--more-->
 ``` js
 var name = 'ahonn';   // 全局变量
 

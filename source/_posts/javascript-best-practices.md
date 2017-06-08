@@ -1,8 +1,8 @@
 ---
 title: "JavaScript 最佳实践：提升代码质量的建议和技巧"
 date: 2016-08-31 22:57:34
-tags:
-    - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 > 翻译自：[JavaScript Best Practices: Tips & Tricks to Level Up Your Code](https://www.codementor.io/javascript/tutorial/javascript-best-practices)
@@ -13,7 +13,7 @@ tags:
 ## 避免污染全局作用域
 声明变量是很有趣的，有时候你会在你不知情的情况下声明了全局变量。在现在的浏览器中，全局变量将会存储在 `window` 变量中。在全局作用域中的变量可能在不经意间被覆盖。
 
-<!-- more -->
+<!--more-->
 
 假设你现在有一个 HTML 文件，其中包括一个 `<script>` 标签，包含如下内容：
 

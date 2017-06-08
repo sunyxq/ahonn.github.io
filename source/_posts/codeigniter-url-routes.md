@@ -1,9 +1,8 @@
 ---
 title: CodeIgniter URL 路由
 date: 2015-12-19 00:00:00
-tags:
-	- CodeIgniter
-	- PHP
+tags: ['CodeIgniter', 'PHP']
+categories: ['技术']
 ---
 
 ## 设置 URL 路由规则
@@ -17,7 +16,7 @@ CodeIgniter 中的 URL 一般遵循之前说的下面这种规则：
 ## 通配符
 使用通配符的路由规则：
 	$route['name/:num'] = 'foo/bar';
-<!-- more -->
+<!--more-->
 
 在路由规则数组 `$route` 中，数组的 key 表示要匹配的 URL ，数组的 value 表示重定向的位置。
 

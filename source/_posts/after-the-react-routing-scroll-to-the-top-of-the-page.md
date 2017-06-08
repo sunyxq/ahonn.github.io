@@ -1,9 +1,8 @@
 ---
 title: React 路由跳转后回到页面顶部
 date: 2016-10-11 01:13:19
-tags:
-  - React
-  - JavaScript
+tags: ['React', 'JavaScript', '前端']
+categories: ['技术']
 ---
 
 在 React 组件间进行页面跳转后，发现页面的位置并不在页面顶部，而是在页面跳转前的位置。就是说浏览器的滚动条并没有回到顶部的位置。
@@ -24,7 +23,7 @@ componentDidUpdate() {
 }
 ```
 
-<!-- more -->
+<!--more-->
 
 但是我使用这个之后，ESlint 报了个错：`no-find-dom-node`。
 查看 `eslint-plugin-react` 的[文档](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md)可以看到 Facebook 不推荐使用 `findDOMNode`，推荐使用 `refs` 获取 DOM 节点。

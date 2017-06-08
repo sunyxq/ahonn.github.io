@@ -1,8 +1,8 @@
 ---
 title: apply, call 与 bind 的区别
 date: 2016-03-20 23:02:08
-tags:
-  - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 最近在看 《JavaScript 高级程序设计》，也就是所谓的高程3。正好看到 `Function` 部分，看到了几个熟悉的字眼，`apply()`，`call()` 和 `bind()`。好像是有些面试题里面有，遂搞清楚了记录下。
 
@@ -13,7 +13,7 @@ tags:
 `apply()` 方法接收两个参数，一个是在其中运行函数的作用域，函数中的 `this` 的值，另一个是参数数组。
 而 `call()` 方法的第一个参数跟 `apply()` 相同，不同的是除了第一个参数，后面的其他参数将会直接传递给函数。
 
-<!-- more -->
+<!--more-->
 ```
 function sum(num1, num2) {
   return num1 + num2;

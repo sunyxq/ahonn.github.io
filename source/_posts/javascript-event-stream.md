@@ -1,8 +1,8 @@
 ---
 title: 事件流：冒泡与捕获
 date: 2016-04-16 11:29:49
-tags:
-  - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 ## 事件流
@@ -16,7 +16,7 @@ tags:
   <p> Click </p>
 </div>
 ```
-<!-- more -->
+<!--more-->
 
 上面的例子中，点击 `p` 元素，事件冒泡的顺序是 p > div > body > html > document。
 

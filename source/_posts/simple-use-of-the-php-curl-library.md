@@ -1,9 +1,8 @@
 ---
 title: PHP cURL 库的简单使用
 date: 2015-12-19 23:50:12
-tags:
-	- PHP
-	- cURL
+tags: ['PHP']
+categories: ['技术']
 ---
 
 > 之前写 PHP 的爬虫的时候就有用到 cURl 扩展，然后前几天在写 `zhihu-php` 的时候也用到了这个，也觉得这个也是用得比较多的一个东西，所以就上网又学习了一下，就顺手把它写下来了。
@@ -17,7 +16,7 @@ cURL 是一个功能强大的库，支持很多不同的协议、选项，能提
 - 将 PHP 安装文件夹下的 `php_curl.dll`，`libeay32.dll`，`ssleay.dll` 复制到 `system32` 文件夹下。
 - 将 PHP.ini 中的 `extension=php_curl.dll` 前的 `;` 分号去掉。
 - 重启服务器。
-<!-- more -->
+<!--more-->
 
 **linux**
 Ubuntu 上通过 `apt-get` 安装的 PHP 默认已经启用。若无，具体安装过程Google。

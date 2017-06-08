@@ -1,20 +1,18 @@
 ---
-title: 转投 neovim
+title: 转投 Neovim
 date: 2017-03-27 11:10:06
-tags:
-  - Vim
-category: 技术
+tags: ['Vim', '折腾']
+categories: ['技术']
 ---
-![](https://ww2.sinaimg.cn/large/006tNc79gy1fe1885ws5rj315w0n4n12.jpg)
 
-很久之前就听说过 neovim，但一直没有怎么了解过。昨天下午折腾了一下，彻底转投 neovim 了。
+很久之前就听说过 Neovim，但一直没有怎么了解过。昨天下午折腾了一下，彻底转投 Neovim 了。
 
-虽然说这两货的差别目前还不是很大，但是 neovim 实现了嵌入式终端模拟器，Excited! 各种 REPL 插件统统都可以卸载了！
+虽然说这两货的差别目前还不是很大，但是 Neovim 实现了嵌入式终端模拟器，Excited! 各种 REPL 插件统统都可以卸载了！
 
-<!-- more -->
+<!--more-->
 
 ## 迁移配置文件
-neovim 配置完全兼容原来的 `.vimrc`，只需要：
+Neovim 配置完全兼容原来的 `.vimrc`，只需要：
 
 ``` bash
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
@@ -25,7 +23,7 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 ## 使用 ale 代替 syntastic
 老早就觉得 `syntastic` 同步检查代码好难用，这下换成 `ale` 舒服多了。有之前使用 atom 时自带的代码检查的感觉。
 
-(Vim 8 好像也已经提供了异步 API，但是我等到换成 neovim 才知道..)
+(Vim 8 好像也已经提供了异步 API，但是我等到换成 Neovim 才知道..)
 
 ## 把 Leader 改成空格
 其实是看了 [Vim 高效率配置导论](https://zhuanlan.zhihu.com/p/25905625) 这篇文章之后试着改的，改完发现空格比起原先的 `,` 好用多了。让大拇指动了起来。
@@ -40,7 +38,7 @@ ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 遂，添加了下面这两个 mapping：
 
-``` vimL
+```
 vnoremap < <v
 vnoremap > >v
 ```

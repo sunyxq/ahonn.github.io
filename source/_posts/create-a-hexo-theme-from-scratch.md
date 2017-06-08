@@ -1,8 +1,8 @@
 ---
 title: 从零开始制作 Hexo 主题
 date: 2016-12-15 17:43:47
-tags:
-  - Hexo
+tags: ['Hexo', '前端', '教程']
+categories: ['技术']
 ---
 
 ## 写在前面
@@ -17,7 +17,7 @@ tags:
 
 本文的代码： [theme-example](https://github.com/ahonn/theme-example) 。
 
-<!-- more -->
+<!--more-->
 
 ## 目录结构
 主题目录结构以自带的 [landscape](https://github.com/hexojs/hexo-theme-landscape) 主题为例：
@@ -36,6 +36,7 @@ tags:
 在 `layout` 中创建 `index.ejs` 文件，首页将会使用该布局模板生成 HTML 文件。
 
 `layout/index.ejs`:
+
 ``` html
 <html>
   <head>
@@ -187,7 +188,7 @@ menu:
 
 由于首页显示文章内容时使用的是 `post.content`，即文章的全部内容。所以首页会显示每一篇文章的内容，实际上我们并不想在首页显示那么多内容，只想显示文章的摘录。
 
-Hexo 提供了 `excerpt` 属性来获取文章的摘录部分，不过这里需要在文章中添加一个 `<!-- more -->` 标记。添加了这个标记之后，`post.excerpt` 将会获取到标记之前的内容。如果没有这个标记，那么 `post.excerpt` 会是空的。所以我们可以把首页文章内容部分的 `post.content` 替换成 `post.excerpt`。
+Hexo 提供了 `excerpt` 属性来获取文章的摘录部分，不过这里需要在文章中添加一个 `<!--more-->` 标记。添加了这个标记之后，`post.excerpt` 将会获取到标记之前的内容。如果没有这个标记，那么 `post.excerpt` 会是空的。所以我们可以把首页文章内容部分的 `post.content` 替换成 `post.excerpt`。
 
 ``` html
 <div class="post-content">

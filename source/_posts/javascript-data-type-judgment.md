@@ -1,9 +1,8 @@
 ---
 title: "JavaScript 数据类型判断"
 date: 2016-11-21 15:07:49
-tags:
-  - JavaScript
-  - Underscore
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 最近开始读之前没有读完的 underscore 的源码，刚把 Object 部分读完。对 JavaScript 中类型判断部分的总结。
 
@@ -14,7 +13,7 @@ tags:
 
 关于 `Object.prototype.toString()` 的详细描述可以查看：[Object.prototype.toString() - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString)
 
-<!-- more -->
+<!--more-->
 
 ## 使用 toString() 判断类型
 由于 `toString()` 会返回带有类型信息的字符串，所以通常可以使用它来进行数据类型的判断。

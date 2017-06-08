@@ -1,9 +1,8 @@
 ---
 title: 阿里巴巴暑假实习面试总结
 date: 2017-03-16 15:15:24
-tags:
-  - 面试
-  - 总结
+tags: ['前端', '面试', '实习']
+categories: ['技术']
 ---
 2月末的时候，通过 [simplyY](https://simplyy.space/) 内推了阿里巴巴暑期实习的前端开发岗，在此表示感谢。
 接着3月1号收到了内推的通知邮件，完善信息后很快就接到了一面的电话（3月3号）。
@@ -16,7 +15,7 @@ tags:
 
 具体就不再啰嗦了，详情可以查看：[CSS 实现垂直居中](http://www.ahonn.me/2016/06/29/vertical-center-for-css/)
 
-<!-- more -->
+<!--more-->
 
 ### call 与 apply 的区别，以及性能差别
 `call` 与 `apply` 的区别，这是一个老生常谈的面试题了。`call()` 与 `apply()` 都是用于在指定 this 值与参数的情况下调用函数，主要的区别在于除了传入 this 值之外，`apply()` 接收类数组或者类数组对象来作为调用的函数的参数，而 `call()` 则是需要分别传入函数的每一个参数（除第一个参数之外的其他参数）。
@@ -29,6 +28,7 @@ tags:
 实践证明，在知道调用函数的参数数量时，使用 `call()` 的性能会优于 `apply()`。主要在实现的过程中 `apply()` 需要完成额外的操作（判断第二个参数类数组的长度，etc.）。具体为什么有这种差别，可以在 ECMAScript Language Specification 中查看 [Function.prototype.apply](https://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.3) 与 [Function.prototype.call](https://www.ecma-international.org/ecma-262/5.1/#sec-15.3.4.4) 的具体实现差异。
 
 **参考链接**
+
 - [javascript - What is the difference between call and apply? - Stack Overflow](http://stackoverflow.com/questions/1986896/what-is-the-difference-between-call-and-apply)
 - [javascript - Why is call so much faster than apply? - Stack Overflow](http://stackoverflow.com/questions/23769556/why-is-call-so-much-faster-than-apply)
 - [call vs apply · jsPerf](https://jsperf.com/call-apply-segu)

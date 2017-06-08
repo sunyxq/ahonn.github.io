@@ -1,9 +1,8 @@
 ---
 title: XMLHttpRequest 学习笔记
 date: 2017-03-02 18:35:39
-tags:
-  - JavaScript
-  - Ajax
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 > AJAX即“Asynchronous JavaScript and XML”（异步的JavaScript与XML技术），指的是一套综合了多项技术的浏览器端网页开发技术。
@@ -14,7 +13,7 @@ Ajax 技术的核心是 `XMLHttpRequest` 对象，起初 IE 首先引入这个�
 
 XMLHttpRequest 是一个API, 它为客户端提供了在客户端和服务器之间传输数据的功能。它提供了一个通过 URL 来获取数据的简单方式，并且不会使整个页面刷新。
 
-<!-- more -->
+<!--more-->
 
 ### 主要方法
 

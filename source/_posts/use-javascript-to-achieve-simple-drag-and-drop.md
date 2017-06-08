@@ -1,9 +1,8 @@
 ---
 title: 使用 JavaScript 实现简单的拖拽
 date: 2016-05-14 11:09:05
-tags:
-  - JavaScript
-  - 面试
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 
 ## 步骤
@@ -16,7 +15,7 @@ tags:
 
 **被拖拽的元素必须是相对父元素定位，或者是绝对定位**
 
-<!-- more -->
+<!--more-->
 {% jsfiddle Lr73mn89 result,html,css,js %}
 
 ## 实现

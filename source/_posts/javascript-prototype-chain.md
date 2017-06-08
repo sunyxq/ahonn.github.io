@@ -1,15 +1,15 @@
 ---
 title: 奇怪的原型链
 date: 2016-03-29 23:22:03
-tags:
-  - JavaScript
+tags: ['JavaScript', '前端']
+categories: ['技术']
 ---
 在 JavaScript 中一切皆为对象（Object），但是却与 Java，C++ 等语言不同，没有“类”的概念，也没有所谓的“子类”和“父类”。JavaScript 中的对象是基于原型（prototype）来实现面向对象的，靠奇怪的原型链（prototype chain）来实现继承。
 
 ## 对象与原型
 在 JavaScript 中创建对象使用 `new` 关键字，而后跟着的是构造函数。在 JavaScript 中没有类的概念，所以对象的构造函数就是单纯只是个函数（function）。
 
-<!-- more -->
+<!--more-->
 创建自定义构造函数并使用构造函数创建对象：
 ```
 function Person() {
