@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Ahonn
+title: "Ahonn's Blog"
 subtitle:
-description: The harder you work, the luckier you get.
+description: "记录成长，分享生活与技术的点滴"
 author: Ahonn
-language:
+language: zh-CN
 timezone:
 since: 2015
 # URL
@@ -88,4 +88,7 @@ theme: even
 deploy:
   - type: git
     repo: git@github.com:ahonn/ahonn.github.io.git
+    branch: master
+  - type: git
+    repo: git@git.coding.net:yuexun/yuexun.git
     branch: master
