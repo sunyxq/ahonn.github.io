@@ -3,8 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "Ahonn's Blog"
+title: "Ahonn"
 subtitle:
+keywords: "Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程"
 description: "记录成长，分享生活与技术的点滴"
 author: Ahonn
 language: zh-CN
@@ -62,13 +63,16 @@ pagination_dir: page
 
 # Generator-archive  需要 hexo-generator-archive
 archive_generator:
-  per_page: 15  # 归档页文章数, 参数为 0 时不分页
+  per_page: 0  # 归档页文章数, 参数为 0 时不分页
   yearly: false
   monthly: false
   daily: false
 
 tag_generator:
-  per_page: 
+  per_page: 0
+
+category_generator:
+  per_page: 0
 
 search:
   path: search.xml
