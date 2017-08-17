@@ -47,6 +47,11 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  技术文章: technology
+  思考总结: thinking
+  折腾工具: tool
+  生活小记: life
+  读书笔记: reading
 tag_map:
 
 # Date / Time format
