@@ -60,7 +60,7 @@ categories:
 
 在仿照 ONE 写微信小程序的时候遇到了一个问题，使用滑块视图组件 `<swiper>` 去显示每日图文，一共10个图文，当滑动至最右时切换到选择往期列表的页面。如下图所示：
 
-![](http://ww2.sinaimg.cn/large/006tNc79jw1f9s2qs5aimg30930g21kx.gif)
+![One](http://ouv0frko5.bkt.clouddn.com/3qpaf.jpg)
 
 但是 `<swiper>` 组件并没有提供对应的事件，使用就自己实现了一个。主要是使用滑块视图每一次切换视图时都会触发一个 `bindchange` 事件，还有设置滑块视图显示位置的 `current` 属性。
 

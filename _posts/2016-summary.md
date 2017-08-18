@@ -14,7 +14,7 @@ categories:
 ## 关于 Github
 去年年底参加了 Github 上的一个编程马拉松，一开始 commit 都是没有断过的，但是之后慢慢的总会有抓脑袋想 commit 的状况出现。不能说这样不好，只不过会让自己为了 commit 而 commit，本末倒置了。所以后面就不再管是否连续 commit 了，也把之前几个自己觉得不行的项目给删除了。贴一张今年 Github 上的 commit 图，虽然还是有很多质量不高的提交，但也算是今年对自己的付出的一点交代了。
 
-![](http://ww3.sinaimg.cn/large/006tNc79gw1faoxzmckraj30kl05i0ui.jpg)
+[Github Commit](http://ouv0frko5.bkt.clouddn.com/y8uvm.jpg)
 
 <!--more-->
 

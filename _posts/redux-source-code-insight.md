@@ -191,7 +191,7 @@ const funcs = [f1, f2]
 const func = funcs.reduce((a, b) => (...args) => a(b(...args)))
 func(1)
 ```
-![](https://ws1.sinaimg.cn/large/006tKfTcgy1fhccz06iubj31740fwjt3.jpg) 
+![compose](http://ouv0frko5.bkt.clouddn.com/qbs99.jpg)
 
 在 applyMiddleware 中 `dispatch = compose(...chain)(store.dispatch)`，即传入 compose 返回的函数的参数为 store 原来的 dispatch 函数。
 
