@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Redux 源码解析"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2017/07/04/redux-source-code-insight/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Redux 源码解析 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Redux 源码解析
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-07-04
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三大原则"><span class="toc-text">三大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单向数据流"><span class="toc-text">单向数据流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码解析"><span class="toc-text">源码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#createStore"><span class="toc-text">createStore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#combineReducers"><span class="toc-text">combineReducers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#applyMiddleware"><span class="toc-text">applyMiddleware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bindActionCreators"><span class="toc-text">bindActionCreators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思考总结"><span class="toc-text">思考总结</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="三大原则"><a href="#三大原则" class="headerlink" title="三大原则"></a>三大原则</h2><ul>
+<li>单一数据源（store）</li>
+<li>state 只可读（只能通过 Reducer 生成新 State）</li>
+<li>使用纯函数执行修改（Reducer 必须为纯函数，无副作用）</li>
+</ul>
+<a id="more"></a>
+<h2 id="单向数据流"><a href="#单向数据流" class="headerlink" title="单向数据流"></a>单向数据流</h2><ul>
+<li><code>dispatch</code> 触发 action 传递数据，但应该尽量减少传递的数据</li>
+<li>如果有 middleware，在 action 发起之后，到达 reducer 之前执行</li>
+<li>到达 reducer 之后，根据 action type 返回新 state</li>
+</ul>
+<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><p>Redux 提供的 API 主要有：</p>
+<ul>
+<li><code>createStore</code>: 创建 store 以及提供相关操作</li>
+<li><code>combineReducers</code>: 合并不同的 reducer 函数</li>
+<li><code>applyMiddleware</code>: 添加 Redux 中间件</li>
+<li><code>bindActionCreators</code>: bind action 到组件中</li>
+</ul>
+<h3 id="createStore"><a href="#createStore" class="headerlink" title="createStore"></a>createStore</h3><p><code>createStore</code> 用来创建 Redux store，用于存放所有的 state。</p>
+<p>通过 <code>const store = createStore(reducer, initialState)</code> 创建 store，只能通过 dispatch action 的方式来改变 state。同时提供了 <code>getState</code>，<code>subscribe</code> 等方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createStore</span>(<span class="params">reducer, preloadedState, enhancer</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line"></div><div class="line">  <span class="keyword">let</span> currentReducer = reducer</div><div class="line">  <span class="keyword">let</span> currentState = preloadedState</div><div class="line">  <span class="keyword">let</span> currentListeners = []</div><div class="line">  <span class="keyword">let</span> nextListeners = currentListeners</div><div class="line">  <span class="keyword">let</span> isDispatching = <span class="literal">false</span></div><div class="line"></div><div class="line">  <span class="comment">// ...</span></div><div class="line"></div><div class="line">  dispatch(&#123; <span class="attr">type</span>: ActionTypes.INIT &#125;)</div><div class="line"></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    dispatch,</div><div class="line">    subscribe,</div><div class="line">    getState,</div><div class="line">    replaceReducer,</div><div class="line">    [$$observable]: observable</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>当使用 <code>createStore</code> 方法时，<code>dispatch</code> 了名为 <code>@@redux/INIT</code> 的 action。表示已经初始化了 store。</p>
+<p><code>dispatch</code> 方法的实现：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">action</span>) </span>&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line"></div><div class="line">  <span class="keyword">try</span> &#123;</div><div class="line">    isDispatching = <span class="literal">true</span></div><div class="line">    currentState = currentReducer(currentState, action)</div><div class="line">  &#125; <span class="keyword">finally</span> &#123;</div><div class="line">    isDispatching = <span class="literal">false</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">const</span> listeners = currentListeners = nextListeners</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; listeners.length; i++) &#123;</div><div class="line">    <span class="keyword">const</span> listener = listeners[i]</div><div class="line">    listener()</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> action</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>currentState = currentReducer(currentState, action)</code> 执行 action 对应的 reducer 操作产生新的 state，如果有监听函数的话，按顺序触发监听函数。</p>
+<p>监听函数由 <code>subscribe</code> 方法添加，<code>subscribe</code> 方法的返回一个 <code>unsubscribe</code> 函数，用来取消监听。</p>
+<p><code>subscribe</code> 方法的具体实现:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">listener</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> listener !== <span class="string">'function'</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected listener to be a function.'</span>)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">let</span> isSubscribed = <span class="literal">true</span></div><div class="line"></div><div class="line">  ensureCanMutateNextListeners()</div><div class="line">  nextListeners.push(listener)</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">unsubscribe</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!isSubscribed) &#123;</div><div class="line">      <span class="keyword">return</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    isSubscribed = <span class="literal">false</span></div><div class="line"></div><div class="line">    ensureCanMutateNextListeners()</div><div class="line">    <span class="keyword">const</span> index = nextListeners.indexOf(listener)</div><div class="line">    nextListeners.splice(index, <span class="number">1</span>)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>实际上 <code>subscribe</code> 仅是在 <code>nextListeners</code> 中添加想要执行的监听函数，并返回了用于删除该函数的 <code>unsubscribe</code> 方法</p>
+<h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers"></a>combineReducers</h3><p><code>combineReducers</code> 用于合并不同的 reducer 函数，返回唯一的一个 reducer 函数供 <code>createStore</code> 使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">combineReducers</span>(<span class="params">reducers</span>) </span>&#123;</div><div class="line">  <span class="keyword">const</span> reducerKeys = <span class="built_in">Object</span>.keys(reducers)</div><div class="line">  <span class="keyword">const</span> finalReducers = &#123;&#125;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; reducerKeys.length; i++) &#123;</div><div class="line">    <span class="keyword">const</span> key = reducerKeys[i]</div><div class="line">	</div><div class="line">	<span class="comment">// ...</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> reducers[key] === <span class="string">'function'</span>) &#123;</div><div class="line">      finalReducers[key] = reducers[key]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">const</span> finalReducerKeys = <span class="built_in">Object</span>.keys(finalReducers)</div><div class="line"></div><div class="line">  <span class="comment">// ...</span></div><div class="line">  </div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">combination</span>(<span class="params">state = &#123;&#125;, action</span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span> hasChanged = <span class="literal">false</span></div><div class="line">    <span class="keyword">const</span> nextState = &#123;&#125;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; finalReducerKeys.length; i++) &#123;</div><div class="line">      <span class="keyword">const</span> key = finalReducerKeys[i]</div><div class="line">      <span class="keyword">const</span> reducer = finalReducers[key]</div><div class="line">      <span class="keyword">const</span> previousStateForKey = state[key]</div><div class="line">      <span class="keyword">const</span> nextStateForKey = reducer(previousStateForKey, action)</div><div class="line">	  <span class="comment">// ...</span></div><div class="line">      nextState[key] = nextStateForKey</div><div class="line">      hasChanged = hasChanged || nextStateForKey !== previousStateForKey</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> hasChanged ? nextState : state</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先处理传入的 reducer 对象（包含不同的 reducer 函数），得到键值为 function 类型的对象 <code>finalReducers</code> 与一个包含其键的数组 <code>finalReducerKeys</code>。</p>
+<p><code>combineReducers</code> 返回一个 <code>reducers</code> 函数用于处理 action，循环所有的 reducers 传入 action 进行处理，当 state 不变时，返回原来的 state</p>
+<h3 id="applyMiddleware"><a href="#applyMiddleware" class="headerlink" title="applyMiddleware"></a>applyMiddleware</h3><p><code>applyMiddleware</code> 的作用是添加中间件并执行中间件，主要是通过 <code>compose</code> 函数将所有的中间件串起来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">...funcs</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">0</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="params">arg</span> =&gt;</span> arg</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">1</span>) &#123;</div><div class="line">    <span class="keyword">return</span> funcs[<span class="number">0</span>]</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> funcs.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (...args) =&gt; a(b(...args)))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>重点是 <code>funcs.reduce((a, b) =&gt; (...args) =&gt; a(b(...args)))</code> ，通过函数式编程中常见的 <code>f(g(args))</code> 形式串起来，返回一个函数，函数由内到外执行传入之前传入的函数数组，函数的参数将会传递到第一个执行的函数中。</p>
+<p>简单的例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f1 = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'f1: '</span>+ a)</div><div class="line">	<span class="keyword">return</span> a * <span class="number">10</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f2 = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>) </span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'f2: '</span> + a)</div><div class="line">	<span class="keyword">return</span> a + <span class="number">1</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> funcs = [f1, f2]</div><div class="line"></div><div class="line"><span class="keyword">const</span> func = funcs.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (...args) =&gt; a(b(...args)))</div><div class="line">func(<span class="number">1</span>)</div></pre></td></tr></table></figure></p>
+<p><img src="http://ouv0frko5.bkt.clouddn.com/qbs99.jpg" alt="compose"></p>
+<p>在 applyMiddleware 中 <code>dispatch = compose(...chain)(store.dispatch)</code>，即传入 compose 返回的函数的参数为 store 原来的 dispatch 函数。</p>
+<p>也就是说，添加了中间件后，执行 dispatch 函数将会首先依次执行传入的中间件, 最后再执行原先的 <code>store.dispatch</code></p>
+<p>关于 Redux midddleware 有篇文章写得很不错：<a href="https://github.com/asd0102433/blog/issues/1" target="_blank" rel="external">compose and middleware 源码分析</a></p>
+<h3 id="bindActionCreators"><a href="#bindActionCreators" class="headerlink" title="bindActionCreators"></a>bindActionCreators</h3><p><code>bindActionCreators</code> 方法说白了就是把 action creators 转成拥有同名 keys 的对象，并使用 dispatch 将对象包裹起来，从而能够直接调用函数 dispatch action</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindActionCreator</span>(<span class="params">actionCreator, dispatch</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> dispatch(actionCreator(...args))</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">bindActionCreators</span>(<span class="params">actionCreators, dispatch</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> actionCreators === <span class="string">'function'</span>) &#123;</div><div class="line">    <span class="keyword">return</span> bindActionCreator(actionCreators, dispatch)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// ...</span></div><div class="line"></div><div class="line">  <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(actionCreators)</div><div class="line">  <span class="keyword">const</span> boundActionCreators = &#123;&#125;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</div><div class="line">    <span class="keyword">const</span> key = keys[i]</div><div class="line">    <span class="keyword">const</span> actionCreator = actionCreators[key]</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> actionCreator === <span class="string">'function'</span>) &#123;</div><div class="line">      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> boundActionCreators</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这部分得源码很简单，只是简单的判断 actionCreators，是对象的话就返回一个键值为绑定了 dispatch 的函数的对象</p>
+<h3 id="思考总结"><a href="#思考总结" class="headerlink" title="思考总结"></a>思考总结</h3><p>很久之前就学会了 Redux 的『使用』，但是却不明白到底是什么实现的，只知道应该那样使用。</p>
+<p>阅读了源码之后对 Redux 整个流程更加清晰，有利于之后的使用。也更加理解 Redux 单向数据流的这种思想，虽然使用上更加繁琐，但是如果数据复杂起来，这种单向数据流的管理方式还是利大于弊的。</p>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a href="http://cn.redux.js.org/index.html" target="_blank" rel="external">Redux 中文文档</a></li>
+<li><a href="https://github.com/asd0102433/blog/issues/1" target="_blank" rel="external">compose and middleware 源码分析</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/React/">React</a>
+            
+              <a href="/tags/Redux/">Redux</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/07/24/the-evil-of-the-BOM-ufeff-and-i»¿/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">万恶的BOM：ï»¿ 与 \ufeff</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/06/29/vim-plugin-ctrlsf/">
+        <span class="next-text nav-default">Vim 全局搜索插件：ctrlsf.vim</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2017/07/04/redux-source-code-insight/';
+        this.page.identifier = '2017/07/04/redux-source-code-insight/';
+        this.page.title = 'Redux 源码解析';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

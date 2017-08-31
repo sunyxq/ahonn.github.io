@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="使用 JavaScript 实现简单的拖拽"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> 使用 JavaScript 实现简单的拖拽 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          使用 JavaScript 实现简单的拖拽
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-05-14
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现"><span class="toc-text">实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绑定事件"><span class="toc-text">绑定事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取鼠标位置"><span class="toc-text">获取鼠标位置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件触发函数"><span class="toc-text">事件触发函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mousedown"><span class="toc-text">mousedown</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mousemove"><span class="toc-text">mousemove</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mouseup"><span class="toc-text">mouseup</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>使用 JavaScript 实现拖拽的步骤：</p>
+<ul>
+<li>让元素捕获事件（mousedown, mousemove &amp; mouseup）</li>
+<li>单击并不释放，触发 mousedown，标记开始拖拽，并获取元素和鼠标的位置</li>
+<li>拖动鼠标，触发 mousemove，不断的获取鼠标的位置，并通过计算重新确定元素的位置</li>
+<li>释放师表，触发 mouseup，结束拖拽，确定元素位置并更新</li>
+</ul>
+<p><strong>被拖拽的元素必须是相对父元素定位，或者是绝对定位</strong></p>
+<a id="more"></a>
+<iframe scrolling="no" width="100%" height="300" src="//jsfiddle.net/Lr73mn89/embedded/result,html,css,js/light" frameborder="0" allowfullscreen></iframe>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h3><p>首先，对拖拽的元素绑定 mousedown 时间，使其触发对应的函数，获取元素与鼠标的位置。在 document 对象上绑定 mousemove 和 mouseup 事件，不在拖拽的元素上绑定是因为当鼠标移动太快而超出元素的范围时会停止拖拽，而绑定在 document 上则可以避免这样的事情发生。拖拽再快都不会超出 document 的范围。</p>
+<p>绑定事件：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</div><div class="line"></div><div class="line">box.onmousedown = down;</div><div class="line"><span class="built_in">document</span>.onmousemove = move;</div><div class="line"><span class="built_in">document</span>.onmouseup = up;</div></pre></td></tr></table></figure></p>
+<h2 id="获取鼠标位置"><a href="#获取鼠标位置" class="headerlink" title="获取鼠标位置"></a>获取鼠标位置</h2><p>鼠标位置可以在 event 对象中获得，常用的属性有：</p>
+<ul>
+<li>clientX / clientY : 相对浏览器窗口坐标</li>
+<li>offsetX / offsetY : 相对事件目标对象坐标</li>
+<li>pageX / pageY : 相对 document 对象坐标</li>
+</ul>
+<p>一般鼠标的位置使用 <code>pageX / pageY</code> 获取，但是 IE 不支持这两个属性。所以在 IE 中使用 <code>event.clientX + document.body.scrollLeft - document.body.clientLeft;</code> 获取鼠标的位置。</p>
+<p>获取鼠标位置的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMouseXY</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> x = <span class="number">0</span>, y = <span class="number">0</span>;</div><div class="line">  e = e || <span class="built_in">window</span>.event;</div><div class="line">  <span class="keyword">if</span> (e.pageX) &#123;</div><div class="line">    x = e.pageX;</div><div class="line">    y = e.pageY;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    x = e.clientX + <span class="built_in">document</span>.body.scrollLeft - <span class="built_in">document</span>.body.clientLeft;</div><div class="line">    y = e.clientY + <span class="built_in">document</span>.body.scrollTop - <span class="built_in">document</span>.body.clientTop;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    x: x,</div><div class="line">    y: y</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="事件触发函数"><a href="#事件触发函数" class="headerlink" title="事件触发函数"></a>事件触发函数</h3><h4 id="mousedown"><a href="#mousedown" class="headerlink" title="mousedown"></a>mousedown</h4><p>当鼠标移动到元素内并点击元素不放时，触发 mousedown 事件。按照上面的步骤，这一步是获取元素与鼠标的位置，用于触发 mousemove 时计算元素的位置。</p>
+<p>mousedown 触发的函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">down</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  dragging = <span class="literal">true</span>;</div><div class="line">  boxX = box.offsetLeft;</div><div class="line">  boxY = box.offsetTop;</div><div class="line">  mouseX = <span class="built_in">parseInt</span>(getMouseXY(e).x);</div><div class="line">  mouseY = <span class="built_in">parseInt</span>(getMouseXY(e).y);</div><div class="line">  offsetX = mouseX - boxX;</div><div class="line">  offsetY = mouseY - boxY;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>boxX / boxY</code> 为元素左上角相对于已定位的父元素（相对或者绝对定位的父元素）的偏移的像素值，即元素左上角的坐标。</p>
+<p><code>mouseX / mouseY</code> 是通过 <code>getMouseXY</code> 函数获得的鼠标的坐标。</p>
+<p><code>offsetX/ offsetY</code> 是鼠标相对于元素坐标（左上角坐标）的坐标。</p>
+<h4 id="mousemove"><a href="#mousemove" class="headerlink" title="mousemove"></a>mousemove</h4><p>当鼠标移动时，不断的获取鼠标的位置，并计算元素的新坐标修改元素的位置样式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (dragging) &#123;</div><div class="line">    <span class="keyword">var</span> x = getMouseXY(e).x - offsetX;</div><div class="line">    <span class="keyword">var</span> y = getMouseXY(e).y - offsetY;</div><div class="line">    <span class="keyword">var</span> width = <span class="built_in">document</span>.documentElement.clientWidth - box.offsetWidth;</div><div class="line">    <span class="keyword">var</span> height = <span class="built_in">document</span>.documentElement.clientHeight - box.offsetHeight;</div><div class="line"></div><div class="line">    x = <span class="built_in">Math</span>.min(<span class="built_in">Math</span>.max(<span class="number">0</span>, x), width);</div><div class="line">    y = <span class="built_in">Math</span>.min(<span class="built_in">Math</span>.max(<span class="number">0</span>, y), height);</div><div class="line"></div><div class="line">    box.style.left = x + <span class="string">'px'</span>;</div><div class="line">    box.style.top = y + <span class="string">'px'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>变量 <code>width / height</code> 表示可移动的位置的大小，这里是 document 减去元素的大小（元素不会超出可移动的范围）。</p>
+<p><code>Math.min</code> 使得元素不会超出可移动访问的右边界（元素 x 坐标不会超过 width），<code>Math.max</code> 使得元素不会超出可移动范围的左边界（元素的 x 坐标不小于 0）。</p>
+<p>最后将改变后的元素 <code>left</code> 与 <code>top</code> 值应用当元素上，即修改元素的样式。</p>
+<h4 id="mouseup"><a href="#mouseup" class="headerlink" title="mouseup"></a>mouseup</h4><p>拖拽结束，取消拖拽的标记。使其触发 mousemove 事件，但不做任何处理。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">up</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  dragging = <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面使用的简单的 JavaScript 代码实现了元素的拖拽，但并没有对兼容性问题全面考虑，也没有对性能优化，有不必要的事件触发。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/前端/">前端</a>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/05/28/using-nokogiri-parsing-html/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">使用 Nokogiri 解析 HTML</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/05/14/the-first-interview/">
+        <span class="next-text nav-default">记第一次面试</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/';
+        this.page.identifier = '2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/';
+        this.page.title = '使用 JavaScript 实现简单的拖拽';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

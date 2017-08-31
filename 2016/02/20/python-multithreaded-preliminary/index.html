@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Python 多线程初步了解"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2016/02/20/python-multithreaded-preliminary/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Python 多线程初步了解 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python 多线程初步了解
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-20
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-多线程支持"><span class="toc-text">Python 多线程支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#thread-模块"><span class="toc-text">thread 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#thread-LockType"><span class="toc-text">thread.LockType</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#threading-模块"><span class="toc-text">threading 模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#threading-Thread"><span class="toc-text">threading.Thread</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#threading-Lock"><span class="toc-text">threading.Lock</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>这两天在写 <a href="https://www.github.com/ahonn/Nada" target="_blank" rel="external">Nada</a> 的下载功能，遇到一个问题，在下载歌曲的时候整个界面都会卡住，必须等待下载完成才能够恢复，因为写的时候是直接顺序执行的，没有多线程。之前在写播放功能的时候是参考了别人的代码，自己其实对多线程部分不是很了解。然后趁着晚上了解一下 Python 的 thread 和 treading 模块。</p>
+<h2 id="Python-多线程支持"><a href="#Python-多线程支持" class="headerlink" title="Python 多线程支持"></a>Python 多线程支持</h2><p>Pyhton 标准库提供了 thread 和 threading 模块来支持多线程，这意味着不需要重新下载这两个模块，只需要在代码中 import 这两个模块就可以了。</p>
+<h2 id="thread-模块"><a href="#thread-模块" class="headerlink" title="thread 模块"></a>thread 模块</h2><p>thread 模块是以低级、原始的方式来处理和控制线程，提供了一个简单的锁（相对于 threading 模块的锁的感觉来说的确是比较简单）。相对于 threading 模块来说，thread 模块更加灵活。</p>
+<a id="more"></a>
+<ul>
+<li><p><code>thread.start_new_thread(function, args [, kwargs])</code><br>创建一个新的线程，返回该线程的标识符。线程执行后将制动退出，即函数执行完毕。当遇到未处理的异常时也将退出，但不影响其他线程。</p>
+<ul>
+<li><code>function</code>：线程执行的函数。</li>
+<li><code>args</code>：线程执行函数的参数。</li>
+<li><code>kwargs</code>：为函数提供命名参数字典。</li>
+</ul>
+</li>
+<li><p><code>thread.exit()</code><br>结束当前进程，触发 SystemExit 异常。</p>
+</li>
+<li><p><code>thread.get_ident()</code><br>返回当前线程的标识符，标识符为一个非零整数。</p>
+</li>
+<li><p><code>thread.interrupt_main()</code><br>触发主线程的 KeyboardInterrupt 异常，子线程使用此方法来终端主线程。</p>
+</li>
+<li><p><code>thread.allocate_lock()</code><br>创建 thread.LockType 锁类型，即为线程锁</p>
+</li>
+</ul>
+<h3 id="thread-LockType"><a href="#thread-LockType" class="headerlink" title="thread.LockType"></a>thread.LockType</h3><ul>
+<li><p><code>Lock.acquire([ waitflag ])</code><br>获取锁，返回一个布尔值，成功返回 True，否则返回 False。</p>
+<p><code>waitflag</code>：默认值为非零整数，表示如果锁已经被其他线程占用，那么当前线程等待，直到其他线程释放锁，即为同步阻塞。如果将参数设置为 0，即表示当前线程会尝试获取锁，不管锁是否被占用，线程都不会等待。</p>
+</li>
+<li><p><code>Lock.release()</code><br>释放所占用的锁。</p>
+</li>
+<li><p><code>Lock.locked()</code><br>判断锁是否被占用。</p>
+</li>
+</ul>
+<h2 id="threading-模块"><a href="#threading-模块" class="headerlink" title="threading 模块"></a>threading 模块</h2><p>threading 模块是对 thread 模块的二次封装，提供更方便的 API 使用。大多数多线程使用 threading 模块编写。提供更复杂的锁（Lock &amp; RLock），条件，事件等。</p>
+<ul>
+<li><p><code>threading.Thread(group=None, target=None,name=None, args=(), kwargs={})</code><br>返回一个Thread对象，每个Thread对象代表着一个线程，可以通过start()方法，开始运行。</p>
+<ul>
+<li><code>group</code>：应该为 None ，该参数是留给未来的扩展时使用的</li>
+<li><code>target</code>：可调用对象（函数），在线程启动后执行</li>
+<li><code>name</code>：线程的名字，默认值为“Thread-N”，N 是一个十进制整数</li>
+<li><code>args</code>：target 调用对象的参数列表</li>
+<li><code>kwargs</code>：target 调用对象的关键字参数</li>
+</ul>
+</li>
+<li><p><code>threading.activeCount()</code><br>返回当前存活线程数</p>
+</li>
+<li><p><code>threading.currentThread()</code><br>返回当前 Thread 对象</p>
+</li>
+<li><p><code>threading.enumerate()</code><br>返回当前存活的 Thread 对象列表</p>
+</li>
+<li><p><code>threading.Lock()</code><br>返回一个原始锁对象</p>
+</li>
+</ul>
+<h3 id="threading-Thread"><a href="#threading-Thread" class="headerlink" title="threading.Thread"></a>threading.Thread</h3><p>有两种方式来创建 threading.Thread 对象。一种方式是继承 Thread 类，重写父类的 run 方法，另一种方式是通过 threading.Thread() 函数创建。</p>
+<ul>
+<li><p><code>Thread.start()</code><br>启动线程</p>
+</li>
+<li><p><code>Thread.join([timeout])</code><br>阻塞当前环境进程，直到调用此方法的线程终止，或者达到指定的 timeout</p>
+</li>
+<li><p><code>Thread.getName()</code> &amp; <code>Thread.setName()</code><br>获取线程名称 &amp; 设置线程名称</p>
+</li>
+<li><p><code>Thread.isAlive()</code><br>返回线程是否存活。返回 True 在线程开始运行直到终止。</p>
+</li>
+</ul>
+<h3 id="threading-Lock"><a href="#threading-Lock" class="headerlink" title="threading.Lock"></a>threading.Lock</h3><ul>
+<li><p><code>Lock.acquire([blocking])</code><br>获取锁。<code>blocking</code> 默认为 true，阻塞直到锁被释放。当 <code>blocking</code> 为 False 时，则不阻塞。</p>
+</li>
+<li><p><code>Lock.release()</code><br>释放锁，没有返回值。当没有锁时，将会抛出 ThreadError 异常。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/29/jade-template-engine/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Jade 模板引擎</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/01/23/python-curses-module/">
+        <span class="next-text nav-default">Python curses 模块</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2016/02/20/python-multithreaded-preliminary/';
+        this.page.identifier = '2016/02/20/python-multithreaded-preliminary/';
+        this.page.title = 'Python 多线程初步了解';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

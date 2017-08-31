@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="PHP cURL 库的简单使用"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2015/12/19/simple-use-of-the-php-curl-library/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> PHP cURL 库的简单使用 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          PHP cURL 库的简单使用
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-19
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <blockquote>
+<p>之前写 PHP 的爬虫的时候就有用到 cURl 扩展，然后前几天在写 <code>zhihu-php</code> 的时候也用到了这个，也觉得这个也是用得比较多的一个东西，所以就上网又学习了一下，就顺手把它写下来了。</p>
+</blockquote>
+<p>cURL 是一个功能强大的库，支持很多不同的协议、选项，能提供 URL 请求相关的各种细节信息。常用于网页、数据采集。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>可以通过 <code>phpinfo()</code> 来输出 PHP 的配置信息，搜索查看是否开启了 cURL 库。</p>
+<p><strong>windows</strong></p>
+<ul>
+<li>将 PHP 安装文件夹下的 <code>php_curl.dll</code>，<code>libeay32.dll</code>，<code>ssleay.dll</code> 复制到 <code>system32</code> 文件夹下。</li>
+<li>将 PHP.ini 中的 <code>extension=php_curl.dll</code> 前的 <code>;</code> 分号去掉。</li>
+<li>重启服务器。<a id="more"></a>
+</li>
+</ul>
+<p><strong>linux</strong><br>Ubuntu 上通过 <code>apt-get</code> 安装的 PHP 默认已经启用。若无，具体安装过程Google。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>通过 <code>curl_init()</code> 初始化一个 cURL 对象，然后通过 <code>curl_setopt()</code> 设置传输的选项，使用 <code>curl_exec()</code> 执行该 cURL 会话，最后通过 <code>curl_close()</code> 关闭这个会话</p>
+<p><strong>简单的抓取网页</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$url = <span class="string">'http://www.ahonn.me'</span>;</div><div class="line"><span class="comment">// 初始化一个 cURL 会话</span></div><div class="line">$ch  = curl_init($url);</div><div class="line"><span class="comment">// 设置传输选项，这里设置的是返回的数据不直接输出</span></div><div class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</div><div class="line"><span class="comment">// 执行该会话，并保存到 $content</span></div><div class="line">$content = curl_exec($ch);</div><div class="line"><span class="comment">// 关闭该会话                   </span></div><div class="line">curl_close($ch);</div><div class="line"><span class="comment">// 输出抓取的网页</span></div><div class="line"><span class="keyword">echo</span> $content;</div></pre></td></tr></table></figure></p>
+<p><strong>使用post方式</strong><br>通过 <code>get</code> 方式获取时，可以直接在 <code>$url</code> 中直接写入。而当需要使用 <code>post</code> 方式获取数据时，需要通过以下设置来开启 post 并设置 post 的数据。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 开启 post</span></div><div class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</div><div class="line"><span class="comment">// 设置 post 的数据  </span></div><div class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, $data);</div></pre></td></tr></table></figure>
+<p>其中的 <code>$data</code> 即是需要 post 的数据。</p>
+<p><strong>设置header</strong><br>有些网页需要在请求中包含头信息，否则将抓取不到你需要的信息，那么可以通过下面的代码来设置：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 头信息数组</span></div><div class="line">$header = <span class="keyword">array</span>(</div><div class="line">		<span class="string">"Host: www.ahonn.me"</span>,</div><div class="line">		<span class="string">"Accept: text/html, application/xhtml+xml, image/jxr, */*"</span>,</div><div class="line">		<span class="string">"User-Agent: Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36"</span></div><div class="line">);</div><div class="line"><span class="comment">// 设置header</span></div><div class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</div></pre></td></tr></table></figure></p>
+<p>设置头信息可以通过数组的形式，然后通过设置 <code>CURLOPT_HTTPHEADER</code> 来加入头信息。也可以单个去设置，例如</p>
+<ul>
+<li><code>CURLOPT_USERAGENT</code>：设置 User-Agent</li>
+<li><code>CURLOPT_REFERER</code>：设置 Referer</li>
+</ul>
+<p>等等</p>
+<p><strong>设置cookie</strong><br>有些网页需要登录后才可以抓取到，这时候就需要使用 cookie 来模拟登录。设置 cookie 可以在上面的 $header 数组中与头信息设置相同的方法来将 cookie 加入。也可以使用下面的 <code>curl_setpot</code> 选项来设置：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设置 cookie，$cookie 是一个字符串</span></div><div class="line">curl_setopt($ch, CURLOPT_COOKIE, $cookie);</div></pre></td></tr></table></figure></p>
+<p>也可以通过文件的形式将 cookie 写入：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl_setopt($ch, CURLOPT_COOKIEFILE, $cookiefile);</div></pre></td></tr></table></figure></p>
+<p><strong>禁用SSL验证</strong><br>有时候在抓取 Https 链接的时候以正常的方式去抓取会报错，此时需要在 cURL 会话中设置:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</div><div class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">false</span>);</div></pre></td></tr></table></figure></p>
+<p>通过上面的设置，可以禁用SSL证书的验证。</p>
+<p>以上即是目前我已经简单使用过的 cURL 库的内容，cURL 库还可以实现多线程抓取，实现 IP 代理等。其他内容会在之后的使用中学习到。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/12/21/how-can-i-prevent-sql-injection-in-php/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">在 PHP 中如何预防 SQL 注入</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/12/19/codeigniter-url-routes/">
+        <span class="next-text nav-default">CodeIgniter URL 路由</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2015/12/19/simple-use-of-the-php-curl-library/';
+        this.page.identifier = '2015/12/19/simple-use-of-the-php-curl-library/';
+        this.page.title = 'PHP cURL 库的简单使用';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

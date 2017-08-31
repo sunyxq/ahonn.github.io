@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Python curses 模块"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2016/01/23/python-curses-module/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Python curses 模块 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python curses 模块
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-01-23
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>Python 中的 curses 模块封装了 C 语言的 curses。curses 是一个能够提供基于文本终端窗口功能的动态库。它可以创建和管理一个窗口，使用8中不同的颜色，提供鼠标以及键盘支持。与 Tkinter 不同的是 curses 是基于终端的。</p>
+<p><strong>curses 支持 Unix/Linux 系统，目前不支持 Windows</strong><br><a id="more"></a></p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
+<li><code>initscr()</code><br>  初始化 curses, 在任何代码执行钱都需要先初始化 curses。</li>
+<li><code>noecho()</code><br>  关闭屏幕回显，即读取字符仅在适当的环境下输出。相对应的是 <code>echo()</code>。</li>
+<li><code>cbreak()</code><br>  程序立即反应，即不需要按回车。相对应的是 <code>nocbreak()</code>。</li>
+<li><code>keypad(bool)</code><br>  键盘模式，即读取键盘输出。<code>keypad(1)</code> 为开启，<code>keypad(0)</code> 为关闭。</li>
+<li><code>endwin()</code><br>  恢复默认设置，即回到终端之前的状态。</li>
+<li><code>newwin(height, width, begin_y, begin_x)</code><br>  在原有程序中创建新窗口，类似与分屏。</li>
+<li><p><code>addscr(y, x, str, attr)</code><br>  显示文本，若没有坐标，字符将显示在上一次操作完的位置；若没有属性，字符将使用默认的属性显示。</p>
+<p>  <strong>属性：</strong>可使用 <code>color_pair(int)</code> 方法获取一对颜色。使用 <code>init_pair(n, f, b)</code> 修改颜色对 n，使用 f 为前景色，使用 b 为背景色。</p>
+<p>  curses 内置了8种基本颜色：<code>COLOR_RED</code>, <code>COLOR_BLACK</code>, <code>COLOR_GREEN</code>, <code>COLOR_YELLOW</code>, <code>COLOR_BULE</code>, <code>COLOR_MAGENTA</code>, <code>COLOR_CYAN</code>, <code>COLOR_WHITE</code>。使用颜色前需要调用 <code>start_color()</code>。</p>
+</li>
+<li>getch()<br>  获取输入一个字符串，返回一个 0~255 之间的整数，表示字符的 ASCII 值。</li>
+<li>refresh()<br>  刷新窗口，变更窗口后需要调用</li>
+</ul>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> curses</div><div class="line"></div><div class="line"><span class="comment"># 初始化 curses</span></div><div class="line">screen = curses.initscr()</div><div class="line"><span class="comment"># 开启键盘模式</span></div><div class="line">screen.keypad(<span class="number">1</span>)</div><div class="line"><span class="comment"># 关闭屏幕回显</span></div><div class="line">curses.noecho()</div><div class="line"></div><div class="line"><span class="comment"># 开启颜色设置，并设置颜色对</span></div><div class="line">curses.start_color()</div><div class="line">curses.init_pair(<span class="number">1</span>, curses.COLOR_CYAN, curses.COLOR_RED)</div><div class="line">curses.init_pair(<span class="number">2</span>, curses.COLOR_BLUE, curses.COLOR_WHITE)</div><div class="line"></div><div class="line"><span class="comment"># 显示文本</span></div><div class="line">screen.addstr(<span class="number">12</span>, <span class="number">25</span>, <span class="string">"Hello, Ahonn!"</span>)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">	<span class="comment"># 读取键盘输入</span></div><div class="line">	key = screen.getch()</div><div class="line"></div><div class="line">	<span class="comment"># 当输入 c 时，显示 you input 'c', 使用颜色对 1</span></div><div class="line">	<span class="keyword">if</span> key == ord(<span class="string">'c'</span>):</div><div class="line">		screen.addstr(<span class="number">12</span>, <span class="number">25</span>, <span class="string">"you input 'c' "</span>, curses.color_pair(<span class="number">1</span>))</div><div class="line">	<span class="comment"># 当输入 b 时，显示 you input 'b'，使用颜色对 2</span></div><div class="line">	<span class="keyword">elif</span> key == ord(<span class="string">'b'</span>):</div><div class="line">		screen.addstr(<span class="number">12</span>, <span class="number">25</span>, <span class="string">"you input 'b' "</span>, curses.color_pair(<span class="number">2</span>))</div><div class="line">	<span class="comment"># 当输入 q 时退出循环</span></div><div class="line">	<span class="keyword">elif</span> key == ord(<span class="string">'q'</span>):</div><div class="line">		<span class="keyword">break</span></div><div class="line"><span class="comment"># 刷新窗口</span></div><div class="line">screen.refresh()</div><div class="line"><span class="comment"># 退出到终端之前的状态</span></div><div class="line">curses.endwin()</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Python/">Python</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/02/20/python-multithreaded-preliminary/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Python 多线程初步了解</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/12/31/2015-summary/">
+        <span class="next-text nav-default">2015 总结</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2016/01/23/python-curses-module/';
+        this.page.identifier = '2016/01/23/python-curses-module/';
+        this.page.title = 'Python curses 模块';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Vim 折腾记"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2017/02/19/notes-of-vim/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> Vim 折腾记 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Vim 折腾记
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-02-19
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/tool/">折腾工具</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MacVim"><span class="toc-text">MacVim</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#缩进"><span class="toc-text">缩进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#行号"><span class="toc-text">行号</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插件"><span class="toc-text">插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#括号补全"><span class="toc-text">括号补全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Emmet"><span class="toc-text">Emmet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目录树"><span class="toc-text">目录树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码补全"><span class="toc-text">代码补全</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>昨天在微信读书上面看到了池建强的《MacTalk 人生元编程》，然后花了差不多一天看完，其中有篇有关于 Vim 的文章提起了我对这个编辑器的再一次兴趣（对的，我对它感兴趣很多次了，每次都懒..）。</p>
+<p>一直懒得去慢慢配置它，又不想用别人的配置。自己用的编辑器还是想自己折腾，然后今天就趁着我对这个还有点热度赶紧折腾起来。</p>
+<h2 id="MacVim"><a href="#MacVim" class="headerlink" title="MacVim"></a>MacVim</h2><p>其实在命令行里面直接写代码还有有些不习惯的，所以选了 MacVim 这个 GUI 版本。这样又可以与其他编辑器一样单独打开，想小改代码的时候又可以直接打开命令行搞。</p>
+<p>在 MacTalk 的文章里面有提到 Vim 中文版本的<a href="http://sourceforge.net/projects/vimcdoc/files/latest/download" target="_blank" rel="external">帮助文档</a>，遂下载之。果然还是中文的比较浅显易懂。</p>
+<p>以前看别人的 <code>.vimrc</code> 配置，里面有些编辑器的基本配置，也不知道是哪里查的。原来这些配置可以在编辑器中输入 <code>:help options</code> 进行查看。</p>
+<a id="more"></a>
+<h3 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h3><p>关于缩进的配置，主要设置了 <code>autoindent</code>, <code>smartindent</code> 和 <code>expandtab</code> 这三个选项。</p>
+<ul>
+<li><code>autoindent</code> 选项根据上一行决定新行的缩进</li>
+<li><code>smartindent</code> 选项智能自动缩进</li>
+<li><code>expandtab</code> 选项将 tab 转换为空格</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">set autoindent</div><div class="line">set smartindent</div><div class="line">set expandtab</div></pre></td></tr></table></figure>
+<h3 id="行号"><a href="#行号" class="headerlink" title="行号"></a>行号</h3><p>显示行号是硬需求，但是与其他编辑器不同，在 vim 上还有相对行号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">set number</div><div class="line">set relativenumber</div></pre></td></tr></table></figure>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><p>显而易见，手动安装 vim 插件是很麻烦很麻烦的。与 sublime text 之类的类似，vim 同样有类似的插件管理器 <a href="https://github.com/VundleVim/Vundle.vim" target="_blank" rel="external">Vundle</a>。</p>
+<p>创建文件夹 <code>~/.vim</code> 和配置文件 <code>~/.vimrc</code>，并安装 Vundle:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle</div></pre></td></tr></table></figure>
+<p>为了方便管理再新建一个 <code>.vimrc.bundles</code> 来单独存放插件列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">set nocompatible    &quot; be iMproved, required</div><div class="line">filetype off        &quot; requried</div><div class="line">set rtp+=~/.vim/bundle/vundle/</div><div class="line"></div><div class="line">call vundle#begin()</div><div class="line"></div><div class="line">&quot; Let Vundle manage Vundle</div><div class="line">Bundle &apos;gmarik/vundle&apos;</div><div class="line"></div><div class="line">&quot; .... 其他插件</div><div class="line"></div><div class="line">call vundle#end()</div><div class="line">&quot; required</div><div class="line">filetype plugin indent on</div></pre></td></tr></table></figure>
+<p>以后添加插件的时候只需要在这个文件里面添加一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Bundle &apos;xxx&apos;</div></pre></td></tr></table></figure>
+<p>安装插件输入 <code>:BundleInstall</code> 命令即可，卸载插件时删除对应的配置并运行 <code>:BundleClean</code> 删除插件。</p>
+<h3 id="括号补全"><a href="#括号补全" class="headerlink" title="括号补全"></a>括号补全</h3><p>第一次用的时候，输入 <code>(</code> 居然没有自己蹦出来另外一个 <code>)</code>。这不科学，讲道理这个是一定要的。</p>
+<p>发现很多人用的是 <a href="https://github.com/Raimondi/delimitMate" target="_blank" rel="external">delimitMate</a> ，添加 <code>Bundle &#39;delimitMate&#39;</code> 到 <code>.vimrc.bundles</code>，运行 <code>BundleInstall</code>。</p>
+<p>安装完直接就可以自动补全括号了。</p>
+<h3 id="Emmet"><a href="#Emmet" class="headerlink" title="Emmet"></a>Emmet</h3><p>很多浏览器都支持 Emmet 插件，vim 同样也有。但这个 Emmet 是第三方的，叫 <a href="https://github.com/mattn/emmet-vim/" target="_blank" rel="external">Emmet.vim</a>。</p>
+<p>安装完之后主要是设置一下出发的快捷键，默认的快捷键是 <code>Ctrl + y</code>。<br>我把快捷键修改成 <code>Ctrl + e</code> 比较顺手。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot; Emmet.vim</div><div class="line">let g:user_emmet_expandabbr_key = &apos;&lt;c-e&gt;&apos;</div></pre></td></tr></table></figure>
+<h3 id="目录树"><a href="#目录树" class="headerlink" title="目录树"></a>目录树</h3><p>目录树就基本上也就是使用 <a href="https://github.com/scrooloose/nerdtree" target="_blank" rel="external">NERDTree</a>。</p>
+<p>开启目录树的快捷键修改为 <code>Ctrl + b</code>，然后当 vim 只剩目录树显示的时候自动退出。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot; NERDTree </div><div class="line">map &lt;c-b&gt; :NERDTreeToggle&lt;CR&gt;</div><div class="line">autocmd vimenter * NERDTree</div><div class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTreeType&quot;) &amp;&amp;b:NERDTreeType == &quot;primary&quot;) | q | endif</div></pre></td></tr></table></figure></p>
+<h3 id="代码补全"><a href="#代码补全" class="headerlink" title="代码补全"></a>代码补全</h3><p>补全用的就是大名鼎鼎的 <a href="https://github.com/Valloric/YouCompleteMe" target="_blank" rel="external">YouCompleteMe</a> 了。</p>
+<p>关于这个插件网上有很多插件，我就不啰嗦了。这里主要是抄的百度 EFE 的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&quot; YouCompleteMe</div><div class="line">&quot; http://efe.baidu.com/blog/vim-javascript-completion/#youcompleteme</div><div class="line">let g:ycm_min_num_of_chars_for_completion = 3 </div><div class="line">let g:ycm_autoclose_preview_window_after_completion=1</div><div class="line">let g:ycm_complete_in_comments = 1</div><div class="line">let g:ycm_key_list_select_completion = [&apos;&lt;c-n&gt;&apos;, &apos;&lt;Down&gt;&apos;]</div><div class="line">let g:ycm_key_list_previous_completion = [&apos;&lt;c-p&gt;&apos;, &apos;&lt;Up&gt;&apos;]</div><div class="line">&quot; Use tab</div><div class="line">function! TabFunction ()</div><div class="line">    let line = getline(&apos;.&apos;)</div><div class="line">    let substr = strpart(line, -1, col(&apos;.&apos;)+1)</div><div class="line">    let substr = matchstr(substr, &quot;[^ \t]*$&quot;)</div><div class="line">    if strlen(substr) == 0</div><div class="line">        return &quot;\&lt;tab&gt;&quot;</div><div class="line">    endif</div><div class="line">    return pumvisible() ? &quot;\&lt;c-n&gt;&quot; : &quot;\&lt;c-x&gt;\&lt;c-o&gt;&quot;</div><div class="line">endfunction</div><div class="line">inoremap &lt;tab&gt; &lt;c-r&gt;=TabFunction()&lt;cr&gt;</div><div class="line"></div><div class="line">let g:ycm_semantic_triggers = &#123;</div><div class="line">    \   &apos;css&apos;: [ &apos;re!^\s&#123;2&#125;&apos;, &apos;re!:\s+&apos;],</div><div class="line">    \   &apos;html&apos;: [ &apos;&lt;/&apos; ],</div><div class="line">    \ &#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>折腾了一下午，终于算是搞定了。其实过程还是蛮好玩的，有机会还想写写插件玩玩。抛弃 VS Code，开始 Vim 之旅感。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Vim/">Vim</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2017/03/02/xmlhttprequest-study-notes/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">XMLHttpRequest 学习笔记</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2017/01/24/something-about-javaScript-inherit/">
+        <span class="next-text nav-default">JavaScript 继承的那些事</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2017/02/19/notes-of-vim/';
+        this.page.identifier = '2017/02/19/notes-of-vim/';
+        this.page.title = 'Vim 折腾记';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

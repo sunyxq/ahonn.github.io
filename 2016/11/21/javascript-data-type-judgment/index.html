@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="JavaScript 数据类型判断"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2016/11/21/javascript-data-type-judgment/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> JavaScript 数据类型判断 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          JavaScript 数据类型判断
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-11-21
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-prototype-toString"><span class="toc-text">Object.prototype.toString()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-toString-判断类型"><span class="toc-text">使用 toString() 判断类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断-NaN，null，undefined"><span class="toc-text">判断 NaN，null，undefined</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NaN"><span class="toc-text">NaN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-text">null</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-text">undefined</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断-Object"><span class="toc-text">判断 Object</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>最近开始读之前没有读完的 underscore 的源码，刚把 Object 部分读完。对 JavaScript 中类型判断部分的总结。</p>
+<h2 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h2><p>在进行类型判断时，使用到最多的当属 <code>Object.prototype.toString()</code>。</p>
+<p><code>toString()</code> 方法返回一个代表该对象的字符串。每个对象都会继承 Object 上的 <code>toString</code> 方法，如果该方法没有被同名方法覆盖的话。使用 <code>toString()</code> 方法将会返回字符串 <code>&quot;[object type]&quot;</code>。其中 type 根据对象的类型的不同而不同。</p>
+<p>关于 <code>Object.prototype.toString()</code> 的详细描述可以查看：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" target="_blank" rel="external">Object.prototype.toString() - JavaScript | MDN</a></p>
+<a id="more"></a>
+<h2 id="使用-toString-判断类型"><a href="#使用-toString-判断类型" class="headerlink" title="使用 toString() 判断类型"></a>使用 toString() 判断类型</h2><p>由于 <code>toString()</code> 会返回带有类型信息的字符串，所以通常可以使用它来进行数据类型的判断。</p>
+<p>underscore 中对一些数据类型的判断实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">_.each([<span class="string">'Arguments'</span>, <span class="string">'Function'</span>, <span class="string">'String'</span>, <span class="string">'Number'</span>, <span class="string">'Date'</span>, <span class="string">'RegExp'</span>, <span class="string">'Error'</span>, <span class="string">'Symbol'</span>, <span class="string">'Map'</span>, <span class="string">'WeakMap'</span>, <span class="string">'Set'</span>, <span class="string">'WeakSet'</span>], <span class="function"><span class="keyword">function</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  _[<span class="string">'is'</span> + name] = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> toString.call(obj) === <span class="string">'[object '</span> + name + <span class="string">']'</span>;</div><div class="line">  &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>通过 <code>toString()</code> 函数的返回值判断类型，这里不使用 <code>typeof</code> 判断的原因是字面量与对象的返回值不同。</p>
+<p>例如字符串字面量 <code>&quot;1&quot;</code> 通过 <code>typeof</code> 操作符返回的是 <code>&quot;string&quot;</code>，而字符串对象 <code>new String(&#39;1&#39;)</code> 通过 <code>typeof</code> 操作符返回的却是 <code>&quot;object&quot;</code>。所以通过 <code>Object.prototype.toString()</code> 来进行判断最为妥当。</p>
+<h2 id="判断-NaN，null，undefined"><a href="#判断-NaN，null，undefined" class="headerlink" title="判断 NaN，null，undefined"></a>判断 NaN，null，undefined</h2><h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>在 JavaScript 的 Number 类型中有这样一个特殊的存在，那就是 <code>NaN</code>。<code>NaN</code> 的意思是 Not-A-Number，即不是一个数字。当对无法转换为数字的变量进行数字转换时就会得到 <code>NaN</code>。<code>Nan</code> 还有一个特殊的性质，就是 <code>NaN === NaN</code> 返回的是 false。</p>
+<p>所以对 NaN 的判断的实现如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">_.isNaN = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> _.isNumber(obj) &amp;&amp; <span class="built_in">isNaN</span>(obj);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>先判断是否为 Number 类型，排除隐式类型转换造成的误判。再使用 isNaN 函数判断是否为 NaN。</p>
+<h3 id="null"><a href="#null" class="headerlink" title="null"></a>null</h3><p>在 JavaScript 中有 <code>==</code> 与 <code>===</code> 两个相等操作符，后者为严格比较。<code>null == undefined</code> 的返回值是 true，所以不能使用这个来判断是否为 null。而 <code>null === undefined</code> 返回的是 false，因此使用严格相等哎判断是否为 null。而</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">_.isNull = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> obj === <span class="literal">null</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="undefined"><a href="#undefined" class="headerlink" title="undefined"></a>undefined</h3><p>判断变量是否为 <code>undefined</code>，很自然会想到使用 <code>foo === undefined</code> 的方式来判断。但是这样做是不安全的，在旧的浏览器版本上 <code>undefined</code> 是可以被重写的。这时使用上面那样判断会出现这种状况：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="literal">undefined</span> = <span class="string">'foo'</span>;</div><div class="line"><span class="keyword">var</span> foo = <span class="string">'foo'</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(foo === <span class="literal">undefined</span>); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+<p>所以这种判断方式不被推荐，即使新版本的浏览器上无法重写 undefined。更推荐的方式是使用 <code>void 0</code> 来判断。<br>关于 <code>void 0</code> 与 <code>undefined</code> 可以参考我在知乎上的回答：<a href="https://www.zhihu.com/question/52645620/answer/131470539" target="_blank" rel="external">（void 0）在javascript中表示什么，和undefined有什么区别？</a></p>
+<p>推荐的 undefined 判断实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">_.isUndefined = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> obj === <span class="keyword">void</span> <span class="number">0</span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="判断-Object"><a href="#判断-Object" class="headerlink" title="判断 Object"></a>判断 Object</h2><p>在 underscore 中对对象类型的判断是通过 <code>typeof</code> 来实现的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">_.isObject = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> type = <span class="keyword">typeof</span> obj;</div><div class="line">  <span class="keyword">return</span> type === <span class="string">'function'</span> || type === <span class="string">'object'</span> &amp;&amp; !!obj;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p><code>typeof</code> 操作符在变量为 <code>null</code> 或者是对象时返回 <code>&quot;object&quot;</code>，在变量为函数对象时返回 <code>function</code>。</p>
+<p>我们需要的是判断变量是否为对象，那么就需要排除 <code>null</code> 的情况，即将变量进行两次取反操作，将变量转换为 <code>Boolean</code> 类型。由于 <code>null</code> 会转换为 <code>false</code>，那么这样就可以排除 <code>null</code> 的干扰。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/前端/">前端</a>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/11/30/some-ways-of-javascript-create-object/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">JavaScript 创建对象的一些姿势</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/11/14/wechat-app-summary/">
+        <span class="next-text nav-default">「微信小程序」入坑总结</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2016/11/21/javascript-data-type-judgment/';
+        this.page.identifier = '2016/11/21/javascript-data-type-judgment/';
+        this.page.title = 'JavaScript 数据类型判断';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

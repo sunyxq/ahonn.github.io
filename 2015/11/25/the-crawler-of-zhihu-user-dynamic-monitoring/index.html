@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="知乎用户动态监控爬虫"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> 知乎用户动态监控爬虫 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          知乎用户动态监控爬虫
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-25
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#zhihu类：获取与匹配，保持内容"><span class="toc-text">zhihu类：获取与匹配，保持内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mail类：发送邮件"><span class="toc-text">mail类：发送邮件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#运行"><span class="toc-text">运行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <blockquote>
+<p>根据极客学院的Python爬虫教程写的一个单线程简易爬虫。可以监控知乎用户动态，当有新动态时发送邮件通知。</p>
+</blockquote>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>根据要关注的知乎用户的主页URL，使用requests模块获取整个用户主页的html。</li>
+<li>根据用户主页及其html代码，定位所需要的最新动态的位置。</li>
+<li>使用正则表达式比配到需要的数据。</li>
+<li>拼接数据，判断是否已经保持在文件中，即判断是否为新动态。</li>
+<li>若是新动态，使用python的smtplib模块发送收件到设置的邮箱中并保存到本地文件，否则略过。</li>
+</ul>
+<a id="more"></a>
+<h4 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h4><p><code>os</code><br><code>time</code><br><code>re</code><br><code>sys</code><br><code>MIMEText</code><br><code>requests</code><br><code>smtplib</code><br><!--more--></p>
+<h4 id="zhihu类：获取与匹配，保持内容"><a href="#zhihu类：获取与匹配，保持内容" class="headerlink" title="zhihu类：获取与匹配，保持内容"></a>zhihu类：获取与匹配，保持内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">class zhihu(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        # 设置关注的知乎用户</div><div class="line">        self.url = &quot;http://www.zhihu.com/people/xxxx&quot;</div><div class="line">        # 设置request header</div><div class="line">        self.header = &#123;</div><div class="line">            &apos;Host&apos; : &apos;www.zhihu.com&apos;,</div><div class="line">            &apos;Connection&apos; : &apos;Keep-Alive&apos;,</div><div class="line">            &apos;Accept&apos; : &apos;text/html, application/xhtml+xml, image/jxr, */*&apos;,</div><div class="line">            &apos;User-Agent&apos; : &apos;Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36&apos;,</div><div class="line">            &apos;Referer&apos;: self.url</div><div class="line">        &#125;</div><div class="line">        # 设置登录的Cookie</div><div class="line">        self.cookie = &#123;</div><div class="line">            &apos;Cookie&apos; : &apos;&apos;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    # 获取知乎用户的主页HTML</div><div class="line">    def getHTML(self):</div><div class="line">        html = requests.get(self.url, headers = self.header, cookies = self.cookie).content</div><div class="line">        return html</div><div class="line"></div><div class="line">    # 获取最新动态</div><div class="line">    def getContent(self, html):</div><div class="line">        self.name = re.findall(&apos;&lt;span class=&quot;name&quot;&gt;(.*?)&lt;/span&gt;&apos;, html, re.S)[0]</div><div class="line">        content = re.findall(&apos;&lt;div class=&quot;zm-profile-section-main zm-profile-section-activity-main zm-profile-activity-page-item-main&quot;&gt;(.*?)&lt;/div&gt;&apos;, html, re.S)</div><div class="line">        return content</div><div class="line"></div><div class="line">    # 获取每一条最新动态</div><div class="line">    def getText(self, contents):</div><div class="line">        data = &#123;&#125;</div><div class="line">        data[&apos;href&apos;] = re.findall(&apos;href=&quot;/question/(.*?)&quot;&apos;, contents, re.S)</div><div class="line">        data[&apos;question&apos;] = re.findall(&apos;&lt;a class=&quot;question_link&quot; .*?&quot;&gt;(.*?)&lt;/a&gt;&apos;, contents, re.S)</div><div class="line">        restr = &apos;&quot;&gt;&apos;+ self.name +&apos;&lt;/a&gt;(.*?)\n\n&lt;a&apos;</div><div class="line">        data[&apos;action&apos;] = re.findall(restr, contents, re.S)</div><div class="line">        text = self.name + data[&apos;action&apos;] + &apos;: &apos; +  data[&apos;question&apos;] + &apos; http://www.zhihu.com/question/&apos;+ data[&apos;href&apos;] + &apos;\n&apos;</div><div class="line">        return text</div><div class="line"></div><div class="line">    # 保存到文本</div><div class="line">    def toSave(self, text):</div><div class="line">        f = open(&apos;zhihu.txt&apos;, &apos;a&apos;)</div><div class="line">        f.write(text)</div><div class="line">        f.close()</div><div class="line"></div><div class="line">    # 检查动态是否已记录</div><div class="line">    def toCheck(self, text):</div><div class="line">        f = open(&apos;zhihu.txt&apos;, &apos;r&apos;)</div><div class="line">        existzhihu = f.readlines()</div><div class="line">        if text in existzhihu:</div><div class="line">            return False</div><div class="line">        else:</div><div class="line">            return True</div></pre></td></tr></table></figure>
+<h4 id="mail类：发送邮件"><a href="#mail类：发送邮件" class="headerlink" title="mail类：发送邮件"></a>mail类：发送邮件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">class mail(object):</div><div class="line"></div><div class="line">    def __init__(self):</div><div class="line">        #邮件服务器地址，需要打开smtp</div><div class="line">        self.mail_host = &quot;smtp.xxx.cn&quot;</div><div class="line">        #邮件账号</div><div class="line">        self.mail_user = &quot;&quot;</div><div class="line">        #邮箱密码</div><div class="line">        self.mail_pass = &quot;&quot;</div><div class="line">        #邮箱后缀</div><div class="line">        self.mail_postfix = &quot;xxx.com&quot;</div><div class="line"></div><div class="line">    def sendMail(self, toList, sub, content):</div><div class="line">        #发信人</div><div class="line">        me = &quot;zhihu spider&quot; + &quot;&lt;&quot; + self.mail_user + &quot;@&quot; + self.mail_postfix + &quot;&gt;&quot;</div><div class="line">        msg = MIMEText(content, _subtype=&apos;plain&apos;, _charset=&apos;utf-8&apos;)</div><div class="line">         #邮件标题</div><div class="line">        msg[&apos;Subject&apos;] = sub</div><div class="line">        #邮件发送人</div><div class="line">        msg[&apos;From&apos;] = me</div><div class="line">        #邮件收件人</div><div class="line">        msg[&apos;To&apos;] = &quot;;&quot;.join(toList)</div><div class="line">        try:</div><div class="line">            server = smtplib.SMTP()</div><div class="line">            #连接服务器</div><div class="line">            server.connect(self.mail_host)</div><div class="line">            #登录邮箱</div><div class="line">            server.login(self.mail_user,self.mail_pass)</div><div class="line">            #发送邮件</div><div class="line">            server.sendmail(me, toList, msg.as_string())</div><div class="line">            server.close()</div><div class="line">            return True</div><div class="line">        except Exception, e:</div><div class="line">            print str(e)</div><div class="line">            return False</div></pre></td></tr></table></figure>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    # 设置收件人邮箱</div><div class="line">    mailToList = [&apos;xxx@xxx.com&apos;]</div><div class="line">    zhihu = zhihu();</div><div class="line">    while True:</div><div class="line">        html = zhihu.getHTML()</div><div class="line">        content = zhihu.getContent(html)</div><div class="line">        # 若没有动态记录，爬取所有动态，并保存</div><div class="line">        if not os.path.exists(&apos;zhihu.txt&apos;):</div><div class="line">            for contents in content:</div><div class="line">                text = zhihu.getText(contents)</div><div class="line">                zhihu.toSave(text)</div><div class="line">        else:</div><div class="line">            text = zhihu.getText(content[0])</div><div class="line">            print text</div><div class="line">            # 检查是否存在记录， 不存在则发送邮件，并保存到文件</div><div class="line">            if zhihu.toCheck(text):</div><div class="line">                if mail().sendMail(mailToList, &quot;知乎动态&quot;, text):</div><div class="line">                    zhihu.toSave(text)</div><div class="line">                    print &quot;发生成功&quot;</div><div class="line">                else:</div><div class="line">                    print &quot;发送失败&quot;</div><div class="line">            else:</div><div class="line">                print &quot;pass&quot;</div><div class="line">            # 每隔2分钟运行一次，检查新动态</div><div class="line">            time.sleep(120)</div></pre></td></tr></table></figure>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>这个简单的爬虫目前还没有办法同时关注很多用户，然后对ip也没有进行代理，爬取过于频繁的话可能会被封ip而爬取不到。</p>
+<p>在爬取知乎的过程中发现如果没有header,可能返回的html页面不是用户的主页。然后如果没有登录的话，看到的知乎用户的主页刷新缓慢。需要模拟登录后才能够实时刷新出新动态。</p>
+<p>同时使用的是re库正则匹配内容，在使用上不是很方便。但是对xpath又不是很熟，所以暂时使用正则取匹配。</p>
+<p>之前还有看到一个解析html内容的模块叫BeautifulSoup，准备去学习学习。然后打算下次使用pythopn的爬虫框架Scrapy来写更多功能的知乎爬虫。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/知乎/">知乎</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/12/11/an-overview-of-the-codeigniter/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">CodeIgniter 框架概述</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/">
+        <span class="next-text nav-default">phpmyadmin 缺少 mcrypt 扩展</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/';
+        this.page.identifier = '2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/';
+        this.page.title = '知乎用户动态监控爬虫';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

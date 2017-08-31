@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="CodeIgniter MVC简单示例"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2015/12/13/codeigniter-simple-example-with-mvc/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> CodeIgniter MVC简单示例 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          CodeIgniter MVC简单示例
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-13
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#URL"><span class="toc-text">URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controllers"><span class="toc-text">Controllers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#View"><span class="toc-text">View</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Medel"><span class="toc-text">Medel</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <blockquote>
+<p>通过使用 CodeIgniter 写一个 Hello World 程序来学习框架的基本使用。</p>
+</blockquote>
+<p>默认该 Hello World 程序放在 Apache 服务器的 <code>www</code> 目录下。</p>
+<h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>在 Codelgniter 中只有单一的程序入口 index.php，之前说过它是 MVC 架构的框架，所以通常在 URL 中来确定使用的控制器及方法。</p>
+<p>例如：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="external">http://example.com/index.php/controllers/method/arguments</a></p>
+<p><code>controllers</code>表示调用的控制器的类，<code>method</code>表示调用的类中的函数或方法，<code>argument</code>以及后面的表示传给控制器的参数。</p>
+<a id="more"></a>
+<p>在开启 Apache 服务器的 <code>mod_rewirite</code> 模块下可以添加一个 <code>.htaccess</code> 文件隐藏 <code>index.php</code>，使得 URL 变成 <code>http://example.com/index.php/controllers/method/arguments</code></p>
+<p>.htaccess<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">RewriteEngine On</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</div><div class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</div><div class="line">RewriteRule ^(.*)$ index.php/$1 [L]</div></pre></td></tr></table></figure></p>
+<h2 id="Controllers"><a href="#Controllers" class="headerlink" title="Controllers"></a>Controllers</h2><p>控制器是一个类文件，存放在 <code>application/controllers</code> 下，通过 URL 关联来访问，一般 URL 中访问的控制器名与控制器的文件名，类名相同。</p>
+<p><strong>控制器类文件的文件名必须使用大写字母开头，类中的类名与文件名相同</strong></p>
+<p>当 <code>controllers</code> 为空时，将会调用默认的控制器，安装完成 CodeIgniter 后默认的控制器是 <code>welcome</code>。可以通过修改 <code>application/config/routes.php</code> 文件中的 <code>$route[&#39;default_controller&#39;]</code> 来设置默认的控制器。</p>
+<p>当 URL 中<code>method</code>为空时，会默认调用<code>index()</code>，不为空时则调用控制器类中的想对应的方法。</p>
+<p>当 URL 中存在<code>controllers</code>与<code>method</code>时，其余后面的会当做参数去接收。</p>
+<p>在 <code>application/controllers</code> 下创建 <code>HelloWorld.php</code>:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">CI_Controller</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">echo</span> <span class="string">'Hello World'</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">($message)</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">echo</span> $message;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过 <a href="http://localhost/index.php/HelloWorld" target="_blank" rel="external">http://localhost/index.php/HelloWorld</a> 来调用<code>HelloWorld</code>控制器中的<code>index()</code>。</p>
+<p>或者通过 <a href="http://localhost/index.php/HelloWorld/say/HelloWorld" target="_blank" rel="external">http://localhost/index.php/HelloWorld/say/HelloWorld</a> 来调用<code>say</code>方法打印后面的参数<code>HelloWorld</code>。</p>
+<h2 id="View"><a href="#View" class="headerlink" title="View"></a>View</h2><p>视图简单来说就是一个 Web 页面，或者是页面的一部分。视图在 MVC 模式中不是直接被调用的，是通过控制器加载，来显示特定的视图。</p>
+<p>在控制器中使用 <code>$this-&gt;load-&gt;view(&#39;name&#39;)</code> 加载制定的视图。如果需要添加动态内容，可以通过视图加载方法的第二个参数向视图传入数据。<strong>传入的参数是一个数组或者对象。</strong></p>
+<p>在 <code>application/views</code> 下创建 <code>HelloWorld.php</code>:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span> Hello World <span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="php"><span class="meta">&lt;?</span>= $message; <span class="meta">?&gt;</span></span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>再将 <code>application/controllers</code> 下的 <code>HelloWorld.php</code> 修改为：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">CI_Controller</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		$data[<span class="string">'message'</span>] = <span class="string">'Hello World'</span>;</div><div class="line">		<span class="keyword">$this</span>-&gt;load-&gt;view(<span class="string">'HelloWorld'</span>, $data);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过访问 <a href="http://localhost/index.php/HelloWorld" target="_blank" rel="external">http://localhost/index.php/HelloWorld</a> 来调用<code>HelloWorld</code>控制器中的 <code>index()</code> 加载名为 <code>HelloWorld</code> 的视图，并为视图添加默认的动态数据 <code>Hello World</code>。</p>
+<h2 id="Medel"><a href="#Medel" class="headerlink" title="Medel"></a>Medel</h2><p>模型在 MVC 模式中是专门处理数据的，对数据库的操作等都在模型类中实现。当多个控制器需要使用同一个方式处理或者获取数据时，就实现了代码复用。</p>
+<p>模型一般在控制器中加载并调用，使用 <code>$this-&gt;load-&gt;model(&#39;model_name&#39;)</code> 来加载，与控制器不同的是，模型的类文件名与类名都要有 <code>_model</code> 后缀。然后在控制器中可以通过 <code>$this-&gt;model_name-&gt;method()</code> 来调用模型中的方法。</p>
+<p>如果有一个模型在整个程序中都需要使用，那么可以通过在 <code>application/config/autoload.php</code> 文件中将模型添加到 <code>$autoload[&#39;model&#39;]</code> 中。</p>
+<p>在 <code>application/models</code> 中添加 <code>HelloWorld_model.php</code>:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld_model</span> <span class="keyword">extends</span> <span class="title">CI_Model</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get_message</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">'Hello World'</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后将<code>application/controllers</code> 下的 <code>HelloWorld.php</code> 修改为：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span> <span class="keyword">extends</span> <span class="title">CI_Controller</span></span></div><div class="line"><span class="class"></span>&#123;</div><div class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></div><div class="line"><span class="function">	</span>&#123;</div><div class="line">		<span class="keyword">$this</span>-&gt;load-&gt;model(<span class="string">'HelloWorld'</span>);</div><div class="line">		$data[<span class="string">'message'</span>] = <span class="keyword">$this</span>-&gt;HelloWorld-&gt;get_message();</div><div class="line">		<span class="keyword">$this</span>-&gt;load-&gt;view(<span class="string">'HelloWorld'</span>, $data);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样一个简单的使用了 MVC 模式的 Hello World 程序就完成了。</p>
+<p>可以通过访问 <a href="http://localhost/index.php/HelloWorld" target="_blank" rel="external">http://localhost/index.php/HelloWorld</a> 来查看，虽然使用了 M 跟 V 之后所显示的页面与只使用 C 的显示是一样的，这是由于在这个简单的 Hello World 程序中没有实际到比较复杂的过程，MVC 在实际使用中可以很好的解耦，使得代码大量复用，也易于程序分层。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/CodeIgniter/">CodeIgniter</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/12/19/codeigniter-url-routes/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">CodeIgniter URL 路由</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/12/11/an-overview-of-the-codeigniter/">
+        <span class="next-text nav-default">CodeIgniter 框架概述</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2015/12/13/codeigniter-simple-example-with-mvc/';
+        this.page.identifier = '2015/12/13/codeigniter-simple-example-with-mvc/';
+        this.page.title = 'CodeIgniter MVC简单示例';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>

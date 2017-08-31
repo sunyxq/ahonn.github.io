@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="在 PHP 中如何预防 SQL 注入"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.5.0" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2015/12/21/how-can-i-prevent-sql-injection-in-php/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.5.0" />
+
+
+
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-74273646-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+    <title> 在 PHP 中如何预防 SQL 注入 - Ahonn </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          在 PHP 中如何预防 SQL 注入
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-21
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Answer"><span class="toc-text">Answer</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <blockquote>
+<p>翻译自 Stack Overflow: <a href="http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php" target="_blank" rel="external">How can I prevent SQL-injection in PHP?</a> 中的高票答案</p>
+</blockquote>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </div><div class="line"></div><div class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>上面的例子，会因为用户输入像 <code>value&#39;); DROP TABLE table;--</code> 这样的数据，使得 SQL 语句变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">INSERT INTO `table` (`column`) VALUES(&apos;value&apos;); DROP TABLE table;--&apos;)</div></pre></td></tr></table></figure></p>
+<p>应该如何去预防这样的事情发生？</p>
+<h2 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h2><p><strong>使用预处理语句以及参数化查询来预防 SQL 注入</strong></p>
+<p>在发送到数据库前，对每一个参数进行解析。这种处理方式是不可能受到攻击者恶意 SQL 注入的。</p>
+<p>有两种基本操作可以选择，来达到这个目的：</p>
+<ul>
+<li><p>使用 PDO(PHP Data Objects)：支持所有的主流数据库</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$stmt = $pdo-&gt;prepare(<span class="string">'SELECT * FROM employees WHERE name = :name'</span>);</div><div class="line"></div><div class="line">$stmt-&gt;execute(<span class="keyword">array</span>(<span class="string">'name'</span> =&gt; $name));</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($stmt <span class="keyword">as</span> $row) &#123;</div><div class="line">    <span class="comment">// do something with $row</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用 MySQLi：支持 MySQL 数据库</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$stmt = $dbConnection-&gt;prepare(<span class="string">'SELECT * FROM employees WHERE name = ?'</span>);</div><div class="line">$stmt-&gt;bind_param(<span class="string">'s'</span>, $name);</div><div class="line"></div><div class="line">$stmt-&gt;execute();</div><div class="line"></div><div class="line">$result = $stmt-&gt;get_result();</div><div class="line"><span class="keyword">while</span> ($row = $result-&gt;fetch_assoc()) &#123;</div><div class="line">    <span class="comment">// do something with $row</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果连接到 MySQL 之外的数据库，有其他的驱动可以选择，例如 <code>PostgreSQL</code> 可以使用 <code>pg_prepare()</code> 和 <code>pg_execute()</code>。PDO 是一个比较普遍的选择，因为它可以兼容更多的数据库。</p>
+<p><strong>正确的建立连接</strong><br>注意，当使用PDO访问MySQL数据库时，默认不使用预处理语句。要解决这个问题，需要禁用预处理语句的模拟 <code>ATTR_EMULATE_PREPARES</code> 。</p>
+<blockquote>
+<p><strong>PDO::ATTR_EMULATE_PREPARES:</strong><br>启用或禁用预处理语句的模拟。 有些驱动不支持或有限度地支持本地预处理。使用此设置强制PDO总是模拟预处理语句（如果为 TRUE ），或试着使用本地预处理语句（如果为 FALSE）。如果驱动不能成功预处理当前查询，它将总是回到模拟预处理语句上。 需要 bool 类型。</p>
+</blockquote>
+<p>一个正确建立 PDO 连接的例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$dbConnection = <span class="keyword">new</span> PDO(<span class="string">'mysql:dbname=dbtest;host=127.0.0.1;charset=utf8'</span>, <span class="string">'user'</span>, <span class="string">'pass'</span>);</div><div class="line"></div><div class="line">$dbConnection-&gt;setAttribute(PDO::ATTR_EMULATE_PREPARES, <span class="keyword">false</span>);</div><div class="line">$dbConnection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</div></pre></td></tr></table></figure></p>
+<p>在上面的例子中错误模式并不是必要的，但建议添加它。这样脚本就不会因为一个致命错误而报错停止，让开发人员有机会去捕捉抛出的异常并进行处理。</p>
+<p>第一个 <code>setAttribute()</code> 是告诉 PDO 禁用预处理语句的模拟，使用真正准备好的预处理语句。这确保语句与值不会在 PHP 解析之前就发送到 MySQL。尽管你可以在选项中设置字符集的构造函数，但是要注意，PHP版本 &lt; 5.3.6，默认无视 DSN 的字符参数。</p>
+<p><strong>额外说明</strong><br>SQL 语句会通过预处理解析以及数据库的编译。通过指定参数(例如 ? 或者 :name 之类的参数)，告诉数据库引擎那些是你想要过滤的。当执行语句时，预处理过的语句将会结合参数去执行。</p>
+<p>最重要的是，参数值结合编译的语句之后，它不是一个 SQL 字符串。SQL 注入是通过恶意字符串创建 SQL 发送到数据库的一种攻击。所以分开发送实际的 SQL 参数，可以降低被注入的风险，避免造成一些不希望看到的结果。任何发送的参数，将会在使用预处理之后被当做是字符串。</p>
+<p>在上面的例子中，如果变量 <code>$name</code> 的值是 <code>&#39;Sarah&#39;; DELETE FROM employees</code>，那么结果将会是查找字符串 <code>&quot;&#39;Sarah&#39;; DELETE FROM employees&quot;</code>，而且也将不会得到一个空表。（即是后面的 <code>DELETE FROM employees</code> 将被当成字符串，而不是当做 SQL 语句去执行）</p>
+<blockquote>
+<p>使用预处理语句的另一个好处是，如果你在同一个会话中多次执行相同的语句，语句只会被解析和编译一次，在速度上也有一点提升。</p>
+</blockquote>
+<p>下面是一个使用 PDO 来插入数据的例子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$preparedStatement = $db-&gt;prepare(<span class="string">'INSERT INTO table (column) VALUES (:column)'</span>);</div><div class="line"></div><div class="line">$preparedStatement-&gt;execute(<span class="keyword">array</span>(<span class="string">'column'</span> =&gt; $unsafeValue));</div></pre></td></tr></table></figure></p>
+<p><strong>动态查询</strong><br>动态查询依旧可以使用预处理语句去进行，对用某些不能参数化的数据，可以使用白名单来限制可能的值。例如：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Value whitelist</span></div><div class="line">  <span class="comment">// $dir can only be 'DESC' or 'ASC'</span></div><div class="line">$dir = !<span class="keyword">empty</span>($direction) ? <span class="string">'DESC'</span> : <span class="string">'ASC'</span>;</div></pre></td></tr></table></figure></p>
+<p>总之，对于用户输入的所有数据都应该在发送到数据库查询之前进行预处理，以此来过滤那些不安全的参数。使得不会因为被 SQL 注入攻击而产生意想不到的结果。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/PHP/">PHP</a>
+            
+              <a href="/tags/SQL/">SQL</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/12/31/2015-summary/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">2015 总结</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2015/12/19/simple-use-of-the-php-curl-library/">
+        <span class="next-text nav-default">PHP cURL 库的简单使用</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>  
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2015/12/21/how-can-i-prevent-sql-injection-in-php/';
+        this.page.identifier = '2015/12/21/how-can-i-prevent-sql-injection-in-php/';
+        this.page.title = '在 PHP 中如何预防 SQL 注入';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.5.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.5.0"></script>
+
+  </body>
+</html>
