@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
   <head>
     
 <meta charset="UTF-8"/>
@@ -157,7 +157,7 @@
           <a class="menu-item-link" href="/">
             
             
-              Home
+              首页
             
           </a>
         </li>
@@ -166,7 +166,7 @@
           <a class="menu-item-link" href="/archives/">
             
             
-              Archives
+              归档
             
           </a>
         </li>
@@ -175,7 +175,7 @@
           <a class="menu-item-link" href="/about">
             
             
-              About
+              关于
             
           </a>
         </li>
@@ -235,7 +235,7 @@
 </ul>
 <p><strong>被拖拽的元素必须是相对父元素定位，或者是绝对定位</strong></p>
           <div class="read-more">
-            <a href="/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/" class="read-more-link">Read more..</a>
+            <a href="/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -289,7 +289,7 @@
 <p>刚开始是在网上无聊的逛 V2EX 什么的，然后看了看 conde 社区。后来神不知鬼不觉的不知道为什么就跑到了 Ruby China 去了，又神不知鬼不觉的跑去看了招聘的版块。</p>
 <p>其实在这之前的两个星期都有在拉钩上投实习，虽然有几个简历通过了，但是却毫无沟通的直接定了面试时间。不是刚刚好顶到上课时间，就是早上 10 点的（也就是说我得早上 7 点起床赶去广州面试）。说实在的对那些公司兴趣也不是很大。<br>
           <div class="read-more">
-            <a href="/2016/05/14/the-first-interview/" class="read-more-link">Read more..</a>
+            <a href="/2016/05/14/the-first-interview/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -340,7 +340,7 @@
 <p>optimizeCb:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Internal function that returns an efficient (for current engines) version</span></div><div class="line"><span class="comment">// of the passed-in callback, to be repeatedly applied in other Underscore</span></div><div class="line"><span class="comment">// functions.</span></div><div class="line"><span class="keyword">var</span> optimizeCb = <span class="function"><span class="keyword">function</span>(<span class="params">func, context, argCount</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (context === <span class="keyword">void</span> <span class="number">0</span>) <span class="keyword">return</span> func;</div><div class="line">  <span class="keyword">switch</span> (argCount == <span class="literal">null</span> ? <span class="number">3</span> : argCount) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> func.call(context, value);</div><div class="line">    &#125;;</div><div class="line">    <span class="comment">// The 2-parameter case has been omitted only because no current consumers</span></div><div class="line">    <span class="comment">// made use of it.</span></div><div class="line">    <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">value, index, collection</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> func.call(context, value, index, collection);</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">case</span> <span class="number">4</span>: <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">accumulator, value, index, collection</span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> func.call(context, accumulator, value, index, collection);</div><div class="line">    &#125;;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> func.apply(context, <span class="built_in">arguments</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
           <div class="read-more">
-            <a href="/2016/05/03/starting-from-the-optimizeCb/" class="read-more-link">Read more..</a>
+            <a href="/2016/05/03/starting-from-the-optimizeCb/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -389,7 +389,7 @@
         
           <h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><h3 id="合乎常理的预期"><a href="#合乎常理的预期" class="headerlink" title="合乎常理的预期"></a>合乎常理的预期</h3><p>按照合乎常理的预期，程序应该是由上至下一行一行执行的，如果使用了之前没有定义的变量的话，正确的反应应该是会报错，就象下面这段 C++ 代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, &amp;n);  <span class="comment">// Error</span></div><div class="line"></div><div class="line">  <span class="keyword">int</span> n = <span class="number">2</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <div class="read-more">
-            <a href="/2016/04/28/javascript-hoisting/" class="read-more-link">Read more..</a>
+            <a href="/2016/04/28/javascript-hoisting/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -440,7 +440,7 @@
 <h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>事件冒泡流，即事件开始时由具体的元素接收，然后逐级向上传播，直到 document 对象。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> Click <span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
           <div class="read-more">
-            <a href="/2016/04/16/javascript-event-stream/" class="read-more-link">Read more..</a>
+            <a href="/2016/04/16/javascript-event-stream/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -492,7 +492,7 @@
 <h3 id="全局变量-amp-局部变量"><a href="#全局变量-amp-局部变量" class="headerlink" title="全局变量 &amp; 局部变量"></a>全局变量 &amp; 局部变量</h3><p>JavaScript 变量的作用域分为两种，全局和局部。</p>
 <p>在 JavaScript 中声明全局变量有两种方式，一种是在全局环境下使用 <code>var</code> 声明，另一种是在任何地方直接初始化变量，那么它将会是全局变量。</p>
           <div class="read-more">
-            <a href="/2016/04/04/javascript-closures/" class="read-more-link">Read more..</a>
+            <a href="/2016/04/04/javascript-closures/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -543,7 +543,7 @@
 <p><img src="http://ouv0frko5.bkt.clouddn.com/4agv6.jpg" alt="iLeyar"></p>
 <p>虽然主题还有很多问题存在，但我会慢慢去完善它。期待越来越多的用户~</p>
           <div class="read-more">
-            <a href="/2016/04/01/begin/" class="read-more-link">Read more..</a>
+            <a href="/2016/04/01/begin/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -593,7 +593,7 @@
           <p>在 JavaScript 中一切皆为对象（Object），但是却与 Java，C++ 等语言不同，没有“类”的概念，也没有所谓的“子类”和“父类”。JavaScript 中的对象是基于原型（prototype）来实现面向对象的，靠奇怪的原型链（prototype chain）来实现继承。</p>
 <h2 id="对象与原型"><a href="#对象与原型" class="headerlink" title="对象与原型"></a>对象与原型</h2><p>在 JavaScript 中创建对象使用 <code>new</code> 关键字，而后跟着的是构造函数。在 JavaScript 中没有类的概念，所以对象的构造函数就是单纯只是个函数（function）。</p>
           <div class="read-more">
-            <a href="/2016/03/29/javascript-prototype-chain/" class="read-more-link">Read more..</a>
+            <a href="/2016/03/29/javascript-prototype-chain/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -644,7 +644,7 @@
 <h2 id="apply-与-call"><a href="#apply-与-call" class="headerlink" title="apply() 与 call()"></a>apply() 与 call()</h2><p>每个函数都包含两个非继承的方法：<code>apply()</code> 和 <code>call()</code>。两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内 <code>this</code> 对象的值。这是书中的说法，大概意思就是 <code>apply()</code> 和 <code>call()</code> 这两个方法是用来改变函数中 <code>this</code> 的指向的。而 <code>apply()</code> 与 <code>call()</code> 的区别就在与接收参数的方式。</p>
 <p><code>apply()</code> 方法接收两个参数，一个是在其中运行函数的作用域，函数中的 <code>this</code> 的值，另一个是参数数组。<br>而 <code>call()</code> 方法的第一个参数跟 <code>apply()</code> 相同，不同的是除了第一个参数，后面的其他参数将会直接传递给函数。</p>
           <div class="read-more">
-            <a href="/2016/03/20/javascript-apply-call-and-bind/" class="read-more-link">Read more..</a>
+            <a href="/2016/03/20/javascript-apply-call-and-bind/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -695,7 +695,7 @@
 <p>Jade 是 JavaScript 实现的，供 Node 使用，原生支持 Express。但也有 PHP，Python 等其他语言的实现。（要是 HTML 模版用 Jade，CSS 用 Styl，后端用 Python，那岂不是很好玩~全是缩进缩进缩进=。=）</p>
 <h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>添加文档类型可以通过 <code>!!!</code>  或者 <code>doctype</code> 来添加。</p>
           <div class="read-more">
-            <a href="/2016/02/29/jade-template-engine/" class="read-more-link">Read more..</a>
+            <a href="/2016/02/29/jade-template-engine/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -715,12 +715,12 @@
     
       <a class="prev" href="/page/3/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+        <span class="prev-text">上一页</span>
       </a>
     
     
       <a class="next" href="/page/5/">
-        <span class="next-text">Next</span>
+        <span class="next-text">下一页</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -782,11 +782,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
