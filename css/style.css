@@ -560,6 +560,12 @@ h6 {
         color: inherit; }
         .post .post-header .post-meta .post-category a:hover {
           color: #c05b4d; }
+    .post .post-header .post-meta .post-visits {
+      display: inline-block;
+      font-size: 14px;
+      color: #8a8a8a; }
+      .post .post-header .post-meta .post-visits::before {
+        content: '·'; }
   .post .post-toc {
     position: absolute;
     width: 200px;
@@ -641,6 +647,8 @@ h6 {
     margin: 10px 0;
     border-spacing: 0;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.125); }
+    .post .post-content > table thead {
+      background: #f8f5ec; }
     .post .post-content > table th, .post .post-content > table td {
       padding: 5px 15px;
       border: 1px double #f4efe1; }
@@ -886,10 +894,8 @@ h6 {
     border-top: 1px dashed #e6e6e6; }
     .post .post-copyright .copyright-item {
       margin: 5px 0; }
-      .post .post-copyright .copyright-item.lincese {
-        font-weight: bold; }
       .post .post-copyright .copyright-item a {
-        text-decoration: underline; }
+        color: #c05b4d; }
   .post .post-reward {
     margin-top: 20px;
     padding-top: 10px;
