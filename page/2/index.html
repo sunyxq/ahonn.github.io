@@ -211,6 +211,65 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/03/16/alibaba-summer-internship-interview-summary/">阿里巴巴暑假实习面试总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-16
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/03/16/alibaba-summer-internship-interview-summary/"
+             data-title="阿里巴巴暑假实习面试总结">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>2月末的时候，通过 <a href="https://simplyy.space/" target="_blank" rel="external">simplyY</a> 内推了阿里巴巴暑期实习的前端开发岗，在此表示感谢。<br>接着3月1号收到了内推的通知邮件，完善信息后很快就接到了一面的电话（3月3号）。</p>
+<h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>面试了大概20分钟左右，整体内容还是比较偏基础。一开始是正常流程的自我介绍，说是三分钟自我介绍，但是我语速比较快的不到两分钟的介绍完了。(刚好是临近中午，原本打算吃饭的，要是去吃饭的话就得在路上面了…）</p>
+<h3 id="CSS-垂直居中"><a href="#CSS-垂直居中" class="headerlink" title="CSS 垂直居中"></a>CSS 垂直居中</h3><p>这个写过一篇博文专门总结过，不过面试的时候还是太过紧张没有答全。主要是 Flexbox 布局的垂直居中比较容易忘记。</p>
+<p>具体就不再啰嗦了，详情可以查看：<a href="http://www.ahonn.me/2016/06/29/vertical-center-for-css/">CSS 实现垂直居中</a></p>
+          <div class="read-more">
+            <a href="/2017/03/16/alibaba-summer-internship-interview-summary/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/03/11/answer-front-end-questions/">答前端面试题</a>
         
       </h1>
@@ -732,67 +791,6 @@
 <p>在沙龙上有位分享嘉宾有提到，小程序实际上是在 Webview 之上再加上一层原生的组件。例如底部的 tabbar 以及顶部的 navbar 就是原生的。还有小程序的 map 组件，是调用原生的 map 组件。</p>
           <div class="read-more">
             <a href="/2016/11/14/wechat-app-summary/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/">React 路由跳转后回到页面顶部</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-10-11
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/"
-             data-title="React 路由跳转后回到页面顶部">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>在 React 组件间进行页面跳转后，发现页面的位置并不在页面顶部，而是在页面跳转前的位置。就是说浏览器的滚动条并没有回到顶部的位置。</p>
-<p>经过搜索之后找到了解决方案：<a href="http://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js" target="_blank" rel="external">Scroll to the top of the page after render in react.js</a></p>
-<p>可以使用下面这种解决，但是这种方式不是一种很好的解决方法。而且 <code>scrollIntoView()</code> 方法并不回到页面的顶部，应该使用 <code>scrollTop = 0</code> 的方式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ReactDom.findDOMNode(<span class="keyword">this</span>).scrollIntoView(); &#125;</div></pre></td></tr></table></figure>
-<p>所以得到的解决方案是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate() &#123;</div><div class="line">  ReactDOM.findDOMNode(<span class="keyword">this</span>).scrollTop = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/" class="read-more-link">阅读更多</a>
           </div>
         
       

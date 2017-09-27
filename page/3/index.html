@@ -211,6 +211,67 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/">React 路由跳转后回到页面顶部</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-10-11
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/"
+             data-title="React 路由跳转后回到页面顶部">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在 React 组件间进行页面跳转后，发现页面的位置并不在页面顶部，而是在页面跳转前的位置。就是说浏览器的滚动条并没有回到顶部的位置。</p>
+<p>经过搜索之后找到了解决方案：<a href="http://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js" target="_blank" rel="external">Scroll to the top of the page after render in react.js</a></p>
+<p>可以使用下面这种解决，但是这种方式不是一种很好的解决方法。而且 <code>scrollIntoView()</code> 方法并不回到页面的顶部，应该使用 <code>scrollTop = 0</code> 的方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ReactDom.findDOMNode(<span class="keyword">this</span>).scrollIntoView(); &#125;</div></pre></td></tr></table></figure>
+<p>所以得到的解决方案是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate() &#123;</div><div class="line">  ReactDOM.findDOMNode(<span class="keyword">this</span>).scrollTop = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/10/02/react-lifecycle-methods/">React 生命周期函数小结</a>
         
       </h1>
@@ -726,64 +787,6 @@
 <p>最近正在看 <code>Foundation</code>，源码是用 Sass 写的。<code>Bootstrap</code> 之前也是用 Less 的，不过后来也转向了 Sass。然后发现 <code>Foundation</code> 写得挺不错的，看看博客主题写的代码，简直不能看。正好打算把主题给重构重构，就顺手学学 Sass，用 Sass 写。<br>
           <div class="read-more">
             <a href="/2016/06/07/sass-preliminary-study/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/05/28/using-nokogiri-parsing-html/">使用 Nokogiri 解析 HTML</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-05-28
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2016/05/28/using-nokogiri-parsing-html/"
-             data-title="使用 Nokogiri 解析 HTML">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Nokogiri 是 Ruby 的一个 HTML/XML 文件的解析库。在需要解析 HTML/XML 文件获取数据时，它是一个很好的选择。</p>
-<h2 id="解析-HTML-文档"><a href="#解析-HTML-文档" class="headerlink" title="解析 HTML 文档"></a>解析 HTML 文档</h2><p>使用 <code>Nokogiri</code> 解析 HTML 将会生成 <code>Nokogiri documens</code>。<br>生成该对象的方式有三种，分别是通过字符串解析，通过文件解析，通过网络解析。</p>
-<h3 id="通过字符串解析"><a href="#通过字符串解析" class="headerlink" title="通过字符串解析"></a>通过字符串解析</h3><p>通过字符串解析，即是将字符串当作函数的参数传给 <code>Nokogiri::HTML</code> 函数。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">doc = Nokogiri::HTML(<span class="string">"&lt;html&gt;&lt;body&gt;&lt;h1&gt;Ahonn&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"</span>)</div></pre></td></tr></table></figure></p>
-          <div class="read-more">
-            <a href="/2016/05/28/using-nokogiri-parsing-html/" class="read-more-link">阅读更多</a>
           </div>
         
       

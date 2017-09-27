@@ -211,6 +211,67 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/">phpmyadmin 缺少 mcrypt 扩展</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-22
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2015/11/22/phpmyadmin-lack-mcrypt-extension/"
+             data-title="phpmyadmin 缺少 mcrypt 扩展">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>记录，以便下次所需。</p>
+</blockquote>
+<p>今天重装了腾讯云上面的服务器，安装的是Ubuntu server 14.04。搞完apache2 + mysql + PHP 后，安装了phpmyadmin来作为数据库管理。<br>登录之后发现报错：缺少 mcrypt 扩展。上网查了一下，发现需要安装php-mcrypt、libmcrypt、libmcrypt-devel这三个。</p>
+<h4 id="安装mcrypt"><a href="#安装mcrypt" class="headerlink" title="安装mcrypt"></a>安装mcrypt</h4><pre><code>sudo apt-get install php-mcrypt libmcrypt libmcrypt-devel
+</code></pre><p>安装后重启apache2服务器后发现依然报错，后面在网上找到了解决办法。原来是在<code>/etc/php5/apache2/conf.d</code>下缺少一个<code>20-mcrypt.ini</code>。该文件是<code>mcrypt.ini</code>的链接。<br>但是不知道是不是因为是版本不同的关系，这个文件的路径与搜索到的解决方案中不同。我的路径是：<code>/etc/php5/mods-available/mcrypt.ini</code><br>
+          <div class="read-more">
+            <a href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2015/11/12/php-captcha-identification-II/">PHP 验证码识别2</a>
         
       </h1>

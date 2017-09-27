@@ -211,6 +211,64 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/02/29/jade-template-engine/">Jade 模板引擎</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-29
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/02/29/jade-template-engine/"
+             data-title="Jade 模板引擎">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近在改一个 Hexo 的主题 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="external">apollo</a>。然后看到这个主题用的是叫做 Jade 的模版引擎写的。之前了解过几个模版引擎 ejs，swig 什么的，但是这些都是在原有的 HTML 中插标签，看起来有点乱。看到 Jade 后就深深的被它那如同 Python 的缩进语法深深吸引了，遂上网学习一发。  </p>
+<p>Jade 是 JavaScript 实现的，供 Node 使用，原生支持 Express。但也有 PHP，Python 等其他语言的实现。（要是 HTML 模版用 Jade，CSS 用 Styl，后端用 Python，那岂不是很好玩~全是缩进缩进缩进=。=）</p>
+<h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>添加文档类型可以通过 <code>!!!</code>  或者 <code>doctype</code> 来添加。</p>
+          <div class="read-more">
+            <a href="/2016/02/29/jade-template-engine/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/02/20/python-multithreaded-preliminary/">Python 多线程初步了解</a>
         
       </h1>
@@ -744,67 +802,6 @@
 </ul>
           <div class="read-more">
             <a href="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/">phpmyadmin 缺少 mcrypt 扩展</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-11-22
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/thinking/">思考总结</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2015/11/22/phpmyadmin-lack-mcrypt-extension/"
-             data-title="phpmyadmin 缺少 mcrypt 扩展">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>记录，以便下次所需。</p>
-</blockquote>
-<p>今天重装了腾讯云上面的服务器，安装的是Ubuntu server 14.04。搞完apache2 + mysql + PHP 后，安装了phpmyadmin来作为数据库管理。<br>登录之后发现报错：缺少 mcrypt 扩展。上网查了一下，发现需要安装php-mcrypt、libmcrypt、libmcrypt-devel这三个。</p>
-<h4 id="安装mcrypt"><a href="#安装mcrypt" class="headerlink" title="安装mcrypt"></a>安装mcrypt</h4><pre><code>sudo apt-get install php-mcrypt libmcrypt libmcrypt-devel
-</code></pre><p>安装后重启apache2服务器后发现依然报错，后面在网上找到了解决办法。原来是在<code>/etc/php5/apache2/conf.d</code>下缺少一个<code>20-mcrypt.ini</code>。该文件是<code>mcrypt.ini</code>的链接。<br>但是不知道是不是因为是版本不同的关系，这个文件的路径与搜索到的解决方案中不同。我的路径是：<code>/etc/php5/mods-available/mcrypt.ini</code><br>
-          <div class="read-more">
-            <a href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/" class="read-more-link">阅读更多</a>
           </div>
         
       
