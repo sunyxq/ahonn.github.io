@@ -4,9 +4,9 @@ date: 2017-06-14 11:09:48
 ---
 # 关于我
 
-某不知名三本准大四，软件工程
+某不知名三本大四汪，软件工程专业
 
-前端开发者，编辑器用 Vim，实在用不习惯 Emacs
+前端开发者，编辑器用 Vim，最近正在折腾 ClojureScript
 
 喜欢看书，听音乐，看美剧 and 追日漫
 
@@ -20,4 +20,4 @@ date: 2017-06-14 11:09:48
 <figure><embed src="https://wakatime.com/share/@583c9069-15c3-47a7-ae56-251cd9b782fc/2f03c0b0-8fb2-4758-ba2b-ae8b29c158c4.svg"></embed></figure>
 
 ## 编程语言
-<figure><embed src="https://wakatime.com/share/@583c9069-15c3-47a7-ae56-251cd9b782fc/0ecf7f1a-e899-444d-83bc-5a3ed863e97a.svg"></embed></figure>
+<figure><embed src="https://wakatime.com/share/@583c9069-15c3-47a7-ae56-251cd9b782fc/c8658394-f9d8-4312-b402-2de4b01c202d.svg"></embed></figure>
