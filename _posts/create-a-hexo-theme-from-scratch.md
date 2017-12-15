@@ -1,16 +1,15 @@
 ---
 title: 从零开始制作 Hexo 主题
 date: 2016-12-15 17:43:47
-tags: 
+tags:
   - Hexo
   - 前端
   - 从零开始
 categories:
   - 思考总结
 ---
-
 ## 写在前面
-本文将会从零开始开发一个简单的博客主题。样式主要参考 [Hexo theme](https://hexo.io/themes/) 中的 [Noise](https://github.com/lotabout/hexo-theme-noise) 主题。 
+本文将会从零开始开发一个简单的博客主题。样式主要参考 [Hexo theme](https://hexo.io/themes/) 中的 [Noise](https://github.com/lotabout/hexo-theme-noise) 主题。
 
 开始之前你需要了解：
 - 模板引擎
@@ -34,7 +33,7 @@ categories:
 └── source     主题资源文件，包括页面样式，脚本，字体等
 ```
 
-我们在 `themes` 中新建 `theme-example` 文件夹，然后在 `theme-demo` 中按照 landscape 主题的目录结构新建 `languages`，`layout`，`scripts` 与 `source` 文件夹。
+我们在 `themes` 中新建 `theme-example` 文件夹，然后在 `theme-example` 中按照 landscape 主题的目录结构新建 `languages`，`layout`，`scripts` 与 `source` 文件夹。
 
 ## 创建布局模板
 在 `layout` 中创建 `index.ejs` 文件，首页将会使用该布局模板生成 HTML 文件。
@@ -119,13 +118,13 @@ theme: theme-example
 
 接着我们清空 `index.ejs` 中的内容，并添加 `<h2>Hello World</h2>`。在 `layout` 目录下的 `index.ejs` 会自动继承 `layout.ejs`，并将其中的内容填入 `<%- body %>` 的位置。我们将得到一个有导航菜单的 Hello World 页面。
 
-[Index](http://ouv0frko5.bkt.clouddn.com/tsz8v.jpg)
+![Index](http://ouv0frko5.bkt.clouddn.com/tsz8v.jpg)
 
 ## 添加主题配置文件
 
 实际上我们需要让导航菜单根据我们的需要显示不同的项，上面这种写法不方便修改。所以我们会在主题的配置文件中添加导航菜单的配置。在 `thmem-demo` 下新建主题的配置文件 `_config.yml`，在其中添加需要配置的字段。然后可以通过 `theme` 这个变量来拿到该配置文件中的配置。
 
-`theme-demo/_config.yml`:
+`theme-example/_config.yml`:
 
 ``` yml
 menu:
@@ -205,7 +204,7 @@ Hexo 提供了 `excerpt` 属性来获取文章的摘录部分，不过这里需�
 
 由于 Hexo 在新建项目的时候会安装 `hexo-renderer-stylus` 这个插件，所以我们无需其他步骤，只需要将样式文件放到 `css` 文件夹中。Hexo 在生成页面的时候会将 `source` 中的所有文件复制到生成的 `public` 文件中，并且在此之前会编译 styl 为 css 文件。
 
-在 `css` 文件夹中创建 `style.styl`，编写一些基础的样式，并把所有样式 `import` 到这个文件。所以最终编译之后只会有 `style.css` 一个文件。创建 `_partial/header.styl` 与 `_partial/post.styl` 存放页面导航以及文章的样式，并且在 `style.styl` 中 `import` 这两个文件。 
+在 `css` 文件夹中创建 `style.styl`，编写一些基础的样式，并把所有样式 `import` 到这个文件。所以最终编译之后只会有 `style.css` 一个文件。创建 `_partial/header.styl` 与 `_partial/post.styl` 存放页面导航以及文章的样式，并且在 `style.styl` 中 `import` 这两个文件。
 
 `_partial/header.styl`:
 
