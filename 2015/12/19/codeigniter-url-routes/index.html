@@ -239,14 +239,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置-URL-路由规则"><span class="toc-text">设置 URL 路由规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通配符"><span class="toc-text">通配符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式"><span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保留路由"><span class="toc-text">保留路由</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置-URL-路由规则"><span class="toc-text"><a href="#&#x8BBE;&#x7F6E;-URL-&#x8DEF;&#x7531;&#x89C4;&#x5219;" class="headerlink" title="&#x8BBE;&#x7F6E; URL &#x8DEF;&#x7531;&#x89C4;&#x5219;"></a>&#x8BBE;&#x7F6E; URL &#x8DEF;&#x7531;&#x89C4;&#x5219;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#通配符"><span class="toc-text"><a href="#&#x901A;&#x914D;&#x7B26;" class="headerlink" title="&#x901A;&#x914D;&#x7B26;"></a>&#x901A;&#x914D;&#x7B26;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则表达式"><span class="toc-text"><a href="#&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;" class="headerlink" title="&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;"></a>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保留路由"><span class="toc-text"><a href="#&#x4FDD;&#x7559;&#x8DEF;&#x7531;" class="headerlink" title="&#x4FDD;&#x7559;&#x8DEF;&#x7531;"></a>&#x4FDD;&#x7559;&#x8DEF;&#x7531;</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h2 id="设置-URL-路由规则"><a href="#设置-URL-路由规则" class="headerlink" title="设置 URL 路由规则"></a>设置 URL 路由规则</h2><p>CodeIgniter 中的 URL 一般遵循之前说的下面这种规则：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="external">http://example.com/index.php/controllers/method/arguments</a></p>
+        <h2 id="设置-URL-路由规则"><a href="#设置-URL-路由规则" class="headerlink" title="设置 URL 路由规则"></a>设置 URL 路由规则</h2><p>CodeIgniter 中的 URL 一般遵循之前说的下面这种规则：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="noopener">http://example.com/index.php/controllers/method/arguments</a></p>
 <p>但是有些原因会使得我们需要使用不同的规则去让 URl 映射。</p>
 <p>当有这种需求的时候，可以在 <code>application/config/router.php</code> 的 <code>$route</code> 数组中设置需要的路由规则，在路由规则中可以使用通配符或正则表达式。</p>
 <h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><p>使用通配符的路由规则：<br>    $route[‘name/:num’] = ‘foo/bar’;<br><a id="more"></a></p>

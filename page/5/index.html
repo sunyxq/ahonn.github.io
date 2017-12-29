@@ -211,6 +211,64 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/03/20/javascript-apply-call-and-bind/">apply, call 与 bind 的区别</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-03-20
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/03/20/javascript-apply-call-and-bind/"
+             data-title="apply, call 与 bind 的区别">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近在看 《JavaScript 高级程序设计》，也就是所谓的高程3。正好看到 <code>Function</code> 部分，看到了几个熟悉的字眼，<code>apply()</code>，<code>call()</code> 和 <code>bind()</code>。好像是有些面试题里面有，遂搞清楚了记录下。</p>
+<h2 id="apply-与-call"><a href="#apply-与-call" class="headerlink" title="apply() 与 call()"></a>apply() 与 call()</h2><p>每个函数都包含两个非继承的方法：<code>apply()</code> 和 <code>call()</code>。两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内 <code>this</code> 对象的值。这是书中的说法，大概意思就是 <code>apply()</code> 和 <code>call()</code> 这两个方法是用来改变函数中 <code>this</code> 的指向的。而 <code>apply()</code> 与 <code>call()</code> 的区别就在与接收参数的方式。</p>
+<p><code>apply()</code> 方法接收两个参数，一个是在其中运行函数的作用域，函数中的 <code>this</code> 的值，另一个是参数数组。<br>而 <code>call()</code> 方法的第一个参数跟 <code>apply()</code> 相同，不同的是除了第一个参数，后面的其他参数将会直接传递给函数。</p>
+          <div class="read-more">
+            <a href="/2016/03/20/javascript-apply-call-and-bind/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/02/29/jade-template-engine/">Jade 模板引擎</a>
         
       </h1>
@@ -247,7 +305,7 @@
         
 
         
-          <p>最近在改一个 Hexo 的主题 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="external">apollo</a>。然后看到这个主题用的是叫做 Jade 的模版引擎写的。之前了解过几个模版引擎 ejs，swig 什么的，但是这些都是在原有的 HTML 中插标签，看起来有点乱。看到 Jade 后就深深的被它那如同 Python 的缩进语法深深吸引了，遂上网学习一发。  </p>
+          <p>最近在改一个 Hexo 的主题 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="noopener">apollo</a>。然后看到这个主题用的是叫做 Jade 的模版引擎写的。之前了解过几个模版引擎 ejs，swig 什么的，但是这些都是在原有的 HTML 中插标签，看起来有点乱。看到 Jade 后就深深的被它那如同 Python 的缩进语法深深吸引了，遂上网学习一发。  </p>
 <p>Jade 是 JavaScript 实现的，供 Node 使用，原生支持 Express。但也有 PHP，Python 等其他语言的实现。（要是 HTML 模版用 Jade，CSS 用 Styl，后端用 Python，那岂不是很好玩~全是缩进缩进缩进=。=）</p>
 <h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>添加文档类型可以通过 <code>!!!</code>  或者 <code>doctype</code> 来添加。</p>
           <div class="read-more">
@@ -305,7 +363,7 @@
         
 
         
-          <p>这两天在写 <a href="https://www.github.com/ahonn/Nada" target="_blank" rel="external">Nada</a> 的下载功能，遇到一个问题，在下载歌曲的时候整个界面都会卡住，必须等待下载完成才能够恢复，因为写的时候是直接顺序执行的，没有多线程。之前在写播放功能的时候是参考了别人的代码，自己其实对多线程部分不是很了解。然后趁着晚上了解一下 Python 的 thread 和 treading 模块。</p>
+          <p>这两天在写 <a href="https://www.github.com/ahonn/Nada" target="_blank" rel="noopener">Nada</a> 的下载功能，遇到一个问题，在下载歌曲的时候整个界面都会卡住，必须等待下载完成才能够恢复，因为写的时候是直接顺序执行的，没有多线程。之前在写播放功能的时候是参考了别人的代码，自己其实对多线程部分不是很了解。然后趁着晚上了解一下 Python 的 thread 和 treading 模块。</p>
 <h2 id="Python-多线程支持"><a href="#Python-多线程支持" class="headerlink" title="Python 多线程支持"></a>Python 多线程支持</h2><p>Pyhton 标准库提供了 thread 和 threading 模块来支持多线程，这意味着不需要重新下载这两个模块，只需要在代码中 import 这两个模块就可以了。</p>
 <h2 id="thread-模块"><a href="#thread-模块" class="headerlink" title="thread 模块"></a>thread 模块</h2><p>thread 模块是以低级、原始的方式来处理和控制线程，提供了一个简单的锁（相对于 threading 模块的锁的感觉来说的确是比较简单）。相对于 threading 模块来说，thread 模块更加灵活。</p>
           <div class="read-more">
@@ -484,9 +542,9 @@
 
         
           <blockquote>
-<p>翻译自 Stack Overflow: <a href="http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php" target="_blank" rel="external">How can I prevent SQL-injection in PHP?</a> 中的高票答案</p>
+<p>翻译自 Stack Overflow: <a href="http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php" target="_blank" rel="noopener">How can I prevent SQL-injection in PHP?</a> 中的高票答案</p>
 </blockquote>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </div><div class="line"></div><div class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </span><br><span class="line"></span><br><span class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</span><br></pre></td></tr></table></figure></p>
           <div class="read-more">
             <a href="/2015/12/21/how-can-i-prevent-sql-injection-in-php/" class="read-more-link">阅读更多</a>
           </div>
@@ -607,7 +665,7 @@
         
 
         
-          <h2 id="设置-URL-路由规则"><a href="#设置-URL-路由规则" class="headerlink" title="设置 URL 路由规则"></a>设置 URL 路由规则</h2><p>CodeIgniter 中的 URL 一般遵循之前说的下面这种规则：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="external">http://example.com/index.php/controllers/method/arguments</a></p>
+          <h2 id="设置-URL-路由规则"><a href="#设置-URL-路由规则" class="headerlink" title="设置 URL 路由规则"></a>设置 URL 路由规则</h2><p>CodeIgniter 中的 URL 一般遵循之前说的下面这种规则：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="noopener">http://example.com/index.php/controllers/method/arguments</a></p>
 <p>但是有些原因会使得我们需要使用不同的规则去让 URl 映射。</p>
 <p>当有这种需求的时候，可以在 <code>application/config/router.php</code> 的 <code>$route</code> 数组中设置需要的路由规则，在路由规则中可以使用通配符或正则表达式。</p>
 <h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><p>使用通配符的路由规则：<br>    $route[‘name/:num’] = ‘foo/bar’;<br>
@@ -671,7 +729,7 @@
 </blockquote>
 <p>默认该 Hello World 程序放在 Apache 服务器的 <code>www</code> 目录下。</p>
 <h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><p>在 Codelgniter 中只有单一的程序入口 index.php，之前说过它是 MVC 架构的框架，所以通常在 URL 中来确定使用的控制器及方法。</p>
-<p>例如：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="external">http://example.com/index.php/controllers/method/arguments</a></p>
+<p>例如：<br>    <a href="http://example.com/index.php/controllers/method/arguments" target="_blank" rel="noopener">http://example.com/index.php/controllers/method/arguments</a></p>
 <p><code>controllers</code>表示调用的控制器的类，<code>method</code>表示调用的类中的函数或方法，<code>argument</code>以及后面的表示传给控制器的参数。</p>
           <div class="read-more">
             <a href="/2015/12/13/codeigniter-simple-example-with-mvc/" class="read-more-link">阅读更多</a>
@@ -737,71 +795,6 @@
 <p>对于正准备接触框架的PHPer，CodeIgniter 是一个不错的选择。</p>
           <div class="read-more">
             <a href="/2015/12/11/an-overview-of-the-codeigniter/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/">知乎用户动态监控爬虫</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-11-25
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/"
-             data-title="知乎用户动态监控爬虫">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>根据极客学院的Python爬虫教程写的一个单线程简易爬虫。可以监控知乎用户动态，当有新动态时发送邮件通知。</p>
-</blockquote>
-<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
-<li>根据要关注的知乎用户的主页URL，使用requests模块获取整个用户主页的html。</li>
-<li>根据用户主页及其html代码，定位所需要的最新动态的位置。</li>
-<li>使用正则表达式比配到需要的数据。</li>
-<li>拼接数据，判断是否已经保持在文件中，即判断是否为新动态。</li>
-<li>若是新动态，使用python的smtplib模块发送收件到设置的邮箱中并保存到本地文件，否则略过。</li>
-</ul>
-          <div class="read-more">
-            <a href="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/" class="read-more-link">阅读更多</a>
           </div>
         
       

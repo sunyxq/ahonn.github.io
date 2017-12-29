@@ -239,7 +239,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text"><a href="#&#x5B89;&#x88C5;" class="headerlink" title="&#x5B89;&#x88C5;"></a>&#x5B89;&#x88C5;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text"><a href="#&#x914D;&#x7F6E;" class="headerlink" title="&#x914D;&#x7F6E;"></a>&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用"><span class="toc-text"><a href="#&#x4F7F;&#x7528;" class="headerlink" title="&#x4F7F;&#x7528;"></a>&#x4F7F;&#x7528;</span></a></li></ol>
     </div>
   </div>
 
@@ -248,20 +248,20 @@
       
         <p>这两天一直在看文档看源码，Vim 上用的 Ack.vim 做全局搜索，但是用起来蛮难用的。</p>
 <p>经过一番搜索，找到了国人写的全局搜索的插件：ctrlsf.vim，经过配置之后用了起来，感觉蛮好用的。</p>
-<p>具体效果可以查看 <a href="https://github.com/dyng/ctrlsf.vim" target="_blank" rel="external">ctrlsf.vim</a></p>
+<p>具体效果可以查看 <a href="https://github.com/dyng/ctrlsf.vim" target="_blank" rel="noopener">ctrlsf.vim</a></p>
 <a id="more"></a>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>ctrlsf 是依赖 ack/ag/pt/rg 之类的，所有必须先安装其中之一。所以我们先安装 ack</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install ack</div></pre></td></tr></table></figure>
-<p>其他系统安装方式查看：<a href="https://beyondgrep.com/install/" target="_blank" rel="external">https://beyondgrep.com/install/</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install ack</span><br></pre></td></tr></table></figure>
+<p>其他系统安装方式查看：<a href="https://beyondgrep.com/install/" target="_blank" rel="noopener">https://beyondgrep.com/install/</a></p>
 <p>然后安装 ctrlsf.vim 插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Plug &apos;dyng/ctrlsf.vim&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Plug &apos;dyng/ctrlsf.vim&apos;</span><br></pre></td></tr></table></figure>
 <p>运行 <code>:PlugInstall</code> 进行安装</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>我把 <code>Ctrl-f</code> 映射到了 <code>:CrtlSF&lt;Space&gt;</code>，这样就可以直接 <code>Ctrl-f</code> 然后直接输入、回车进行全局搜索了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nnoremap &lt;C-f&gt; :CtrlSF&lt;Space&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnoremap &lt;C-f&gt; :CtrlSF&lt;Space&gt;</span><br></pre></td></tr></table></figure>
 <p>ctrlsf 插件还提供了两种模式：normal/compact。<br>normal 模式是左半屏为搜索结果，右半屏为预览窗口。而 compact 模式则是类似于 ctrlp 的 quickfix 窗口模式。<br>个人还是比较喜欢 quick 窗口模式，可以通过 <code>let g:ctrlsf_default_view_mode = &#39;compact&#39;</code> 设置为默认 compact 模式。</p>
 <p>此外通过设置 <code>let g:ctrlsf_ignore_dir</code> 指定要搜索时忽略的目录。</p>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>设置了快捷键映射之后就可以愉快的 <code>C-f</code> 输入回车搜索了。然后可以在搜索结果中移动，预览，打开。还能够按 M 更换显示模式。</p>
-<p>具体可以查看：<a href="https://github.com/dyng/ctrlsf.vim#key-maps" target="_blank" rel="external">Key Maps</a></p>
+<p>具体可以查看：<a href="https://github.com/dyng/ctrlsf.vim#key-maps" target="_blank" rel="noopener">Key Maps</a></p>
 
       
     </div>

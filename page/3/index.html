@@ -211,6 +211,65 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/11/14/wechat-app-summary/">「微信小程序」入坑总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-11-14
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/11/14/wechat-app-summary/"
+             data-title="「微信小程序」入坑总结">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>前段时间去了广州参加了关于「微信小程序」的技术沙龙，整场下来收获颇多。实际上微信小程序刚刚发布出来的时候就关注，弄了破解了的开发工具，跑了个官方的 Demo。</p>
+<p>听完回来之后就想着挖个相关的坑，正好看到手机上的 「ONE · 一个」。上网找到了 ONE 的接口，打算搞一个仿照 ONE 官方 APP 的小程序，最后就有了 <a href="https://github.com/ahonn/weapp-one" target="_blank" rel="noopener">weapp-one</a> 这个项目。</p>
+<h2 id="关于小程序"><a href="#关于小程序" class="headerlink" title="关于小程序"></a>关于小程序</h2><p>微信小程序不是 Web 也不是 Native，尝试之后给我的感觉有点像是 weex。因为之前尝试 weex 的时候是下载一个 APP，然后通过应用内扫码来运行对应的应用。这一点上小程序类似。</p>
+<p>在沙龙上有位分享嘉宾有提到，小程序实际上是在 Webview 之上再加上一层原生的组件。例如底部的 tabbar 以及顶部的 navbar 就是原生的。还有小程序的 map 组件，是调用原生的 map 组件。</p>
+          <div class="read-more">
+            <a href="/2016/11/14/wechat-app-summary/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/">React 路由跳转后回到页面顶部</a>
         
       </h1>
@@ -248,11 +307,11 @@
 
         
           <p>在 React 组件间进行页面跳转后，发现页面的位置并不在页面顶部，而是在页面跳转前的位置。就是说浏览器的滚动条并没有回到顶部的位置。</p>
-<p>经过搜索之后找到了解决方案：<a href="http://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js" target="_blank" rel="external">Scroll to the top of the page after render in react.js</a></p>
+<p>经过搜索之后找到了解决方案：<a href="http://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js" target="_blank" rel="noopener">Scroll to the top of the page after render in react.js</a></p>
 <p>可以使用下面这种解决，但是这种方式不是一种很好的解决方法。而且 <code>scrollIntoView()</code> 方法并不回到页面的顶部，应该使用 <code>scrollTop = 0</code> 的方式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ReactDom.findDOMNode(<span class="keyword">this</span>).scrollIntoView(); &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ReactDom.findDOMNode(<span class="keyword">this</span>).scrollIntoView(); &#125;</span><br></pre></td></tr></table></figure>
 <p>所以得到的解决方案是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">componentDidUpdate() &#123;</div><div class="line">  ReactDOM.findDOMNode(<span class="keyword">this</span>).scrollTop = <span class="number">0</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate() &#123;</span><br><span class="line">  ReactDOM.findDOMNode(<span class="keyword">this</span>).scrollTop = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/" class="read-more-link">阅读更多</a>
           </div>
@@ -428,7 +487,7 @@
 
         
           <blockquote>
-<p>翻译自：<a href="https://www.codementor.io/javascript/tutorial/javascript-best-practices" target="_blank" rel="external">JavaScript Best Practices: Tips &amp; Tricks to Level Up Your Code</a><br>没有严格的按照原文翻译，删减修改了部分内容。</p>
+<p>翻译自：<a href="https://www.codementor.io/javascript/tutorial/javascript-best-practices" target="_blank" rel="noopener">JavaScript Best Practices: Tips &amp; Tricks to Level Up Your Code</a><br>没有严格的按照原文翻译，删减修改了部分内容。</p>
 </blockquote>
 <p>在这个教程中，会列出一些重要的 JavaScript 的最佳实践，学习这些并不会很困难。</p>
 <h2 id="避免污染全局作用域"><a href="#避免污染全局作用域" class="headerlink" title="避免污染全局作用域"></a>避免污染全局作用域</h2><p>声明变量是很有趣的，有时候你会在你不知情的情况下声明了全局变量。在现在的浏览器中，全局变量将会存储在 <code>window</code> 变量中。在全局作用域中的变量可能在不经意间被覆盖。</p>
@@ -553,7 +612,7 @@
 
         
           <p>在 <code>underscore</code> 中有一个函数，其作用是将数组乱序排序，实现如下：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Shuffle a collection, using the modern version of the</span></div><div class="line"><span class="comment">// [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).</span></div><div class="line"><span class="comment">// `shuffle` 函数。</span></div><div class="line">_.shuffle = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> set = isArrayLike(obj) ? obj : _.values(obj);</div><div class="line">  <span class="keyword">var</span> length = set.length;</div><div class="line">  <span class="keyword">var</span> shuffled = <span class="built_in">Array</span>(length);</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">0</span>, rand; index &lt; length; index++) &#123;</div><div class="line">    rand = _.random(<span class="number">0</span>, index);</div><div class="line">    <span class="keyword">if</span> (rand !== index) shuffled[index] = shuffled[rand];</div><div class="line">    shuffled[rand] = set[index];</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> shuffled;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Shuffle a collection, using the modern version of the</span></span><br><span class="line"><span class="comment">// [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).</span></span><br><span class="line"><span class="comment">// `shuffle` 函数。</span></span><br><span class="line">_.shuffle = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> set = isArrayLike(obj) ? obj : _.values(obj);</span><br><span class="line">  <span class="keyword">var</span> length = set.length;</span><br><span class="line">  <span class="keyword">var</span> shuffled = <span class="built_in">Array</span>(length);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">0</span>, rand; index &lt; length; index++) &#123;</span><br><span class="line">    rand = _.random(<span class="number">0</span>, index);</span><br><span class="line">    <span class="keyword">if</span> (rand !== index) shuffled[index] = shuffled[rand];</span><br><span class="line">    shuffled[rand] = set[index];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> shuffled;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/07/25/the-right-way-to-array-of-random-sequence/" class="read-more-link">阅读更多</a>
           </div>
@@ -668,7 +727,7 @@
         
           <p>今天遇到一个问题：在使用 vue 的练手项目中，渲染的 HTML 里 <code>&lt;code&gt;</code> 标签中的代码没有代码高亮。</p>
 <p>遂想到用 highlight.js 来解决，按照平常那样在 HTML 文件中引入 <code>js</code> 和 <code>css</code> 文件，然后在<code>&lt;header&gt;</code> 中加上一句 <code>&lt;script&gt;hljs.initHighlightingOnLoad();&lt;/script&gt;</code>。但是却没有效果。</p>
-<p>在 Vue.js 的论坛上找到了解决方案 <a href="https://forum.vuejs.org/topic/3514/getting-highlightjs-to-work-with-vue-router" target="_blank" rel="external">Getting highlightjs to work with vue-router</a>。highlight.js 没有效果是因为使用了 <code>vue-route</code>，在 route 改变时，页面将会重新渲染并且会移除事件，这里就把 highlight 的事件给移除了。<br>
+<p>在 Vue.js 的论坛上找到了解决方案 <a href="https://forum.vuejs.org/topic/3514/getting-highlightjs-to-work-with-vue-router" target="_blank" rel="noopener">Getting highlightjs to work with vue-router</a>。highlight.js 没有效果是因为使用了 <code>vue-route</code>，在 route 改变时，页面将会重新渲染并且会移除事件，这里就把 highlight 的事件给移除了。<br>
           <div class="read-more">
             <a href="/2016/07/13/getting-highlightjs-to-work-with-vue.js/" class="read-more-link">阅读更多</a>
           </div>
@@ -725,68 +784,11 @@
 
         
           <p>我们有这样一个结构的 HTML：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"children"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"children"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果我们要实现 <code>.children</code> 在 <code>.parent</code> 中垂直居中。</p>
 <p>通常第一印象会想起给父元素设置相对定位，给子元素设置绝对定位。这样子元素就相对于父元素定位，再通过 <code>top</code> 与 <code>left</code> 各偏移 50% 父元素宽度，使用 <code>margin-*</code> 来修正子元素的位置。<br>
           <div class="read-more">
             <a href="/2016/06/29/vertical-center-for-css/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/06/07/sass-preliminary-study/">Sass 初探</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-06-07
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2016/06/07/sass-preliminary-study/"
-             data-title="Sass 初探">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="为什么学-Sass"><a href="#为什么学-Sass" class="headerlink" title="为什么学 Sass"></a>为什么学 Sass</h2><p>说起来其实很早就知道 <code>Sass</code> 这东西。刚开始写 Even 这个博客主题的时候就有在考虑是要用 <code>Less</code> 还是<code>Sass</code>，最后用了变量名用 <code>@</code> 开头的 Less（可能是 PHP 的原因，对 <code>$</code> 开头的变量名没什么好感）。</p>
-<p>最近正在看 <code>Foundation</code>，源码是用 Sass 写的。<code>Bootstrap</code> 之前也是用 Less 的，不过后来也转向了 Sass。然后发现 <code>Foundation</code> 写得挺不错的，看看博客主题写的代码，简直不能看。正好打算把主题给重构重构，就顺手学学 Sass，用 Sass 写。<br>
-          <div class="read-more">
-            <a href="/2016/06/07/sass-preliminary-study/" class="read-more-link">阅读更多</a>
           </div>
         
       
