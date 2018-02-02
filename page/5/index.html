@@ -544,7 +544,7 @@
           <blockquote>
 <p>翻译自 Stack Overflow: <a href="http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php" target="_blank" rel="noopener">How can I prevent SQL-injection in PHP?</a> 中的高票答案</p>
 </blockquote>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </span><br><span class="line"></span><br><span class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </div><div class="line"></div><div class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</div></pre></td></tr></table></figure></p>
           <div class="read-more">
             <a href="/2015/12/21/how-can-i-prevent-sql-injection-in-php/" class="read-more-link">阅读更多</a>
           </div>
@@ -897,7 +897,7 @@
      
       2015 - 
     
-    2017
+    2018
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

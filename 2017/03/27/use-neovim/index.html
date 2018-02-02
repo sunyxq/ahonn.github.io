@@ -239,7 +239,7 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移配置文件"><span class="toc-text"><a href="#&#x8FC1;&#x79FB;&#x914D;&#x7F6E;&#x6587;&#x4EF6;" class="headerlink" title="&#x8FC1;&#x79FB;&#x914D;&#x7F6E;&#x6587;&#x4EF6;"></a>&#x8FC1;&#x79FB;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-ale-代替-syntastic"><span class="toc-text"><a href="#&#x4F7F;&#x7528;-ale-&#x4EE3;&#x66FF;-syntastic" class="headerlink" title="&#x4F7F;&#x7528; ale &#x4EE3;&#x66FF; syntastic"></a>&#x4F7F;&#x7528; ale &#x4EE3;&#x66FF; syntastic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把-Leader-改成空格"><span class="toc-text"><a href="#&#x628A;-Leader-&#x6539;&#x6210;&#x7A7A;&#x683C;" class="headerlink" title="&#x628A; Leader &#x6539;&#x6210;&#x7A7A;&#x683C;"></a>&#x628A; Leader &#x6539;&#x6210;&#x7A7A;&#x683C;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Spacegray-主题"><span class="toc-text"><a href="#&#x4F7F;&#x7528;-Spacegray-&#x4E3B;&#x9898;" class="headerlink" title="&#x4F7F;&#x7528; Spacegray &#x4E3B;&#x9898;"></a>&#x4F7F;&#x7528; Spacegray &#x4E3B;&#x9898;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化难用的缩进调整"><span class="toc-text"><a href="#&#x4F18;&#x5316;&#x96BE;&#x7528;&#x7684;&#x7F29;&#x8FDB;&#x8C03;&#x6574;" class="headerlink" title="&#x4F18;&#x5316;&#x96BE;&#x7528;&#x7684;&#x7F29;&#x8FDB;&#x8C03;&#x6574;"></a>&#x4F18;&#x5316;&#x96BE;&#x7528;&#x7684;&#x7F29;&#x8FDB;&#x8C03;&#x6574;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-使用总结"><span class="toc-text"><a href="#Vim-&#x4F7F;&#x7528;&#x603B;&#x7ED3;" class="headerlink" title="Vim &#x4F7F;&#x7528;&#x603B;&#x7ED3;"></a>Vim &#x4F7F;&#x7528;&#x603B;&#x7ED3;</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#迁移配置文件"><span class="toc-text">迁移配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-ale-代替-syntastic"><span class="toc-text">使用 ale 代替 syntastic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把-Leader-改成空格"><span class="toc-text">把 Leader 改成空格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Spacegray-主题"><span class="toc-text">使用 Spacegray 主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化难用的缩进调整"><span class="toc-text">优化难用的缩进调整</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-使用总结"><span class="toc-text">Vim 使用总结</span></a></li></ol>
     </div>
   </div>
 
@@ -250,7 +250,7 @@
 <p>虽然说这两货的差别目前还不是很大，但是 Neovim 实现了嵌入式终端模拟器，Excited! 各种 REPL 插件统统都可以卸载了！</p>
 <a id="more"></a>
 <h2 id="迁移配置文件"><a href="#迁移配置文件" class="headerlink" title="迁移配置文件"></a>迁移配置文件</h2><p>Neovim 配置完全兼容原来的 <code>.vimrc</code>，只需要：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="variable">$&#123;XDG_CONFIG_HOME:=$HOME/.config&#125;</span></span><br><span class="line">ln -s ~/.vim <span class="variable">$XDG_CONFIG_HOME</span>/nvim</span><br><span class="line">ln -s ~/.vimrc <span class="variable">$XDG_CONFIG_HOME</span>/nvim/init.vim</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir -p <span class="variable">$&#123;XDG_CONFIG_HOME:=$HOME/.config&#125;</span></div><div class="line">ln <span class="_">-s</span> ~/.vim <span class="variable">$XDG_CONFIG_HOME</span>/nvim</div><div class="line">ln <span class="_">-s</span> ~/.vimrc <span class="variable">$XDG_CONFIG_HOME</span>/nvim/init.vim</div></pre></td></tr></table></figure>
 <h2 id="使用-ale-代替-syntastic"><a href="#使用-ale-代替-syntastic" class="headerlink" title="使用 ale 代替 syntastic"></a>使用 ale 代替 syntastic</h2><p>老早就觉得 <code>syntastic</code> 同步检查代码好难用，这下换成 <code>ale</code> 舒服多了。有之前使用 atom 时自带的代码检查的感觉。</p>
 <p>(Vim 8 好像也已经提供了异步 API，但是我等到换成 Neovim 才知道..)</p>
 <h2 id="把-Leader-改成空格"><a href="#把-Leader-改成空格" class="headerlink" title="把 Leader 改成空格"></a>把 Leader 改成空格</h2><p>其实是看了 <a href="https://zhuanlan.zhihu.com/p/25905625" target="_blank" rel="noopener">Vim 高效率配置导论</a> 这篇文章之后试着改的，改完发现空格比起原先的 <code>,</code> 好用多了。让大拇指动了起来。</p>
@@ -258,7 +258,7 @@
 <h2 id="使用-Spacegray-主题"><a href="#使用-Spacegray-主题" class="headerlink" title="使用 Spacegray 主题"></a>使用 Spacegray 主题</h2><p>之前使用的 <code>molokai</code> 看久了有点视觉疲劳，发现之前在用 <code>sublime text</code> 时使用的 <code>Spacegray</code> 也有 Vim 版本，果断换之。（折腾高亮主题是永恒的.. ）</p>
 <h2 id="优化难用的缩进调整"><a href="#优化难用的缩进调整" class="headerlink" title="优化难用的缩进调整"></a>优化难用的缩进调整</h2><p>在 Visual 模式下调整缩进很不好用，<code>v&gt;</code> 之后又得重新选中，虽然说可以 <code>v3&gt;</code> 之类的，但是需要去计算多少个缩进，看起来并不是很明显。</p>
 <p>遂，添加了下面这两个 mapping：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vnoremap &lt; &lt;v</span><br><span class="line">vnoremap &gt; &gt;v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vnoremap &lt; &lt;v</div><div class="line">vnoremap &gt; &gt;v</div></pre></td></tr></table></figure>
 <p>这样映射之后我就可以 <code>v&gt;&gt;&gt;</code> 去缩进了，好用到不行！</p>
 <h2 id="Vim-使用总结"><a href="#Vim-使用总结" class="headerlink" title="Vim 使用总结"></a>Vim 使用总结</h2><p>使用 Vim 也差不多一个来月了，越来越发现 Vim 的便利之处，虽然说折腾配置插件花的时间会久一点。但是折腾完之后效率提高还是蛮多的，以至于现在在别的编辑器里下意识的用 Vim 模式，发现没有之后用方向键或者鼠标去移动都觉得超级慢。</p>
 <p>开始理解 Vim 学习路线那张图表的意思了～</p>
@@ -411,7 +411,7 @@
      
       2015 - 
     
-    2017
+    2018
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>
