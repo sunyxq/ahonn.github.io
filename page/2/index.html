@@ -211,6 +211,62 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/05/17/koa2-analysis/">Koa2 源码分析</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-05-17
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2017/05/17/koa2-analysis/"
+             data-title="Koa2 源码分析">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="源码结构"><a href="#源码结构" class="headerlink" title="源码结构"></a>源码结构</h2><p>Koa 的源码中主要为 <code>lib</code> 目录下的 <code>application.js</code>、<code>context.js</code>、<code>request.js</code> 与 <code>response.js</code> 文件</p>
+          <div class="read-more">
+            <a href="/2017/05/17/koa2-analysis/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/03/27/use-neovim/">转投 Neovim</a>
         
       </h1>
@@ -727,68 +783,9 @@
 
         
           <h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><p>在函数中创建 Object 对象，并为对象添加属性。函数返回添加属性之后的对象。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</div><div class="line">  o.name = name</div><div class="line">  o.age = age</div><div class="line">  o.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> o</div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="keyword">var</span> p = createPerson(<span class="string">"ahonn"</span>, <span class="number">21</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  o.name = name</span><br><span class="line">  o.age = age</span><br><span class="line">  o.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> o</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = createPerson(<span class="string">"ahonn"</span>, <span class="number">21</span>)</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2016/11/30/some-ways-of-javascript-create-object/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/11/21/javascript-data-type-judgment/">JavaScript 数据类型判断</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-11-21
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2016/11/21/javascript-data-type-judgment/"
-             data-title="JavaScript 数据类型判断">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最近开始读之前没有读完的 underscore 的源码，刚把 Object 部分读完。对 JavaScript 中类型判断部分的总结。</p>
-<h2 id="Object-prototype-toString"><a href="#Object-prototype-toString" class="headerlink" title="Object.prototype.toString()"></a>Object.prototype.toString()</h2><p>在进行类型判断时，使用到最多的当属 <code>Object.prototype.toString()</code>。</p>
-<p><code>toString()</code> 方法返回一个代表该对象的字符串。每个对象都会继承 Object 上的 <code>toString</code> 方法，如果该方法没有被同名方法覆盖的话。使用 <code>toString()</code> 方法将会返回字符串 <code>&quot;[object type]&quot;</code>。其中 type 根据对象的类型的不同而不同。</p>
-<p>关于 <code>Object.prototype.toString()</code> 的详细描述可以查看：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/toString" target="_blank" rel="noopener">Object.prototype.toString() - JavaScript | MDN</a></p>
-          <div class="read-more">
-            <a href="/2016/11/21/javascript-data-type-judgment/" class="read-more-link">阅读更多</a>
           </div>
         
       

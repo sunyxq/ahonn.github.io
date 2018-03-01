@@ -211,6 +211,63 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2016/03/29/javascript-prototype-chain/">奇怪的原型链</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-03-29
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/03/29/javascript-prototype-chain/"
+             data-title="奇怪的原型链">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在 JavaScript 中一切皆为对象（Object），但是却与 Java，C++ 等语言不同，没有“类”的概念，也没有所谓的“子类”和“父类”。JavaScript 中的对象是基于原型（prototype）来实现面向对象的，靠奇怪的原型链（prototype chain）来实现继承。</p>
+<h2 id="对象与原型"><a href="#对象与原型" class="headerlink" title="对象与原型"></a>对象与原型</h2><p>在 JavaScript 中创建对象使用 <code>new</code> 关键字，而后跟着的是构造函数。在 JavaScript 中没有类的概念，所以对象的构造函数就是单纯只是个函数（function）。</p>
+          <div class="read-more">
+            <a href="/2016/03/29/javascript-prototype-chain/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/03/20/javascript-apply-call-and-bind/">apply, call 与 bind 的区别</a>
         
       </h1>
@@ -544,7 +601,7 @@
           <blockquote>
 <p>翻译自 Stack Overflow: <a href="http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php" target="_blank" rel="noopener">How can I prevent SQL-injection in PHP?</a> 中的高票答案</p>
 </blockquote>
-<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </div><div class="line"></div><div class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</div></pre></td></tr></table></figure></p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>]; </span><br><span class="line"></span><br><span class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</span><br></pre></td></tr></table></figure></p>
           <div class="read-more">
             <a href="/2015/12/21/how-can-i-prevent-sql-injection-in-php/" class="read-more-link">阅读更多</a>
           </div>
@@ -733,68 +790,6 @@
 <p><code>controllers</code>表示调用的控制器的类，<code>method</code>表示调用的类中的函数或方法，<code>argument</code>以及后面的表示传给控制器的参数。</p>
           <div class="read-more">
             <a href="/2015/12/13/codeigniter-simple-example-with-mvc/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2015/12/11/an-overview-of-the-codeigniter/">CodeIgniter 框架概述</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-12-11
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2015/12/11/an-overview-of-the-codeigniter/"
-             data-title="CodeIgniter 框架概述">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <blockquote>
-<p>虽然已经学习 CodeIgniter 框架有一段时间了，但是想想还是从头开始学习一下这个轻框架，随便将学习的过程记录下来。</p>
-</blockquote>
-<h2 id="CodeIgniter-是什么？"><a href="#CodeIgniter-是什么？" class="headerlink" title="CodeIgniter 是什么？"></a>CodeIgniter 是什么？</h2><p>想知道 CodeIgniter 是个什么东西，首先得明白什么是框架。</p>
-<p>框架可以看成是一个半完成的应用程序，大多数需要用到的功能都被封装好，并将整个应用程序分成若干互不相干的层次，减少了各个功能间的耦合性，使代码更容易管理跟维护。在设计模式中，为框架给出了一个定义：“框架就是一组协同工作的类，它们为特定类型的软件构筑了一个可重用的设计。”</p>
-<p>在 CodeIgniter 的官方文档上说，该框架包含了一些非常小的库，库都是根据请求动态加载的，所以 CodeIgniter 是一个非常轻量级的框架，相对于不使用框架的 PHP 应用程序，而使用了 CodeIgniter 框架的是简单的实现了 MVC 架构，并降低了代码间的耦合性，更便于维护与修改。</p>
-<p>对于正准备接触框架的PHPer，CodeIgniter 是一个不错的选择。</p>
-          <div class="read-more">
-            <a href="/2015/12/11/an-overview-of-the-codeigniter/" class="read-more-link">阅读更多</a>
           </div>
         
       

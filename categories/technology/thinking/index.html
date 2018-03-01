@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="React 路由跳转后回到页面顶部"/>
+  <meta name="description" content="记录成长，分享生活与技术的点滴"/>
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-<link rel="canonical" href="http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/"/>
+<link rel="canonical" href="http://www.ahonn.me/categories/technology/thinking/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -111,7 +111,11 @@
 
 
 
-    <title> React 路由跳转后回到页面顶部 - Ahonn </title>
+    <title>
+  
+    思考总结 · Ahonn
+  
+</title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -205,130 +209,43 @@
           <div id="content" class="content">
             
   
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          React 路由跳转后回到页面顶部
-        
-      </h1>
+  <section id="archive" class="archive">
+    
+      
+        <div class="archive-title category">
+          <h2 class="archive-name">思考总结</h2>
+        </div>
+      
+    
 
-      <div class="post-meta">
-        <span class="post-time">
-          2016-10-11
+    
+      
+
+      <div class="archive-post">
+        <span class="archive-post-time">
+          
+            2018-03-01
+          
         </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/technology/">技术文章</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/"
-             data-title="React 路由跳转后回到页面顶部">
-            阅读次数
-          </div>
-        
+        <span class="archive-post-title">
+          <a href="/2018/03/01/weird-instanceof/" class="archive-post-link">
+            怪异的 instanceof
+          </a>
+        </span>
       </div>
-    </header>
-
     
-    
+  </section>
 
-    <div class="post-content">
-      
-        <p>在 React 组件间进行页面跳转后，发现页面的位置并不在页面顶部，而是在页面跳转前的位置。就是说浏览器的滚动条并没有回到顶部的位置。</p>
-<p>经过搜索之后找到了解决方案：<a href="http://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js" target="_blank" rel="noopener">Scroll to the top of the page after render in react.js</a></p>
-<p>可以使用下面这种解决，但是这种方式不是一种很好的解决方法。而且 <code>scrollIntoView()</code> 方法并不回到页面的顶部，应该使用 <code>scrollTop = 0</code> 的方式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ReactDom.findDOMNode(<span class="keyword">this</span>).scrollIntoView(); &#125;</span><br></pre></td></tr></table></figure>
-<p>所以得到的解决方案是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate() &#123;</span><br><span class="line">  ReactDOM.findDOMNode(<span class="keyword">this</span>).scrollTop = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>但是我使用这个之后，ESlint 报了个错：<code>no-find-dom-node</code>。<br>查看 <code>eslint-plugin-react</code> 的<a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md" target="_blank" rel="noopener">文档</a>可以看到 Facebook 不推荐使用 <code>findDOMNode</code>，推荐使用 <code>refs</code> 获取 DOM 节点。</p>
-<p>所以推荐的使用方法是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.node.scrollIntoView();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div ref=&#123;node =&gt; this.node = node&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
+  
+  <nav class="pagination">
     
-      
-      
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="http://www.ahonn.me">Ahonn</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/">http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
-
-
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/React/">React</a>
-            
-              <a href="/tags/前端/">前端</a>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2016/11/14/wechat-app-summary/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">「微信小程序」入坑总结</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
-    
-    
-      <a class="next" href="/2016/10/02/react-lifecycle-methods/">
-        <span class="next-text nav-default">React 生命周期函数小结</span>
-        <span class="prev-text nav-mobile">下一篇</span>
-        <i class="iconfont icon-right"></i>
-      </a>
     
   </nav>
 
-      </footer>
-    
-
-  </article>
 
 
           </div>
           
-  <div class="comments" id="comments">
-    
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
-  </div>
-
 
         </div>
       </main>
@@ -418,9 +335,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/';
-        this.page.identifier = '2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/';
-        this.page.title = 'React 路由跳转后回到页面顶部';
+        this.page.url = '';
+        this.page.identifier = 'categories/technology/thinking/index.html';
+        this.page.title = '';
     };
     (function() {
     var d = document, s = d.createElement('script');

@@ -251,7 +251,7 @@
 <p><img src="http://ouv0frko5.bkt.clouddn.com/44hp9.jpg" alt="BOM"></p>
 <p>多出来的一个小红点，鼠标移上去显示 <code>&quot;\ufeff&quot;</code>。找到罪魁祸首了，搜索 <code>&quot;\ufeff&quot;</code> 发现有篇关于 JavaScript 中处理 BOM 的文章：<a href="https://imququ.com/post/bom-and-javascript-trim.html" target="_blank" rel="noopener">BOM 和 JavaScript 中的 trim</a>。</p>
 <p>最后得到解决方案，在编译后的样式中进行替换，移除 <code>\ufeff</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">css = css.replace(<span class="string">"\ufeff"</span>, <span class="string">""</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css = css.replace(<span class="string">"\ufeff"</span>, <span class="string">""</span>);</span><br></pre></td></tr></table></figure>
 <p>虽然解决方案蛮简单的，但是在搜索答案与编码测试的过程中学到了蛮多。编码问题还是要注意的，虽然无法避免遇到 utf-8 with BOM，但是也应该尽量只保存为 utf-8 without BOM 编码格式。如果遇到奇怪的字符，那八成就是编码问题了。</p>
 
       

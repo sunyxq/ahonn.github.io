@@ -211,6 +211,68 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/03/01/weird-instanceof/">怪异的 instanceof</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-01
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+              <a href="/categories/technology/thinking/">思考总结</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2018/03/01/weird-instanceof/"
+             data-title="怪异的 instanceof">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>代码来自 <a href="https://wtfjs.com/wtfs/2016-03-19-weird-instanceof" target="_blank" rel="noopener">wtfjs - a little code blog about that language we love despite giving us so much to hate</a></p>
+</blockquote>
+<p>当我们把构造函数的原型设置为 null 时，instanceof 操作符出现了怪异的表现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">Test.prototype = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Test();</span><br><span class="line">a <span class="keyword">instanceof</span> Test; <span class="comment">//Uncaught TypeError: Function has non-object prototype 'null' in instanceof check(…)</span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true WTF?</span></span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/03/01/weird-instanceof/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2017/12/29/my-2017/">我的 2017</a>
         
       </h1>
@@ -721,62 +783,6 @@
 <p>这是本系列的第一篇文章，该文章将阅读 React 初始化渲染相关的代码，并实现一个简单的将 JSX 渲染到页面的功能。（不包括组件生命周期与事件处理相关部分）</p>
           <div class="read-more">
             <a href="/2017/06/08/write-a-react-from-scratch-init-render/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/05/17/koa2-analysis/">Koa2 源码分析</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-05-17
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/thinking/">思考总结</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2017/05/17/koa2-analysis/"
-             data-title="Koa2 源码分析">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="源码结构"><a href="#源码结构" class="headerlink" title="源码结构"></a>源码结构</h2><p>Koa 的源码中主要为 <code>lib</code> 目录下的 <code>application.js</code>、<code>context.js</code>、<code>request.js</code> 与 <code>response.js</code> 文件</p>
-          <div class="read-more">
-            <a href="/2017/05/17/koa2-analysis/" class="read-more-link">阅读更多</a>
           </div>
         
       

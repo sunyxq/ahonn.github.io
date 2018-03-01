@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="React 路由跳转后回到页面顶部"/>
+  <meta name="description" content="怪异的 instanceof"/>
 
 
 
@@ -46,7 +46,7 @@
 
 
 
-<link rel="canonical" href="http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/"/>
+<link rel="canonical" href="http://www.ahonn.me/2018/03/01/weird-instanceof/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -111,7 +111,7 @@
 
 
 
-    <title> React 路由跳转后回到页面顶部 - Ahonn </title>
+    <title> 怪异的 instanceof - Ahonn </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -209,25 +209,27 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          React 路由跳转后回到页面顶部
+          怪异的 instanceof
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2016-10-11
+          2018-03-01
         </span>
         
           <div class="post-category">
             
               <a href="/categories/technology/">技术文章</a>
             
+              <a href="/categories/technology/thinking/">思考总结</a>
+            
           </div>
         
         
         <div class="post-visits"
-             data-url="/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/"
-             data-title="React 路由跳转后回到页面顶部">
+             data-url="/2018/03/01/weird-instanceof/"
+             data-title="怪异的 instanceof">
             阅读次数
           </div>
         
@@ -239,16 +241,37 @@
 
     <div class="post-content">
       
-        <p>在 React 组件间进行页面跳转后，发现页面的位置并不在页面顶部，而是在页面跳转前的位置。就是说浏览器的滚动条并没有回到顶部的位置。</p>
-<p>经过搜索之后找到了解决方案：<a href="http://stackoverflow.com/questions/33188994/scroll-to-the-top-of-the-page-after-render-in-react-js" target="_blank" rel="noopener">Scroll to the top of the page after render in react.js</a></p>
-<p>可以使用下面这种解决，但是这种方式不是一种很好的解决方法。而且 <code>scrollIntoView()</code> 方法并不回到页面的顶部，应该使用 <code>scrollTop = 0</code> 的方式。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate = <span class="function"><span class="params">()</span> =&gt;</span> &#123; ReactDom.findDOMNode(<span class="keyword">this</span>).scrollIntoView(); &#125;</span><br></pre></td></tr></table></figure>
-<p>所以得到的解决方案是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">componentDidUpdate() &#123;</span><br><span class="line">  ReactDOM.findDOMNode(<span class="keyword">this</span>).scrollTop = <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>代码来自 <a href="https://wtfjs.com/wtfs/2016-03-19-weird-instanceof" target="_blank" rel="noopener">wtfjs - a little code blog about that language we love despite giving us so much to hate</a></p>
+</blockquote>
+<p>当我们把构造函数的原型设置为 null 时，instanceof 操作符出现了怪异的表现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Test</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">Test.prototype = <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Test();</span><br><span class="line">a <span class="keyword">instanceof</span> Test; <span class="comment">//Uncaught TypeError: Function has non-object prototype 'null' in instanceof check(…)</span></span><br><span class="line">a <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true WTF?</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>但是我使用这个之后，ESlint 报了个错：<code>no-find-dom-node</code>。<br>查看 <code>eslint-plugin-react</code> 的<a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md" target="_blank" rel="noopener">文档</a>可以看到 Facebook 不推荐使用 <code>findDOMNode</code>，推荐使用 <code>refs</code> 获取 DOM 节点。</p>
-<p>所以推荐的使用方法是：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentDidMount() &#123;</span><br><span class="line">    <span class="keyword">this</span>.node.scrollIntoView();</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> &lt;div ref=&#123;node =&gt; this.node = node&#125; /&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>调用 <code>o instanceof C</code>  时实际上是调用了 <code>C[@@hasInstance](o)</code>。<br>在浏览器中 instanceof 操作符等同于 <code>Function.prototype[Symbol.hasInstance]</code> 函数  ，即 <code>a instanceof Test</code>  等同于 <code>Test[Symbol.hasInstance](a)</code>。</p>
+<p><img src="http://ouv0frko5.bkt.clouddn.com/blog/t6pjw.png" alt="Function.prototype[Symbol.hasInstance]"></p>
+<p>而 <code>Function.prototype[Symbol.hasInstance]</code> 内部实际上是调用了一个叫做 <code>OrdinaryHasInstance(C, O)</code> 的内部方法。该方法简单来说有下面这几个步骤：</p>
+<ul>
+<li>判断 C 是否可调用，若不可调用则返回 false</li>
+<li>判断 O 是否为对象，若不是对象则返回false</li>
+<li>获取构造函数 C 的原型 P<ul>
+<li>判断 P 是否为对象，若不是对象抛出 TypeError 异常</li>
+</ul>
+</li>
+<li>重复执行以下步骤<ul>
+<li>令 O 为 Object.getPrototypeOf(O)</li>
+<li>判断 O 是否为 null（是否到达原型链终点），若是则返回 false</li>
+<li>判断 O 是否与  P 相同，若相同则返回 true</li>
+</ul>
+</li>
+</ul>
+<p>所以这就解释了为什么当 Test 的原型被设置为 null 时，抛出了 TypeError 异常。需要注意的是 <code>OrdinaryHasInstance(C, O)</code> 内部方法判断类型使用的不是 <code>typeof</code> 而是内部方法 <a href="https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-data-types-and-values" target="_blank" rel="noopener"> <code>Type</code></a>。并且因为 <code>Object.getPrototypeOf(a) === Object.prototype</code>， 所以 <code>a instanceof Object</code> 返回的是 true。</p>
+<p><strong>参考文档</strong></p>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof</a></li>
+<li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-relational-operators" target="_blank" rel="noopener">https://www.ecma-international.org/ecma-262/6.0/#sec-relational-operators</a></li>
+<li><a href="https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-data-types-and-values" target="_blank" rel="noopener">https://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-data-types-and-values</a></li>
+</ul>
+
       
     </div>
 
@@ -263,7 +286,7 @@
     </p>
     <p class="copyright-item">
       <span>原文链接: </span>
-      <a href="http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/">http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/</a>
+      <a href="http://www.ahonn.me/2018/03/01/weird-instanceof/">http://www.ahonn.me/2018/03/01/weird-instanceof/</a>
     </p>
     <p class="copyright-item">
       <span>许可协议: </span>
@@ -283,10 +306,6 @@
         
           <div class="post-tags">
             
-              <a href="/tags/React/">React</a>
-            
-              <a href="/tags/前端/">前端</a>
-            
               <a href="/tags/JavaScript/">JavaScript</a>
             
           </div>
@@ -295,15 +314,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2016/11/14/wechat-app-summary/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">「微信小程序」入坑总结</span>
-        <span class="prev-text nav-mobile">上一篇</span>
-      </a>
     
-    
-      <a class="next" href="/2016/10/02/react-lifecycle-methods/">
-        <span class="next-text nav-default">React 生命周期函数小结</span>
+      <a class="next" href="/2017/12/29/my-2017/">
+        <span class="next-text nav-default">我的 2017</span>
         <span class="prev-text nav-mobile">下一篇</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -418,9 +431,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://www.ahonn.me/2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/';
-        this.page.identifier = '2016/10/11/after-the-react-routing-scroll-to-the-top-of-the-page/';
-        this.page.title = 'React 路由跳转后回到页面顶部';
+        this.page.url = 'http://www.ahonn.me/2018/03/01/weird-instanceof/';
+        this.page.identifier = '2018/03/01/weird-instanceof/';
+        this.page.title = '怪异的 instanceof';
     };
     (function() {
     var d = document, s = d.createElement('script');
