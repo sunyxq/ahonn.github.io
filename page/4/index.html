@@ -211,65 +211,6 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2016/06/29/vertical-center-for-css/">CSS 实现垂直居中</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016-06-29
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/thinking/">思考总结</a>
-            
-          </div>
-        
-        
-        <div class="post-visits"
-             data-url="/2016/06/29/vertical-center-for-css/"
-             data-title="CSS 实现垂直居中">
-            阅读次数
-          </div>
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>我们有这样一个结构的 HTML：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"children"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>如果我们要实现 <code>.children</code> 在 <code>.parent</code> 中垂直居中。</p>
-<p>通常第一印象会想起给父元素设置相对定位，给子元素设置绝对定位。这样子元素就相对于父元素定位，再通过 <code>top</code> 与 <code>left</code> 各偏移 50% 父元素宽度，使用 <code>margin-*</code> 来修正子元素的位置。<br>
-          <div class="read-more">
-            <a href="/2016/06/29/vertical-center-for-css/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
           <a class="post-link" href="/2016/06/07/sass-preliminary-study/">Sass 初探</a>
         
       </h1>
@@ -781,6 +722,63 @@
 <p>虽然主题还有很多问题存在，但我会慢慢去完善它。期待越来越多的用户~</p>
           <div class="read-more">
             <a href="/2016/04/01/begin/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/03/29/javascript-prototype-chain/">奇怪的原型链</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-03-29
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </div>
+        
+        
+        <div class="post-visits"
+             data-url="/2016/03/29/javascript-prototype-chain/"
+             data-title="奇怪的原型链">
+            阅读次数
+          </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在 JavaScript 中一切皆为对象（Object），但是却与 Java，C++ 等语言不同，没有“类”的概念，也没有所谓的“子类”和“父类”。JavaScript 中的对象是基于原型（prototype）来实现面向对象的，靠奇怪的原型链（prototype chain）来实现继承。</p>
+<h2 id="对象与原型"><a href="#对象与原型" class="headerlink" title="对象与原型"></a>对象与原型</h2><p>在 JavaScript 中创建对象使用 <code>new</code> 关键字，而后跟着的是构造函数。在 JavaScript 中没有类的概念，所以对象的构造函数就是单纯只是个函数（function）。</p>
+          <div class="read-more">
+            <a href="/2016/03/29/javascript-prototype-chain/" class="read-more-link">阅读更多</a>
           </div>
         
       
