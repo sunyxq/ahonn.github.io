@@ -139,7 +139,7 @@
   };
 
   Even.prototype.recordReadings = function () {
-    if (typeof AV !== 'object' || this.hasPjax) return;
+    if (typeof AV !== 'object') return;
 
     var $visits = $('.post-visits');
     var Counter = AV.Object.extend('Counter');
