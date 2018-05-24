@@ -380,6 +380,8 @@ body {
   background: #fefefe;
   scroll-behavior: smooth;
   border-top: 3px solid #c05b4d; }
+  body.hide-top {
+    border-top: 3px solid transparent; }
 
 @media screen and (max-width: 800px) {
   body {
@@ -1398,3 +1400,14 @@ h6 {
 @media screen and (max-width: 800px) {
   .back-to-top {
     display: none !important; } }
+
+#nprogress .bar {
+  background: #c05b4d;
+  height: 3px; }
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #c05b4d, 0 0 5px #c05b4d; }
+
+#nprogress .spinner-icon {
+  border-top-color: #c05b4d;
+  border-left-color: #c05b4d; }
