@@ -139,7 +139,7 @@
   };
 
   Even.prototype.recordReadings = function () {
-    if (typeof AV !== 'object') return;
+    if (typeof AV !== 'object' || this.hasPjax) return;
 
     var $visits = $('.post-visits');
     var Counter = AV.Object.extend('Counter');
@@ -150,8 +150,8 @@
     }
 
     function updateVisits(dom, time) {
-      var text = dom.text() + ' ' + time;
-      dom.text(text).css('visibility', 'visible');
+      var readText = dom.text().replace(/(\d+)/i, time)
+      dom.text(readText);
     }
 
     function addCounter(Counter) {
