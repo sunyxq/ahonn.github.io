@@ -26,11 +26,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
 
-
-
-  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
 
 
 
@@ -42,49 +38,23 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.9.0" />
-
 
 
 <link rel="canonical" href="http://www.ahonn.me/2017/07/04/redux-source-code-insight/"/>
 
 
 
-  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
 
 
 
 
-  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
 
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.9.0" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=" />
 
 
 
   
-  <script id="baidu_analytics">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74273646-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-74273646-1');
-</script>
 
 
   <script id="baidu_push">
@@ -106,19 +76,11 @@
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
-  <script id="leancloud">
-    AV.init({
-      appId: "yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz",
-      appKey: "7r9WpoHmf3Q2YwE8IKjEfY7w"
-    });
-  </script>
-
 
 
 
 <script>
-  window.config = {"title":"Ahonn's Blog","subtitle":null,"description":"记录成长，分享生活与技术的点滴","author":"Ahonn","language":"zh-cn","timezone":null,"url":"http://www.ahonn.me","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":{"技术文章":"technology","思考总结":"thinking","折腾工具":"tool","生活小记":"life","读书笔记":"reading"},"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"even","deploy":[{"type":"git","repo":"git@github.com:ahonn/ahonn.github.io.git","branch":"master"},{"type":"git","repo":"git@git.coding.net:yuexun/yuexun.git","branch":"master"}],"ignore":[],"keywords":"Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程","since":2015,"archive_generator":{"per_page":0,"yearly":false,"monthly":false,"daily":false},"tag_generator":{"per_page":0},"category_generator":{"per_page":0},"search":{"path":"search.xml","field":"post"},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"index_generator":{"per_page":10,"order_by":"-date"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true},"favicon":"/images/favicon.ico","rss":"default","menu":{"Home":"/","Archives":"/archives/","Github":"https://github.com/ahonn","About":"/about"},"color":"Default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"ahonn95@outlook.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/ahonn","weibo":null,"zhihu":"https://www.zhihu.com/people/ahonn/activities","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":"yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz","app_key":"7r9WpoHmf3Q2YwE8IKjEfY7w"},"baidu_analytics":"0a275bcf7d954b807e1db498d8e5b192","baidu_verification":"0a275bcf7d954b807e1db498d8e5b192","google_analytics":"UA-74273646-1","google_verification":"j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE","disqus_shortname":"ahonn","changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.9.0"};
+  window.config = {"title":"Ahonn's Blog","subtitle":null,"description":"记录成长，分享生活与技术的点滴","author":"Ahonn","language":"zh-cn","timezone":null,"url":"http://www.ahonn.me","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":{"技术文章":"technology","思考总结":"thinking","折腾工具":"tool","生活小记":"life","读书笔记":"reading"},"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":0,"pagination_dir":"page","theme":"even","deploy":[{"type":"git","repo":"git@github.com:ahonn/ahonn.github.io.git","branch":"master"},{"type":"git","repo":"git@git.coding.net:yuexun/yuexun.git","branch":"master"}],"ignore":[],"keywords":"Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程","since":2015,"archive_generator":{"per_page":0,"yearly":false,"monthly":false,"daily":false},"tag_generator":{"per_page":0},"category_generator":{"per_page":0},"search":{"path":"search.xml","field":"post"},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"index_generator":{"per_page":0,"order_by":"-date"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true}};
 </script>
 
     <title> Redux 源码解析 - Ahonn's Blog </title>
@@ -138,42 +100,6 @@
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
     
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            首页
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            归档
-          
-        </li>
-      </a>
-    
-      <a href="https://github.com/ahonn">
-        <li class="mobile-menu-item">
-          
-          
-            Github
-          
-        </li>
-      </a>
-    
-      <a href="/about">
-        <li class="mobile-menu-item">
-          
-          
-            关于
-          
-        </li>
-      </a>
-    
   </ul>
 </nav>
 
@@ -183,46 +109,6 @@
 </div>
 
 <nav class="site-navbar">
-  
-    <ul id="menu" class="menu">
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
-            
-            
-              首页
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            
-            
-              归档
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="https://github.com/ahonn">
-            
-            
-              Github
-            
-          </a>
-        </li>
-      
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about">
-            
-            
-              关于
-            
-          </a>
-        </li>
-      
-    </ul>
   
 </nav>
 
@@ -246,31 +132,18 @@
           2017-07-04
         </span>
         
-          <div class="post-category">
+          <span class="post-category">
             
               <a href="/categories/thinking/">思考总结</a>
             
-          </div>
+          </span>
         
-        
-        <div class="post-visits"
-             data-url="/2017/07/04/redux-source-code-insight/"
-             data-title="Redux 源码解析">
-            阅读次数 0
-          </div>
         
       </div>
     </header>
 
     
     
-  <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">文章目录</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#三大原则"><span class="toc-text">三大原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单向数据流"><span class="toc-text">单向数据流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码解析"><span class="toc-text">源码解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#createStore"><span class="toc-text">createStore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#combineReducers"><span class="toc-text">combineReducers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#applyMiddleware"><span class="toc-text">applyMiddleware</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bindActionCreators"><span class="toc-text">bindActionCreators</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思考总结"><span class="toc-text">思考总结</span></a></li></ol></li></ol>
-    </div>
-  </div>
-
 
 
     <div class="post-content">
@@ -303,7 +176,7 @@
 <p><code>subscribe</code> 方法的具体实现:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">listener</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> listener !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected listener to be a function.'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> isSubscribed = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  ensureCanMutateNextListeners()</span><br><span class="line">  nextListeners.push(listener)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">unsubscribe</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!isSubscribed) &#123;</span><br><span class="line">      <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    isSubscribed = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    ensureCanMutateNextListeners()</span><br><span class="line">    <span class="keyword">const</span> index = nextListeners.indexOf(listener)</span><br><span class="line">    nextListeners.splice(index, <span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>实际上 <code>subscribe</code> 仅是在 <code>nextListeners</code> 中添加想要执行的监听函数，并返回了用于删除该函数的 <code>unsubscribe</code> 方法</p>
 <h3 id="combineReducers"><a href="#combineReducers" class="headerlink" title="combineReducers"></a>combineReducers</h3><p><code>combineReducers</code> 用于合并不同的 reducer 函数，返回唯一的一个 reducer 函数供 <code>createStore</code> 使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">combineReducers</span>(<span class="params">reducers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> reducerKeys = <span class="built_in">Object</span>.keys(reducers)</span><br><span class="line">  <span class="keyword">const</span> finalReducers = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; reducerKeys.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = reducerKeys[i]</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> reducers[key] === <span class="string">'function'</span>) &#123;</span><br><span class="line">      finalReducers[key] = reducers[key]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> finalReducerKeys = <span class="built_in">Object</span>.keys(finalReducers)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">combination</span>(<span class="params">state = &#123;&#125;, action</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> hasChanged = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">const</span> nextState = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; finalReducerKeys.length; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> key = finalReducerKeys[i]</span><br><span class="line">      <span class="keyword">const</span> reducer = finalReducers[key]</span><br><span class="line">      <span class="keyword">const</span> previousStateForKey = state[key]</span><br><span class="line">      <span class="keyword">const</span> nextStateForKey = reducer(previousStateForKey, action)</span><br><span class="line">	  <span class="comment">// ...</span></span><br><span class="line">      nextState[key] = nextStateForKey</span><br><span class="line">      hasChanged = hasChanged || nextStateForKey !== previousStateForKey</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> hasChanged ? nextState : state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">combineReducers</span>(<span class="params">reducers</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> reducerKeys = <span class="built_in">Object</span>.keys(reducers)</span><br><span class="line">  <span class="keyword">const</span> finalReducers = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; reducerKeys.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = reducerKeys[i]</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> reducers[key] === <span class="string">'function'</span>) &#123;</span><br><span class="line">      finalReducers[key] = reducers[key]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> finalReducerKeys = <span class="built_in">Object</span>.keys(finalReducers)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">combination</span>(<span class="params">state = &#123;&#125;, action</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> hasChanged = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">const</span> nextState = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; finalReducerKeys.length; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> key = finalReducerKeys[i]</span><br><span class="line">      <span class="keyword">const</span> reducer = finalReducers[key]</span><br><span class="line">      <span class="keyword">const</span> previousStateForKey = state[key]</span><br><span class="line">      <span class="keyword">const</span> nextStateForKey = reducer(previousStateForKey, action)</span><br><span class="line">	  <span class="comment">// ...</span></span><br><span class="line">      nextState[key] = nextStateForKey</span><br><span class="line">      hasChanged = hasChanged || nextStateForKey !== previousStateForKey</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> hasChanged ? nextState : state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>首先处理传入的 reducer 对象（包含不同的 reducer 函数），得到键值为 function 类型的对象 <code>finalReducers</code> 与一个包含其键的数组 <code>finalReducerKeys</code>。</p>
 <p><code>combineReducers</code> 返回一个 <code>reducers</code> 函数用于处理 action，循环所有的 reducers 传入 action 进行处理，当 state 不变时，返回原来的 state</p>
 <h3 id="applyMiddleware"><a href="#applyMiddleware" class="headerlink" title="applyMiddleware"></a>applyMiddleware</h3><p><code>applyMiddleware</code> 的作用是添加中间件并执行中间件，主要是通过 <code>compose</code> 函数将所有的中间件串起来</p>
@@ -331,22 +204,6 @@
     
       
       
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>原文作者: </span>
-      <a href="http://www.ahonn.me">Ahonn</a>
-    </p>
-    <p class="copyright-item">
-      <span>原文链接: </span>
-      <a href="http://www.ahonn.me/2017/07/04/redux-source-code-insight/">http://www.ahonn.me/2017/07/04/redux-source-code-insight/</a>
-    </p>
-    <p class="copyright-item">
-      <span>许可协议: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
 
 
 
@@ -384,6 +241,7 @@
     
   </nav>
 
+
       </footer>
     
 
@@ -394,13 +252,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    
   </div>
 
 
@@ -409,51 +260,6 @@
 
       <footer id="footer" class="footer">
 
-  <div class="social-links">
-    
-      
-        
-          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-        
-          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-    
-      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    
-  </div>
 
 
 <div class="copyright">
@@ -490,22 +296,6 @@
 
     
   
-  <script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'http://www.ahonn.me/2017/07/04/redux-source-code-insight/';
-        this.page.identifier = '2017/07/04/redux-source-code-insight/';
-        this.page.title = 'Redux 源码解析';
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-
-    s.src = '//ahonn.disqus.com/embed.js';
-
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();  
-  </script>
-
   
 
   
@@ -513,12 +303,7 @@
 
 
     
-  
 
-
-
-  
-  
 
 
 
@@ -533,19 +318,13 @@
   
 
   
-    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
   
 
   
-    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
-  
-
-  
-    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
-  
 
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.9.0"></script>
+    <script type="text/javascript" src="/js/src/even.js?v="></script>
 
   </body>
 </html>
