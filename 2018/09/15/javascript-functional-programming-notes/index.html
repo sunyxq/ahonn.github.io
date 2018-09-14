@@ -263,6 +263,7 @@
 <h2 id="函数是一等公民"><a href="#函数是一等公民" class="headerlink" title="函数是一等公民"></a>函数是一等公民</h2><p>当我们说函数是“一等公民”的时候，我们实际上说的是它们跟其他对象都一样，你可以像对待其他数据结构一样对待它们。</p>
 <h2 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h2><p>相同的输入产生相同的输出，并且没有副作用，即为纯函数。例如 <code>Array.prototype.slice</code> 是纯函数，而 <code>Array.prototype.splice</code> 不是纯函数。</p>
 <p>只要函数跟外界环境发生交互，就是有副作用。但并不是说要禁止副作用，函数式的编程哲学是假定副作用是造成不正当行为的主要原因。</p>
+<a id="more"></a>
 <p>纯函数的好处：</p>
 <ul>
 <li>可缓存性 Cacheable</li>
@@ -270,7 +271,6 @@
 <li>可测试性 Testable</li>
 <li>合理性 Reasonable (引用透明)</li>
 </ul>
-<a id="more"></a>
 <h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>只传递一个参数来调用它，然后返回另一个函数处理剩下的参数，称为柯离化，也叫做局部调用。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'lodash/fp'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> add = _.curry(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> add2 = add(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">add2(<span class="number">3</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
 <h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>通过组合两个或多个函数返回一个新的函数，例如:</p>
