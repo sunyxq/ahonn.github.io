@@ -6,7 +6,6 @@ tags:
   - 函数式编程
 categories:
   - 技术文章
-  - 读书笔记
 ---
 
 > 本文为 [JS 函数式编程指南](https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/cotent/)  笔记
