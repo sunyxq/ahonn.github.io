@@ -33,7 +33,7 @@ categories:
 ### 对比 jQuery 开发的优势
 - 无需直接操作 DOM，事件通过改变 state 间接操作 DOM。
 
-![React-vs-jQuery.png](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/lw0qj.jpg)
+![React-vs-jQuery.png](https://ahonn-me.oss-cn-beijing.aliyuncs.com/images/lw0qj.jpg)
 
 
 ## 页面性能优化

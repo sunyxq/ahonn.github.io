@@ -64,7 +64,7 @@ theme: theme-example
 
 运行 `hexo server --debug` 以 debug 模式开启 Hexo 本地服务器预览，访问 [http://localhost:4000/](http://localhost:4000/)。
 
-![Hello World](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/6up8p.jpg)
+![Hello World](https://ahonn-me.oss-cn-beijing.aliyuncs.com/images/6up8p.jpg)
 
 ## 添加页面导航
 
@@ -118,7 +118,7 @@ theme: theme-example
 
 接着我们清空 `index.ejs` 中的内容，并添加 `<h2>Hello World</h2>`。在 `layout` 目录下的 `index.ejs` 会自动继承 `layout.ejs`，并将其中的内容填入 `<%- body %>` 的位置。我们将得到一个有导航菜单的 Hello World 页面。
 
-![Index](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/v7x9h.jpg)
+![Index](https://ahonn-me.oss-cn-beijing.aliyuncs.com/images/v7x9h.jpg)
 
 ## 添加主题配置文件
 
@@ -313,7 +313,7 @@ body {
 
 至此，我们会看到站点的首页是这个样子的：
 
-![Home Page](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/z38nr.jpg)
+![Home Page](https://ahonn-me.oss-cn-beijing.aliyuncs.com/images/z38nr.jpg)
 
 **注意，这里会报错。原因是生成文章页时没有找到对应的模版，所以使用了首页的模版，但文章页并没有 `page.posts` 这个属性（undefined 没有 each 方法）。新建 post.ejs 即可解决，或直接跳过直到完成文章页模版。**
 
