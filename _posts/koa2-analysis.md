@@ -1,7 +1,7 @@
 ---
 title: Koa2 源码分析
 date: 2017-05-17
-tags: 
+tags:
   - Koa
   - Node.js
 categories:
@@ -62,7 +62,7 @@ Application 类包含了以下属性：
 * **env**: 环境参数，默认为 NODE\_ENV 或 'development'
 * **context**: context 模块，通过 `context.js` 创建
 * **request**: request 模块，通过 `request.js` 创建
-* **response**: response 模块，通过 `response.js` 创建 
+* **response**: response 模块，通过 `response.js` 创建
 
 ## Application\#listen
 

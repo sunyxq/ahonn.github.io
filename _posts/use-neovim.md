@@ -1,7 +1,7 @@
 ---
 title: 转投 Neovim
 date: 2017-03-27 11:10:06
-tags: 
+tags:
   - Vim
 categories:
   - 折腾工具

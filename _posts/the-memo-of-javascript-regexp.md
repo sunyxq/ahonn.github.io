@@ -1,11 +1,11 @@
 ---
 title:  正则表达式备忘录
 date: 2016-09-13 00:39:22
-tags: 
+tags:
   - JavaScript
   - 前端
   - RegExp
-categories: 
+categories:
   - 技术文章
 ---
 

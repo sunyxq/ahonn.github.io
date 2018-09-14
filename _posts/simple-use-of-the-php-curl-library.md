@@ -3,7 +3,7 @@ title: PHP cURL 库的简单使用
 date: 2015-12-19 23:50:12
 tags:
   - PHP
-categories: 
+categories:
   - 技术文章
 ---
 
@@ -36,7 +36,7 @@ $ch  = curl_init($url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 // 执行该会话，并保存到 $content
 $content = curl_exec($ch);
-// 关闭该会话                   
+// 关闭该会话
 curl_close($ch);
 // 输出抓取的网页
 echo $content;
@@ -48,8 +48,8 @@ echo $content;
 ``` php
 // 开启 post
 curl_setopt($ch, CURLOPT_POST, 1);
-// 设置 post 的数据  
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);  
+// 设置 post 的数据
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 ```
 
 其中的 `$data` 即是需要 post 的数据。

@@ -1,10 +1,10 @@
 ---
 title: 不合常理的变量提升
 date: 2016-04-28 21:56:42
-tags: 
+tags:
   - JavaScript
   - 前端
-categories: 
+categories:
   - 技术文章
 ---
 

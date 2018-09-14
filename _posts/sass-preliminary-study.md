@@ -1,10 +1,10 @@
 ---
 title: Sass 初探
 date: 2016-06-07 21:57:57
-tags: 
+tags:
   - CSS
   - Sass
-categories: 
+categories:
   - 技术文章
 ---
 ## 为什么学 Sass

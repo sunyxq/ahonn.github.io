@@ -1,10 +1,10 @@
 ---
 title: Ubuntu 下 LAMP环境搭建
 date: 2015-08-24 12:00:00
-tags: 
+tags:
   - Ubuntu
   - PHP
-categories: 
+categories:
   - 技术文章
 ---
 

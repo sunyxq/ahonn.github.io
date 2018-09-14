@@ -1,10 +1,10 @@
 ---
 title: 如何减少浏览器回流
 date: 2016-08-02 22:46:33
-tags: 
+tags:
   - JavaScript
   - 前端
-categories: 
+categories:
   - 技术文章
 ---
 
@@ -93,7 +93,7 @@ function changeStyle(element) {
 
 实际上，每一次对元素的样式的变更都会产生一次回流。好的做法是创建一个 class 包含这些样式。
 
-``` css 
+``` css
 .changeStyle {
   font-size: 14px;
   font-weight: 600;
@@ -101,7 +101,7 @@ function changeStyle(element) {
 }
 ```
 
-``` js 
+``` js
 function changeStyle(element) {
   element.className = 'changeStyle';
 }

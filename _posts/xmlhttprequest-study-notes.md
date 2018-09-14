@@ -1,7 +1,7 @@
 ---
 title: XMLHttpRequest 学习笔记
 date: 2017-03-02 18:35:39
-tags: 
+tags:
   - JavaScript
   - 前端
 categories:

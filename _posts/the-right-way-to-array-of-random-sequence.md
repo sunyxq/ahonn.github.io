@@ -1,11 +1,11 @@
 ---
 title: 数组乱序的正确姿势
 date: 2016-07-25 10:53:19
-tags: 
+tags:
   - JavaScript
   - 前端
   - Underscore
-categories: 
+categories:
   - 思考总结
 ---
 

@@ -22,7 +22,7 @@ categories:
 
 由于在文件开头多出了一个 BOM，使得压缩后的所有样式都失效了。一开始我尝试在文件最开头加上 `@charset "utf-8"`，但是并没有什么用。不过发现了在加上 `@charset "utf-8"` 后，变成了这样：
 
-![BOM](http://ouv0frko5.bkt.clouddn.com/44hp9.jpg)
+![BOM](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/tnh93.jpg)
 
 多出来的一个小红点，鼠标移上去显示 `"\ufeff"`。找到罪魁祸首了，搜索 `"\ufeff"` 发现有篇关于 JavaScript 中处理 BOM 的文章：[BOM 和 JavaScript 中的 trim](https://imququ.com/post/bom-and-javascript-trim.html)。
 

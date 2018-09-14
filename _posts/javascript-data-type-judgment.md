@@ -1,7 +1,7 @@
 ---
 title: JavaScript 数据类型判断
 date: 2016-11-21 15:07:49
-tags: 
+tags:
   - JavaScript
   - 前端
 categories:

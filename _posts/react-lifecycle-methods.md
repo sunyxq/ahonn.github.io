@@ -1,11 +1,11 @@
 ---
 title: React 生命周期函数小结
 date: 2016-10-02 01:10:17
-tags: 
+tags:
   - JavaScript
   - 前端
   - React
-categories: 
+categories:
   - 技术文章
 ---
 

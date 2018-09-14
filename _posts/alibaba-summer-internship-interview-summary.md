@@ -1,11 +1,11 @@
 ---
 title: 阿里巴巴暑假实习面试总结
 date: 2017-03-16 15:15:24
-tags: 
+tags:
   - 前端
   - 面试
   - 实习
-categories: 
+categories:
   - 思考总结
 ---
 2月末的时候，通过 [simplyY](https://simplyy.space/) 内推了阿里巴巴暑期实习的前端开发岗，在此表示感谢。

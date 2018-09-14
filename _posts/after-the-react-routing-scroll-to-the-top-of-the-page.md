@@ -1,11 +1,11 @@
 ---
 title: React 路由跳转后回到页面顶部
 date: 2016-10-11 01:13:19
-tags: 
+tags:
   - React
   - 前端
   - JavaScript
-categories: 
+categories:
   - 技术文章
 ---
 

@@ -3,7 +3,7 @@ title: Python curses 模块
 date: 2016-01-23 20:40:20
 tags:
   - Python
-categories: 
+categories:
   - 技术文章
 ---
 
@@ -15,15 +15,15 @@ Python 中的 curses 模块封装了 C 语言的 curses。curses 是一个能够
 ## 基本语法
 - `initscr()`
 	初始化 curses, 在任何代码执行钱都需要先初始化 curses。
-- `noecho()`  
+- `noecho()`
 	关闭屏幕回显，即读取字符仅在适当的环境下输出。相对应的是 `echo()`。
-- `cbreak()`  
+- `cbreak()`
 	程序立即反应，即不需要按回车。相对应的是 `nocbreak()`。
-- `keypad(bool)`  
+- `keypad(bool)`
 	键盘模式，即读取键盘输出。`keypad(1)` 为开启，`keypad(0)` 为关闭。
-- `endwin()`  
+- `endwin()`
 	恢复默认设置，即回到终端之前的状态。
-- `newwin(height, width, begin_y, begin_x)`  
+- `newwin(height, width, begin_y, begin_x)`
 	在原有程序中创建新窗口，类似与分屏。
 - `addscr(y, x, str, attr)`
 	显示文本，若没有坐标，字符将显示在上一次操作完的位置；若没有属性，字符将使用默认的属性显示。

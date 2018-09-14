@@ -1,10 +1,10 @@
 ---
 title: 使用 Nokogiri 解析 HTML
 date: 2016-05-28 22:26:29
-tags: 
+tags:
   - Nokogiri
   - Ruby
-categories: 
+categories:
   - 技术文章
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: JavaScript 最佳实践
 date: 2016-08-31 22:57:34
-tags: 
+tags:
   - JavaScript
   - 前端
-categories: 
+categories:
   - 技术文章
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 在 PHP 中如何预防 SQL 注入
 date: 2015-12-21 13:22:28
-tags: 
+tags:
   - PHP
   - SQL
 categories:
@@ -12,14 +12,14 @@ categories:
 ## Question
 如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：
 ``` php
-$unsafe_variable = $_POST['user_input']; 
+$unsafe_variable = $_POST['user_input'];
 
 mysql_query("INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')");
 ```
 <!--more-->
 
 上面的例子，会因为用户输入像 `value'); DROP TABLE table;--` 这样的数据，使得 SQL 语句变成：
-``` 
+```
 INSERT INTO `table` (`column`) VALUES('value'); DROP TABLE table;--')
 ```
 
@@ -96,7 +96,7 @@ $preparedStatement->execute(array('column' => $unsafeValue));
 ``` php
 // Value whitelist
   // $dir can only be 'DESC' or 'ASC'
-$dir = !empty($direction) ? 'DESC' : 'ASC'; 
+$dir = !empty($direction) ? 'DESC' : 'ASC';
 ```
 
 总之，对于用户输入的所有数据都应该在发送到数据库查询之前进行预处理，以此来过滤那些不安全的参数。使得不会因为被 SQL 注入攻击而产生意想不到的结果。

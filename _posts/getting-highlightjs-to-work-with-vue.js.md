@@ -1,7 +1,7 @@
 ---
 title: Vue 中使用 highlight.js
 date: 2016-07-13 12:08:30
-tags: 
+tags:
   - Vue
   - 前端
 categories:

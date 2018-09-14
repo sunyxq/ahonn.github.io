@@ -1,10 +1,10 @@
 ---
 title: JavaScript 创建对象的一些姿势
 date: 2016-11-30 18:52:21
-tags: 
+tags:
   - JavaScript
   - 前端
-categories: 
+categories:
   - 技术文章
 ---
 
@@ -20,7 +20,7 @@ function createPerson(name, age) {
     console.log(this.name)
   }
   return o
-} 
+}
 
 var p = createPerson("ahonn", 21)
 ```
@@ -113,7 +113,7 @@ var  p1 = new Person("ahonn", 21)
 p1.sayName() // "ahonn"
 
 var p2 = new Person("test", 12)
-p2.sayName() // "test" 
+p2.sayName() // "test"
 ```
 
 ## ES6 类

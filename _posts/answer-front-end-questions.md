@@ -1,10 +1,10 @@
 ---
 title: 答前端面试题
 date: 2017-03-11 17:13:46
-tags: 
+tags:
   - 前端
   - 面试
-categories: 
+categories:
   - 思考总结
 ---
 
@@ -33,7 +33,7 @@ categories:
 ### 对比 jQuery 开发的优势
 - 无需直接操作 DOM，事件通过改变 state 间接操作 DOM。
 
-![React-vs-jQuery.png](http://ouv0frko5.bkt.clouddn.com/kpqzw.jpg)
+![React-vs-jQuery.png](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/lw0qj.jpg)
 
 
 ## 页面性能优化

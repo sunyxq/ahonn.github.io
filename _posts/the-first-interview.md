@@ -1,10 +1,10 @@
 ---
 title: 记第一次面试
 date: 2016-05-14 00:23:31
-tags: 
+tags:
   - 面试
   - 实习
-categories: 
+categories:
   - 生活小记
 ---
 

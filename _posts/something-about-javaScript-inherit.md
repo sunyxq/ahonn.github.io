@@ -1,10 +1,10 @@
 ---
 title: JavaScript 继承的那些事
 date: 2017-01-24 23:15:02
-tags: 
+tags:
   - JavaScript
   - 前端
-categories: 
+categories:
   - 技术文章
 ---
 
@@ -42,7 +42,7 @@ console.log(sub.getType()); // "sub"
 // ...
 SubType.prototype = new SuperType();
 SubType.prototype.constructor = SubType;
-// ... 
+// ...
 ```
 
 但即使是这样，原型链继承依然有两点问题：原型中的实例引用类型属性会在所有对象实例中共享，无法想 Java 的继承一样向父类的构造函数中传递参数。

@@ -1,7 +1,7 @@
 ---
 title: Vim 折腾记
 date: 2017-02-19 22:37:54
-tags: 
+tags:
   - Vim
 categories:
   - 折腾工具
@@ -100,7 +100,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 开启目录树的快捷键修改为 `Ctrl + b`，然后当 vim 只剩目录树显示的时候自动退出。
 ```
-" NERDTree 
+" NERDTree
 map <c-b> :NERDTreeToggle<CR>
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
@@ -114,7 +114,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeT
 ```
 " YouCompleteMe
 " http://efe.baidu.com/blog/vim-javascript-completion/#youcompleteme
-let g:ycm_min_num_of_chars_for_completion = 3 
+let g:ycm_min_num_of_chars_for_completion = 3
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_complete_in_comments = 1
 let g:ycm_key_list_select_completion = ['<c-n>', '<Down>']

@@ -1,9 +1,9 @@
 ---
 title: 开始记录
 date: 2016-04-01 21:38:31
-tags: 
+tags:
   - 记录
-categories: 
+categories:
   - 生活小记
 ---
 
@@ -11,7 +11,7 @@ categories:
 
 这两天迎来了 Hexo 博客主题 even 真正意义上的第一个用户 [Leyar](https://www.ileyar.com) ，第一次可以看到博客主题别人用上的效果。
 
-![iLeyar](http://ouv0frko5.bkt.clouddn.com/4agv6.jpg)
+![iLeyar](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/eh9e7.jpg)
 
 虽然主题还有很多问题存在，但我会慢慢去完善它。期待越来越多的用户~
 

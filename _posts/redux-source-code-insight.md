@@ -29,7 +29,7 @@ Redux 提供的 API 主要有：
 
 ### createStore
 `createStore` 用来创建 Redux store，用于存放所有的 state。
- 
+
 通过 `const store = createStore(reducer, initialState)` 创建 store，只能通过 dispatch action 的方式来改变 state。同时提供了 `getState`，`subscribe` 等方法。
 
 ```js
@@ -122,7 +122,7 @@ export default function combineReducers(reducers) {
   const finalReducers = {}
   for (let i = 0; i < reducerKeys.length; i++) {
     const key = reducerKeys[i]
-	
+
 	// ...
 
     if (typeof reducers[key] === 'function') {
@@ -132,7 +132,7 @@ export default function combineReducers(reducers) {
   const finalReducerKeys = Object.keys(finalReducers)
 
   // ...
-  
+
   return function combination(state = {}, action) {
     // ...
 
@@ -191,14 +191,14 @@ const funcs = [f1, f2]
 const func = funcs.reduce((a, b) => (...args) => a(b(...args)))
 func(1)
 ```
-![compose](http://ouv0frko5.bkt.clouddn.com/qbs99.jpg)
+![compose](http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/6vttf.jpg)
 
 在 applyMiddleware 中 `dispatch = compose(...chain)(store.dispatch)`，即传入 compose 返回的函数的参数为 store 原来的 dispatch 函数。
 
 也就是说，添加了中间件后，执行 dispatch 函数将会首先依次执行传入的中间件, 最后再执行原先的 `store.dispatch`
 
 关于 Redux midddleware 有篇文章写得很不错：[compose and middleware 源码分析](https://github.com/asd0102433/blog/issues/1)
- 
+
 ### bindActionCreators
 `bindActionCreators` 方法说白了就是把 action creators 转成拥有同名 keys 的对象，并使用 dispatch 将对象包裹起来，从而能够直接调用函数 dispatch action
 
@@ -233,7 +233,7 @@ export default function bindActionCreators(actionCreators, dispatch) {
 很久之前就学会了 Redux 的『使用』，但是却不明白到底是什么实现的，只知道应该那样使用。
 
 阅读了源码之后对 Redux 整个流程更加清晰，有利于之后的使用。也更加理解 Redux 单向数据流的这种思想，虽然使用上更加繁琐，但是如果数据复杂起来，这种单向数据流的管理方式还是利大于弊的。
- 
+
 **参考链接**
 - [Redux 中文文档](http://cn.redux.js.org/index.html)
 - [compose and middleware 源码分析](https://github.com/asd0102433/blog/issues/1)

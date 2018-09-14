@@ -1,7 +1,7 @@
 ---
 title: 使用 JavaScript 实现简单的拖拽
 date: 2016-05-14 11:09:05
-tags: 
+tags:
   - JavaScript
   - 前端
 categories:
