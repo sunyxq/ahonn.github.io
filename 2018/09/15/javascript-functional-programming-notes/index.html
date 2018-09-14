@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="JavaScript 函数式编程笔记"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/2018/09/15/javascript-functional-programming-notes/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74273646-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74273646-1');
+</script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz",
+      appKey: "7r9WpoHmf3Q2YwE8IKjEfY7w"
+    });
+  </script>
+
+
+
+
+<script>
+  window.config = {"title":"Ahonn's Blog","subtitle":null,"description":"记录成长，分享生活与技术的点滴","author":"Ahonn","language":"zh-cn","timezone":null,"url":"http://www.ahonn.me","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":{"技术文章":"technology","思考总结":"thinking","折腾工具":"tool","生活小记":"life","读书笔记":"reading"},"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":0,"pagination_dir":"page","theme":"even","deploy":[{"type":"git","repo":"git@github.com:ahonn/ahonn.github.io.git","branch":"master"},{"type":"git","repo":"git@git.coding.net:yuexun/yuexun.git","branch":"master"}],"ignore":[],"keywords":"Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程","since":2015,"archive_generator":{"per_page":0,"yearly":false,"monthly":false,"daily":false},"tag_generator":{"per_page":0},"category_generator":{"per_page":0},"search":{"path":"search.xml","field":"post"},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"index_generator":{"per_page":0,"order_by":"-date"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true},"favicon":"/images/favicon.ico","rss":"default","menu":{"Home":"/","Archives":"/archives/","About":"/about"},"color":"default","mode":"default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"ahonn95@outlook.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/ahonn","weibo":null,"zhihu":"https://www.zhihu.com/people/ahonn/activities","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":"yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz","app_key":"7r9WpoHmf3Q2YwE8IKjEfY7w"},"baidu_analytics":"0a275bcf7d954b807e1db498d8e5b192","baidu_verification":"0a275bcf7d954b807e1db498d8e5b192","google_analytics":"UA-74273646-1","google_verification":"j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE","disqus_shortname":"ahonn","changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.10.1"};
+</script>
+
+    <title> JavaScript 函数式编程笔记 - Ahonn's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          JavaScript 函数式编程笔记
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-15
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+              <a href="/categories/technology/reading/">读书笔记</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2018/09/15/javascript-functional-programming-notes/"
+             data-title="JavaScript 函数式编程笔记">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#函数是一等公民"><span class="toc-text">函数是一等公民</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#纯函数"><span class="toc-text">纯函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#柯里化"><span class="toc-text">柯里化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合"><span class="toc-text">组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pointfree"><span class="toc-text">pointfree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-text">debug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#identity"><span class="toc-text">identity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类型签名"><span class="toc-text">类型签名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类型约束"><span class="toc-text">类型约束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#functor"><span class="toc-text">functor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maybe"><span class="toc-text">Maybe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Either"><span class="toc-text">Either</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO"><span class="toc-text">IO</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Monad"><span class="toc-text">Monad</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#chain-函数"><span class="toc-text">chain 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applicative-Functor"><span class="toc-text">Applicative Functor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lift"><span class="toc-text">lift</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作符"><span class="toc-text">操作符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定律"><span class="toc-text">定律</span></a></li></ol>
+    </div>
+  </div>
+
+
+
+    <div class="post-content">
+      
+        <blockquote>
+<p>本文为 <a href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/cotent/" target="_blank" rel="noopener">JS 函数式编程指南</a>  笔记</p>
+</blockquote>
+<h2 id="函数是一等公民"><a href="#函数是一等公民" class="headerlink" title="函数是一等公民"></a>函数是一等公民</h2><p>当我们说函数是“一等公民”的时候，我们实际上说的是它们跟其他对象都一样，你可以像对待其他数据结构一样对待它们。</p>
+<a id="more"></a>
+<h2 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h2><p>相同的输入产生相同的输出，并且没有副作用，即为纯函数。例如 <code>Array.prototype.slice</code> 是纯函数，而 <code>Array.prototype.splice</code> 不是纯函数。</p>
+<p>只要函数跟外界环境发生交互，就是有副作用。但并不是说要禁止副作用，函数式的编程哲学是假定副作用是造成不正当行为的主要原因。</p>
+<p>纯函数的好处：</p>
+<ul>
+<li>可缓存性 Cacheable</li>
+<li>可移植性 Portable</li>
+<li>可测试性 Testable</li>
+<li>合理性 Reasonable (引用透明)</li>
+</ul>
+<h2 id="柯里化"><a href="#柯里化" class="headerlink" title="柯里化"></a>柯里化</h2><p>只传递一个参数来调用它，然后返回另一个函数处理剩下的参数，称为柯离化，也叫做局部调用。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> _ = <span class="built_in">require</span>(<span class="string">'lodash/fp'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> add = _.curry(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> add2 = add(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">add2(<span class="number">3</span>) <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>通过组合两个或多个函数返回一个新的函数，例如:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> g = <span class="function"><span class="params">n</span> =&gt;</span> n + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> f = <span class="function"><span class="params">n</span> =&gt;</span> n * <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fn = compomse(f, g);</span><br><span class="line"></span><br><span class="line">fn(<span class="number">1</span>); <span class="comment">// =&gt; f(g(1)) =&gt; 4</span></span><br></pre></td></tr></table></figure>
+<p>在 compomse 中，g 将先于 f 执行，因此创建了一个从右到左的数据流。</p>
+<p><em>结合律：compomse(f, compomse(g, h)) 等同于 compomse(compomse(f, g), h)</em></p>
+<h2 id="pointfree"><a href="#pointfree" class="headerlink" title="pointfree"></a>pointfree</h2><pre><code>“Love means never having to say you&apos;re sorry”
+</code></pre><p>pointfree 模式是指永远不需要声明数据。</p>
+<p>以一个不恰当的代码比喻：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hello = <span class="function"><span class="params">name</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`hello <span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// not pointfree</span></span><br><span class="line"><span class="keyword">const</span> sayHello = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> hello(name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pointfree</span></span><br><span class="line"><span class="keyword">const</span> sayHello = hello</span><br></pre></td></tr></table></figure></p>
+<p>PS: 个人理解，pointfree 即是指函数仅只是其他函数的组合，并不需要指定外部的数据，函数中也不需要传入外部变量。<br>但这无法绝对避免，例如获取某个时间字符串的时间戳：<code>const timestamp = (date) =&gt; (new Date(date)).getTime()</code>。</p>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>在函数的组合中需要进行 debug 的话，可以使用 <code>trace</code> 函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> trace = curry(<span class="function">(<span class="params">tag, value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(tag, value);</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>将 <code>trace</code> 函数插入到 <code>compomse</code> 中即可检查上一个函数返回值是否正确。</p>
+<h2 id="identity"><a href="#identity" class="headerlink" title="identity"></a>identity</h2><p>范畴学中独特的态射，这个函数接受随便什么东西，然后原封不动的吐出来。一个假装自己是普通数据的函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> identity = <span class="function"><span class="params">x</span> =&gt;</span> x;</span><br></pre></td></tr></table></figure>
+<p>identity 函数可以一起使用，但是看起来好像是没有卵用：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compomse(identity, f) == compomse(f, identity) == f</span><br></pre></td></tr></table></figure></p>
+<h2 id="类型签名"><a href="#类型签名" class="headerlink" title="类型签名"></a>类型签名</h2><p>接受具体类型，返回具体类型：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hello::String -&gt; String</span></span><br><span class="line"><span class="keyword">const</span> hello = <span class="function"><span class="params">name</span> =&gt;</span> <span class="string">`hello <span class="subst">$&#123;name&#125;</span>`</span>;</span><br></pre></td></tr></table></figure></p>
+<p>接受任意类型，并返回相同类型：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// identity::a -&gt; a</span></span><br><span class="line"><span class="keyword">const</span> identity = <span class="function"><span class="params">n</span> =&gt;</span> n</span><br></pre></td></tr></table></figure></p>
+<p>接受函数参数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// map::(a -&gt; b) -&gt; ![pic](a) -&gt; ![pic](b)</span></span><br><span class="line"><span class="keyword">const</span> map = curry(<span class="function">(<span class="params">f, xs</span>) =&gt;</span> xs.map(f));</span><br></pre></td></tr></table></figure></p>
+<h3 id="类型约束"><a href="#类型约束" class="headerlink" title="类型约束"></a>类型约束</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// sort::Ord a =&gt; ![pic](a) =&gt; ![pic](a)</span></span><br><span class="line"><span class="keyword">const</span> sort = balabala</span><br></pre></td></tr></table></figure>
+<p>胖箭头的左边表明 a 一定是一个 Ord 对象，也就是说 a 必须要实现 Ord 接口（可排序）。</p>
+<p>通过这种方式能够限制函数的作用范围，这种接口声明叫做类型约束。</p>
+<h2 id="functor"><a href="#functor" class="headerlink" title="functor"></a>functor</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Functor = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.__value = x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Functor.of = <span class="function"><span class="params">x</span> =&gt;</span> <span class="keyword">new</span> Functor(x);</span><br><span class="line"></span><br><span class="line">Functor.prototype.map = <span class="function"><span class="params">f</span> =&gt;</span> Functor.of(f(<span class="keyword">this</span>.__value));</span><br></pre></td></tr></table></figure>
+<p>functor 是实现了 <code>map</code> 函数，并遵守某些特点规则的容器类型，具有 <code>mappable</code> 的特点（类似于 Promise 的 thenable）。</p>
+<h3 id="Maybe"><a href="#Maybe" class="headerlink" title="Maybe"></a>Maybe</h3><p>Maybe 是另一种 functor，实际上只是多了空值检查。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Maybe = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.__value = x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Maybe.of = <span class="function"><span class="params">x</span> =&gt;</span> <span class="keyword">new</span> Maybe(x);</span><br><span class="line"></span><br><span class="line">Maybe.prototype.isNothing = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.__value === <span class="literal">null</span> || <span class="keyword">this</span>.__value === <span class="literal">undefined</span>;</span><br><span class="line"></span><br><span class="line">Maybe.prototype.map = <span class="function"><span class="params">f</span> =&gt;</span> <span class="keyword">this</span>.isNothing() ? Maybe.of(<span class="literal">null</span>) : Maybe.of(f(<span class="keyword">this</span>.__value));</span><br></pre></td></tr></table></figure>
+<p>Maybe 使得在 <code>map</code> 调用中产生 null 或者 undefined 时不会爆出错误，而是最后返回 <code>Maybe.of(null)</code>。</p>
+<h3 id="Either"><a href="#Either" class="headerlink" title="Either"></a>Either</h3><p>Either 又是另外一种 functor, 不同于正常的 functor, Either 不管怎么 map 都不会改变自己的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Either = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.__value = x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Either.of = <span class="function"><span class="params">x</span> =&gt;</span> <span class="keyword">new</span> Either(x);</span><br><span class="line"></span><br><span class="line">Either.prototype.map = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>;</span><br></pre></td></tr></table></figure>
+<p>Either 用于错误处理，当出现错误时我们返回一个 <code>Either.of(error)</code>, 它将把错误带到最后，并显示出来。<br>实际上它就是一个错误消息的 functor, 只是指不会被改变。</p>
+<h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><p>IO 又又是另外一种 functor, 与最普通的 functor 的差别是，IO 的 <code>__value</code> 是一个函数（不过，我们把它当成是数据）。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> IO = <span class="function">(<span class="params">f</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">this</span>.unsafaPerfromIO = f;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">IO.of = <span class="function"><span class="params">x</span> =&gt;</span> <span class="keyword">new</span> IO(<span class="function"><span class="params">()</span> =&gt;</span> x);</span><br><span class="line"></span><br><span class="line">IO.prototype.map = <span class="function"><span class="params">f</span> =&gt;</span> IO.of(compomse(f, <span class="keyword">this</span>.unsafaPerfromIO));</span><br></pre></td></tr></table></figure>
+<p>IO 把非纯的动作捕获到包裹函数中，延迟执行非纯的动作。并且，假装 IO 的返回指不是包裹函数本身，而是包裹函数执行后的返回值。</p>
+<p>当需要获取 IO 的值的时候，就执行 <code>IO.unsafaPerfromIO()</code>（此时才会执行整个过程 map by map）。</p>
+<h2 id="Monad"><a href="#Monad" class="headerlink" title="Monad"></a>Monad</h2><p>  pointed functor 是指实现了 <code>of</code> 方法的 functor</p>
+<p>  monad 是可以变扁的 pointed functor</p>
+<p>monad 主要的使用场景是用来解决嵌套的 functor。</p>
+<p>一个 functor，只要它定义了一个 <code>join</code> 方法和 <code>of</code> 方法，并遵守一些定律，那么它就是一个 monad。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getItem = <span class="function"><span class="params">key</span> =&gt;</span> IO.of(<span class="function"><span class="params">()</span> =&gt;</span> localStorage.getItem(key));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> log = x = IO.of(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">  <span class="keyword">return</span> x;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> printItem = compomse(join, map(log), getItem);</span><br><span class="line"></span><br><span class="line">printItem(<span class="string">'xxx'</span>).unsafaPerfromIO();</span><br></pre></td></tr></table></figure>
+<h3 id="chain-函数"><a href="#chain-函数" class="headerlink" title="chain 函数"></a>chain 函数</h3><p>chain 函数是 functor map 之后 join 的抽象行为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> chain = curry(<span class="function">(<span class="params">f, m</span>) =&gt;</span> m.map(f).join());</span><br></pre></td></tr></table></figure></p>
+<p>PS: 其实没有啥用，只是把 <code>compomse(join, map(log), ...)</code> 变成了 <code>compomse(chain(log), ...)</code></p>
+<h2 id="Applicative-Functor"><a href="#Applicative-Functor" class="headerlink" title="Applicative Functor"></a>Applicative Functor</h2><p>applicative functor 能够以一种简明扼要的方式把一个 functor 的值应用到另外一个 functor 上。</p>
+<p>  applicative functor 是实现了 <code>ap</code> 方法的 pointed functor</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// applicative</span></span><br><span class="line">Functor.prototype.ap = <span class="function"><span class="params">other</span> =&gt;</span> other.map(<span class="keyword">this</span>.__value);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Functor.of(add(2)).ap(Functor.of(3));</span></span><br></pre></td></tr></table></figure>
+<p><code>Functor.of(x).map(f)</code> 等价于 <code>Functor.of(f).ap(Functor.of(x))</code>。</p>
+<h3 id="lift"><a href="#lift" class="headerlink" title="lift"></a>lift</h3><p>以 pointfree 的方式调用 applicative functor。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> liftA2 = curry(<span class="function">(<span class="params">f, functor1, functor2</span>) =&gt;</span> functor1.map(f).ap(functor2));</span><br></pre></td></tr></table></figure>
+<h3 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h3><p>  haskell 中可以使用 <code>&lt;$&gt;</code> 表示 <code>map</code>, <code>&lt;*&gt;</code> 表示 <code>ap</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Functor.of(<span class="number">2</span>).map(add).ap(Functor.of(<span class="number">3</span>));</span><br><span class="line"><span class="comment">// map(add, Functor.of(2)).ap(Functor.of(3));</span></span><br></pre></td></tr></table></figure>
+<p>等同于：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">add</span> &lt;$&gt; <span class="type">Functor</span> <span class="number">2</span> &lt;*&gt; <span class="type">Functor</span> <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h2 id="定律"><a href="#定律" class="headerlink" title="定律"></a>定律</h2><ul>
+<li>同一：<code>A.of(id).ap(v) == v</code></li>
+<li>同态：<code>A.of(f).ap(A.of(x)) == A.of(f(x))</code></li>
+<li>互换：<code>v.ap(A.of(x)) == A.of(f =&gt; f(x)).ap(x)</code></li>
+<li>组合：<code>A.of(compomse).ap(u).ap(v).ap(w) == u.ap(v.ap(w))</code></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="http://www.ahonn.me">Ahonn</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="http://www.ahonn.me/2018/09/15/javascript-functional-programming-notes/">http://www.ahonn.me/2018/09/15/javascript-functional-programming-notes/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+              <a href="/tags/函数式编程/">函数式编程</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/12/29/my-2017/">
+        <span class="next-text nav-default">我的 2017</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://www.ahonn.me/2018/09/15/javascript-functional-programming-notes/';
+        this.page.identifier = '2018/09/15/javascript-functional-programming-notes/';
+        this.page.title = 'JavaScript 函数式编程笔记';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//ahonn.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>
