@@ -274,7 +274,7 @@
 <h2 id="特殊的-rpx"><a href="#特殊的-rpx" class="headerlink" title="特殊的 rpx"></a>特殊的 rpx</h2><p>微信小程序中有特有的一个尺寸单位 —— rpx，1rpx 表示屏幕宽度的 1/750 大小，也就是说，100% 宽度就是 750rpx。还有一个会被忽略的尺寸单位 —— rem，与 Web 中的 rem 不同，1rem 表示屏幕宽度的 1/20 大小。</p>
 <p>在高度上使用 rpx 的话，也会根据屏幕的宽度的大小而改变。我更倾向与宽度使用 rpx 而高度使用 rem，不过其实比较喜欢用 px 来写样式，这可能算是一个不好的习惯。</p>
 <h2 id="实现滑至最右切换页面"><a href="#实现滑至最右切换页面" class="headerlink" title="实现滑至最右切换页面"></a>实现滑至最右切换页面</h2><p>在仿照 ONE 写微信小程序的时候遇到了一个问题，使用滑块视图组件 <code>&lt;swiper&gt;</code> 去显示每日图文，一共10个图文，当滑动至最右时切换到选择往期列表的页面。如下图所示：</p>
-<p><img src="http://ouv0frko5.bkt.clouddn.com/3qpaf.jpg" alt="One"></p>
+<p><img src="//ouv0frko5.bkt.clouddn.com/3qpaf.jpg" alt="One"></p>
 <p>但是 <code>&lt;swiper&gt;</code> 组件并没有提供对应的事件，使用就自己实现了一个。主要是使用滑块视图每一次切换视图时都会触发一个 <code>bindchange</code> 事件，还有设置滑块视图显示位置的 <code>current</code> 属性。</p>
 <p>在 <code>&lt;swiper&gt;</code> 组件中添加一个空的 <code>&lt;swiper-item&gt;</code> 子组件，当滑动到这个空的子组件的时候使用 <code>wx.navigateTo</code> 这个 api 去切换到往期列表这个页面。同时将滑块视图的显示位置设置到倒数第二个，即最后一个非空的子组件。</p>
 <p>这样就实现了滑动至最右切换页面的功能，同时在点击返回的时候显示的也是滑块视图中的最后一个有内容的子组件。具体实现代码如下：</p>

@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="从零开始写一个 React：初始化渲染"/>
+  <meta name="description" content="React 初始化渲染"/>
 
 
 
@@ -121,7 +121,7 @@
   window.config = {"title":"Ahonn's Blog","subtitle":null,"description":"记录成长，分享生活与技术的点滴","author":"Ahonn","language":"zh-cn","timezone":null,"url":"http://www.ahonn.me","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":{"技术文章":"technology","思考总结":"thinking","折腾工具":"tool","生活小记":"life","读书笔记":"reading"},"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":0,"pagination_dir":"page","theme":"even","deploy":[{"type":"git","repo":"git@github.com:ahonn/ahonn.github.io.git","branch":"master"},{"type":"git","repo":"git@git.coding.net:yuexun/yuexun.git","branch":"master"}],"ignore":[],"keywords":"Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程","since":2015,"archive_generator":{"per_page":0,"yearly":false,"monthly":false,"daily":false},"tag_generator":{"per_page":0},"category_generator":{"per_page":0},"search":{"path":"search.xml","field":"post"},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"index_generator":{"per_page":0,"order_by":"-date"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true},"favicon":"/images/favicon.ico","rss":"default","menu":{"Home":"/","Archives":"/archives/","About":"/about"},"color":"default","mode":"default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"ahonn95@outlook.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/ahonn","weibo":null,"zhihu":"https://www.zhihu.com/people/ahonn/activities","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":"yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz","app_key":"7r9WpoHmf3Q2YwE8IKjEfY7w"},"baidu_analytics":"0a275bcf7d954b807e1db498d8e5b192","baidu_verification":"0a275bcf7d954b807e1db498d8e5b192","google_analytics":"UA-74273646-1","google_verification":"j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE","disqus_shortname":"ahonn","changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.10.1"};
 </script>
 
-    <title> 从零开始写一个 React：初始化渲染 - Ahonn's Blog </title>
+    <title> React 初始化渲染 - Ahonn's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -219,7 +219,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          从零开始写一个 React：初始化渲染
+          React 初始化渲染
         
       </h1>
 
@@ -237,7 +237,7 @@
         
         <span class="post-visits"
              data-url="/2017/06/08/write-a-react-from-scratch-init-render/"
-             data-title="从零开始写一个 React：初始化渲染">
+             data-title="React 初始化渲染">
           阅读次数 0
         </span>
         
@@ -257,8 +257,7 @@
 
     <div class="post-content">
       
-        <p>『从零开始写一个 React』 将会是一个小系列，记录学习 React 源码的过程，并逐步实现一个简易的类 React 库。</p>
-<p>这是本系列的第一篇文章，该文章将阅读 React 初始化渲染相关的代码，并实现一个简单的将 JSX 渲染到页面的功能。（不包括组件生命周期与事件处理相关部分）</p>
+        <p>该文章将阅读 React 初始化渲染相关的代码，并实现一个简单的将 JSX 渲染到页面的功能。（不包括组件生命周期与事件处理相关部分）</p>
 <a id="more"></a>
 <h2 id="源码解析：渲染过程"><a href="#源码解析：渲染过程" class="headerlink" title="源码解析：渲染过程"></a>源码解析：渲染过程</h2><h3 id="JSX-解析"><a href="#JSX-解析" class="headerlink" title="JSX 解析"></a>JSX 解析</h3><p>我们知道在 React 组件<code>render()</code> 返回的是 JSX，而 JSX 将会被 babel 转换。JSX 将被转换为 <code>React.createElement(type, config, children)</code>的形式。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="comment">// 转换前</span></span><br><span class="line">Class App extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> &lt;h1 id='title'&gt;Hello World&lt;h1&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 转换后</span><br><span class="line">var App = React.createClass(&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return React.createElement('h1', &#123;</span><br><span class="line">            id: 'title'</span><br><span class="line">        &#125;, 'hello world')</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -523,7 +522,7 @@
     var disqus_config = function () {
         this.page.url = 'http://www.ahonn.me/2017/06/08/write-a-react-from-scratch-init-render/';
         this.page.identifier = '2017/06/08/write-a-react-from-scratch-init-render/';
-        this.page.title = '从零开始写一个 React：初始化渲染';
+        this.page.title = 'React 初始化渲染';
     };
     (function() {
     var d = document, s = d.createElement('script');
