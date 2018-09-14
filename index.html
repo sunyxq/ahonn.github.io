@@ -266,6 +266,15 @@
 <p>本文为 <a href="https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/cotent/" target="_blank" rel="noopener">JS 函数式编程指南</a>  笔记</p>
 </blockquote>
 <h2 id="函数是一等公民"><a href="#函数是一等公民" class="headerlink" title="函数是一等公民"></a>函数是一等公民</h2><p>当我们说函数是“一等公民”的时候，我们实际上说的是它们跟其他对象都一样，你可以像对待其他数据结构一样对待它们。</p>
+<h2 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h2><p>相同的输入产生相同的输出，并且没有副作用，即为纯函数。例如 <code>Array.prototype.slice</code> 是纯函数，而 <code>Array.prototype.splice</code> 不是纯函数。</p>
+<p>只要函数跟外界环境发生交互，就是有副作用。但并不是说要禁止副作用，函数式的编程哲学是假定副作用是造成不正当行为的主要原因。</p>
+<p>纯函数的好处：</p>
+<ul>
+<li>可缓存性 Cacheable</li>
+<li>可移植性 Portable</li>
+<li>可测试性 Testable</li>
+<li>合理性 Reasonable (引用透明)</li>
+</ul>
           <div class="read-more">
             <a href="/2018/09/15/javascript-functional-programming-notes/" class="read-more-link">阅读更多</a>
           </div>
