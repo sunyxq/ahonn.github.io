@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="记录成长，分享生活与技术的点滴"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/page/4/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74273646-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74273646-1');
+</script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz",
+      appKey: "7r9WpoHmf3Q2YwE8IKjEfY7w"
+    });
+  </script>
+
+
+
+
+<script>
+  window.config = {"title":"Ahonn's Blog","subtitle":null,"description":"记录成长，分享生活与技术的点滴","author":"Ahonn","language":"zh-cn","timezone":null,"url":"http://www.ahonn.me","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":{"技术文章":"technology","思考总结":"thinking","折腾工具":"tool","生活小记":"life","读书笔记":"reading"},"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"even","deploy":[{"type":"git","repo":"git@github.com:ahonn/ahonn.github.io.git","branch":"master"},{"type":"git","repo":"git@git.coding.net:yuexun/yuexun.git","branch":"master"}],"ignore":[],"keywords":"Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程","since":2015,"archive_generator":{"per_page":0,"yearly":false,"monthly":false,"daily":false},"tag_generator":{"per_page":0},"category_generator":{"per_page":0},"search":{"path":"search.xml","field":"post"},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"index_generator":{"per_page":10,"order_by":"-date"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true},"favicon":"/images/favicon.ico","rss":"default","menu":{"Home":"/","Archives":"/archives/","About":"/about"},"color":"default","mode":"default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"ahonn95@outlook.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/ahonn","weibo":null,"zhihu":"https://www.zhihu.com/people/ahonn/activities","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":"yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz","app_key":"7r9WpoHmf3Q2YwE8IKjEfY7w"},"baidu_analytics":"0a275bcf7d954b807e1db498d8e5b192","baidu_verification":"0a275bcf7d954b807e1db498d8e5b192","google_analytics":"UA-74273646-1","google_verification":"j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE","disqus_shortname":"ahonn","changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.10.1"};
+</script>
+
+    <title> Ahonn's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/06/07/sass-preliminary-study/">Sass 初探</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-07
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/06/07/sass-preliminary-study/"
+             data-title="Sass 初探">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="为什么学-Sass"><a href="#为什么学-Sass" class="headerlink" title="为什么学 Sass"></a>为什么学 Sass</h2><p>说起来其实很早就知道 <code>Sass</code> 这东西。刚开始写 Even 这个博客主题的时候就有在考虑是要用 <code>Less</code> 还是<code>Sass</code>，最后用了变量名用 <code>@</code> 开头的 Less（可能是 PHP 的原因，对 <code>$</code> 开头的变量名没什么好感）。</p>
+<p>最近正在看 <code>Foundation</code>，源码是用 Sass 写的。<code>Bootstrap</code> 之前也是用 Less 的，不过后来也转向了 Sass。然后发现 <code>Foundation</code> 写得挺不错的，看看博客主题写的代码，简直不能看。正好打算把主题给重构重构，就顺手学学 Sass，用 Sass 写。<br>
+          <div class="read-more">
+            <a href="/2016/06/07/sass-preliminary-study/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/05/28/using-nokogiri-parsing-html/">使用 Nokogiri 解析 HTML</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-05-28
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/05/28/using-nokogiri-parsing-html/"
+             data-title="使用 Nokogiri 解析 HTML">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>Nokogiri 是 Ruby 的一个 HTML/XML 文件的解析库。在需要解析 HTML/XML 文件获取数据时，它是一个很好的选择。</p>
+<h2 id="解析-HTML-文档"><a href="#解析-HTML-文档" class="headerlink" title="解析 HTML 文档"></a>解析 HTML 文档</h2><p>使用 <code>Nokogiri</code> 解析 HTML 将会生成 <code>Nokogiri documens</code>。<br>生成该对象的方式有三种，分别是通过字符串解析，通过文件解析，通过网络解析。</p>
+<h3 id="通过字符串解析"><a href="#通过字符串解析" class="headerlink" title="通过字符串解析"></a>通过字符串解析</h3><p>通过字符串解析，即是将字符串当作函数的参数传给 <code>Nokogiri::HTML</code> 函数。<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doc = Nokogiri::HTML(<span class="string">"&lt;html&gt;&lt;body&gt;&lt;h1&gt;Ahonn&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;"</span>)</span><br></pre></td></tr></table></figure></p>
+          <div class="read-more">
+            <a href="/2016/05/28/using-nokogiri-parsing-html/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/">使用 JavaScript 实现简单的拖拽</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-05-14
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/"
+             data-title="使用 JavaScript 实现简单的拖拽">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>使用 JavaScript 实现拖拽的步骤：</p>
+<ul>
+<li>让元素捕获事件（mousedown, mousemove &amp; mouseup）</li>
+<li>单击并不释放，触发 mousedown，标记开始拖拽，并获取元素和鼠标的位置</li>
+<li>拖动鼠标，触发 mousemove，不断的获取鼠标的位置，并通过计算重新确定元素的位置</li>
+<li>释放师表，触发 mouseup，结束拖拽，确定元素位置并更新</li>
+</ul>
+<p><strong>被拖拽的元素必须是相对父元素定位，或者是绝对定位</strong></p>
+          <div class="read-more">
+            <a href="/2016/05/14/use-javascript-to-achieve-simple-drag-and-drop/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/05/14/the-first-interview/">记第一次面试</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-05-14
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/life/">生活小记</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/05/14/the-first-interview/"
+             data-title="记第一次面试">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>记录第一次面试 流水账 想到什么写什么</p>
+</blockquote>
+<p>第一次正正经经的去面试，虽然只是个软件开发暑期实习生。</p>
+<p>刚开始是在网上无聊的逛 V2EX 什么的，然后看了看 conde 社区。后来神不知鬼不觉的不知道为什么就跑到了 Ruby China 去了，又神不知鬼不觉的跑去看了招聘的版块。</p>
+<p>其实在这之前的两个星期都有在拉钩上投实习，虽然有几个简历通过了，但是却毫无沟通的直接定了面试时间。不是刚刚好顶到上课时间，就是早上 10 点的（也就是说我得早上 7 点起床赶去广州面试）。说实在的对那些公司兴趣也不是很大。<br>
+          <div class="read-more">
+            <a href="/2016/05/14/the-first-interview/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/05/03/starting-from-the-optimizeCb/">从 optimizeCb 说起</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-05-03
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/05/03/starting-from-the-optimizeCb/"
+             data-title="从 optimizeCb 说起">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="optimizeCb"><a href="#optimizeCb" class="headerlink" title="optimizeCb"></a>optimizeCb</h2><p>在 <code>underscore</code> 中的内部函数 <code>optimizeCb</code>，顾名思义就是 optimize callback，即优化回调函数。</p>
+<p>optimizeCb:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Internal function that returns an efficient (for current engines) version</span></span><br><span class="line"><span class="comment">// of the passed-in callback, to be repeatedly applied in other Underscore</span></span><br><span class="line"><span class="comment">// functions.</span></span><br><span class="line"><span class="keyword">var</span> optimizeCb = <span class="function"><span class="keyword">function</span>(<span class="params">func, context, argCount</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (context === <span class="keyword">void</span> <span class="number">0</span>) <span class="keyword">return</span> func;</span><br><span class="line">  <span class="keyword">switch</span> (argCount == <span class="literal">null</span> ? <span class="number">3</span> : argCount) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>: <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> func.call(context, value);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// The 2-parameter case has been omitted only because no current consumers</span></span><br><span class="line">    <span class="comment">// made use of it.</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>: <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">value, index, collection</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> func.call(context, value, index, collection);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>: <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">accumulator, value, index, collection</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> func.call(context, accumulator, value, index, collection);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> func.apply(context, <span class="built_in">arguments</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/05/03/starting-from-the-optimizeCb/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/28/javascript-hoisting/">不合常理的变量提升</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-04-28
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/04/28/javascript-hoisting/"
+             data-title="不合常理的变量提升">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h2><h3 id="合乎常理的预期"><a href="#合乎常理的预期" class="headerlink" title="合乎常理的预期"></a>合乎常理的预期</h3><p>按照合乎常理的预期，程序应该是由上至下一行一行执行的，如果使用了之前没有定义的变量的话，正确的反应应该是会报错，就象下面这段 C++ 代码：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, &amp;n);  <span class="comment">// Error</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> n = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <div class="read-more">
+            <a href="/2016/04/28/javascript-hoisting/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/16/javascript-event-stream/">事件流：冒泡与捕获</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-04-16
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/04/16/javascript-event-stream/"
+             data-title="事件流：冒泡与捕获">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>事件流描述的是从页面中接收事件的顺序。在 JavaScript 中事件流有两种，一种是由 IE 开发团队提出的事件冒泡流，而另一种是 Netscape 提出的事件捕获流。</p>
+<h3 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h3><p>事件冒泡流，即事件开始时由具体的元素接收，然后逐级向上传播，直到 document 对象。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span> Click <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2016/04/16/javascript-event-stream/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/04/javascript-closures/">作用域与闭包</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-04-04
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/04/04/javascript-closures/"
+             data-title="作用域与闭包">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>在 JavaScript 中变量的作用域与其他语言不同，JavaScript 的作用域不是由 <code>{}</code> 来界定，而是函数。所以循环实际上是在全局作用域中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(i); <span class="comment">// 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="全局变量-amp-局部变量"><a href="#全局变量-amp-局部变量" class="headerlink" title="全局变量 &amp; 局部变量"></a>全局变量 &amp; 局部变量</h3><p>JavaScript 变量的作用域分为两种，全局和局部。</p>
+<p>在 JavaScript 中声明全局变量有两种方式，一种是在全局环境下使用 <code>var</code> 声明，另一种是在任何地方直接初始化变量，那么它将会是全局变量。</p>
+          <div class="read-more">
+            <a href="/2016/04/04/javascript-closures/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/04/01/begin/">开始记录</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-04-01
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/life/">生活小记</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/04/01/begin/"
+             data-title="开始记录">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="欣喜"><a href="#欣喜" class="headerlink" title="欣喜"></a>欣喜</h2><p>这两天迎来了 Hexo 博客主题 even 真正意义上的第一个用户 <a href="https://www.ileyar.com" target="_blank" rel="noopener">Leyar</a> ，第一次可以看到博客主题别人用上的效果。</p>
+<p><img src="https://ahonn-me.oss-cn-beijing.aliyuncs.com/images/eh9e7.jpg" alt="iLeyar"></p>
+<p>虽然主题还有很多问题存在，但我会慢慢去完善它。期待越来越多的用户~</p>
+          <div class="read-more">
+            <a href="/2016/04/01/begin/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/03/29/javascript-prototype-chain/">奇怪的原型链</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-03-29
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/03/29/javascript-prototype-chain/"
+             data-title="奇怪的原型链">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在 JavaScript 中一切皆为对象（Object），但是却与 Java，C++ 等语言不同，没有“类”的概念，也没有所谓的“子类”和“父类”。JavaScript 中的对象是基于原型（prototype）来实现面向对象的，靠奇怪的原型链（prototype chain）来实现继承。</p>
+<h2 id="对象与原型"><a href="#对象与原型" class="headerlink" title="对象与原型"></a>对象与原型</h2><p>在 JavaScript 中创建对象使用 <code>new</code> 关键字，而后跟着的是构造函数。在 JavaScript 中没有类的概念，所以对象的构造函数就是单纯只是个函数（function）。</p>
+          <div class="read-more">
+            <a href="/2016/03/29/javascript-prototype-chain/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/5/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>

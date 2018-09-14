@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="记录成长，分享生活与技术的点滴"/>
+
+
+
+
+  <meta name="keywords" content="Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程" />
+
+
+
+  <meta name="baidu-site-verification" content="0a275bcf7d954b807e1db498d8e5b192" />
+
+
+
+  <meta name="google-site-verification" content="j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE" />
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ahonn's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=2.10.1" />
+
+
+
+<link rel="canonical" href="http://www.ahonn.me/page/5/"/>
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/nprogress/nprogress.min.css" />
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.10.1" />
+
+
+
+  
+  <script id="baidu_analytics">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0a275bcf7d954b807e1db498d8e5b192";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-74273646-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-74273646-1');
+</script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.1.1/av-min.js"></script>
+  <script id="leancloud">
+    AV.init({
+      appId: "yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz",
+      appKey: "7r9WpoHmf3Q2YwE8IKjEfY7w"
+    });
+  </script>
+
+
+
+
+<script>
+  window.config = {"title":"Ahonn's Blog","subtitle":null,"description":"记录成长，分享生活与技术的点滴","author":"Ahonn","language":"zh-cn","timezone":null,"url":"http://www.ahonn.me","root":"/","permalink":":year/:month/:day/:title/","permalink_defaults":null,"source_dir":"source","public_dir":"public","tag_dir":"tags","archive_dir":"archives","category_dir":"categories","code_dir":"downloads/code","i18n_dir":":lang","skip_render":null,"new_post_name":":title.md","default_layout":"post","titlecase":false,"external_link":true,"filename_case":0,"render_drafts":false,"post_asset_folder":false,"relative_link":false,"future":true,"highlight":{"enable":true,"auto_detect":false,"line_number":true,"tab_replace":null,"first_line_number":"always1"},"default_category":"uncategorized","category_map":{"技术文章":"technology","思考总结":"thinking","折腾工具":"tool","生活小记":"life","读书笔记":"reading"},"tag_map":null,"date_format":"YYYY-MM-DD","time_format":"HH:mm:ss","per_page":10,"pagination_dir":"page","theme":"even","deploy":[{"type":"git","repo":"git@github.com:ahonn/ahonn.github.io.git","branch":"master"},{"type":"git","repo":"git@git.coding.net:yuexun/yuexun.git","branch":"master"}],"ignore":[],"keywords":"Ahonn, Ahonn's Blog, 前端，JavaScript，Vim, 编程","since":2015,"archive_generator":{"per_page":0,"yearly":false,"monthly":false,"daily":false},"tag_generator":{"per_page":0},"category_generator":{"per_page":0},"search":{"path":"search.xml","field":"post"},"feed":{"type":"atom","limit":20,"hub":"","content":true,"content_limit":140,"content_limit_delim":"","path":"atom.xml"},"index_generator":{"per_page":10,"order_by":"-date"},"sitemap":{"path":"sitemap.xml"},"marked":{"gfm":true,"pedantic":false,"sanitize":false,"tables":true,"breaks":true,"smartLists":true,"smartypants":true,"modifyAnchors":"","autolink":true},"server":{"port":4000,"log":false,"ip":"0.0.0.0","compress":false,"header":true},"favicon":"/images/favicon.ico","rss":"default","menu":{"Home":"/","Archives":"/archives/","About":"/about"},"color":"default","mode":"default","toc":true,"fancybox":true,"pjax":true,"copyright":{"enable":true,"license":"<a rel=\"license\" href=\"http://creativecommons.org/licenses/by-nc/4.0/\" target=\"_blank\">知识共享署名-非商业性使用 4.0 国际许可协议</a>"},"reward":{"enable":false,"qrCode":{"wechat":null,"alipay":null}},"social":{"email":"ahonn95@outlook.com","stack-overflow":null,"twitter":null,"facebook":null,"linkedin":null,"google":null,"github":"https://github.com/ahonn","weibo":null,"zhihu":"https://www.zhihu.com/people/ahonn/activities","douban":null,"pocket":null,"tumblr":null,"instagram":null},"leancloud":{"app_id":"yQb0X4LzhGQewvhzfS4Pwbbe-gzGzoHsz","app_key":"7r9WpoHmf3Q2YwE8IKjEfY7w"},"baidu_analytics":"0a275bcf7d954b807e1db498d8e5b192","baidu_verification":"0a275bcf7d954b807e1db498d8e5b192","google_analytics":"UA-74273646-1","google_verification":"j5dWC85DkoAfUR50W00ewfii3X9ouH55HnyBP6oZxGE","disqus_shortname":"ahonn","changyan":{"appid":null,"appkey":null},"livere_datauid":null,"version":"2.10.1"};
+</script>
+
+    <title> Ahonn's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Ahonn's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/about">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Ahonn's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <section id="posts" class="posts">
+    
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/03/20/javascript-apply-call-and-bind/">apply, call 与 bind 的区别</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-03-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/03/20/javascript-apply-call-and-bind/"
+             data-title="apply, call 与 bind 的区别">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近在看 《JavaScript 高级程序设计》，也就是所谓的高程3。正好看到 <code>Function</code> 部分，看到了几个熟悉的字眼，<code>apply()</code>，<code>call()</code> 和 <code>bind()</code>。好像是有些面试题里面有，遂搞清楚了记录下。</p>
+<h2 id="apply-与-call"><a href="#apply-与-call" class="headerlink" title="apply() 与 call()"></a>apply() 与 call()</h2><p>每个函数都包含两个非继承的方法：<code>apply()</code> 和 <code>call()</code>。两个方法的用途都是在特定的作用域中调用函数，实际上等于设置函数体内 <code>this</code> 对象的值。这是书中的说法，大概意思就是 <code>apply()</code> 和 <code>call()</code> 这两个方法是用来改变函数中 <code>this</code> 的指向的。而 <code>apply()</code> 与 <code>call()</code> 的区别就在与接收参数的方式。</p>
+<p><code>apply()</code> 方法接收两个参数，一个是在其中运行函数的作用域，函数中的 <code>this</code> 的值，另一个是参数数组。<br>而 <code>call()</code> 方法的第一个参数跟 <code>apply()</code> 相同，不同的是除了第一个参数，后面的其他参数将会直接传递给函数。</p>
+          <div class="read-more">
+            <a href="/2016/03/20/javascript-apply-call-and-bind/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/02/29/jade-template-engine/">Jade 模板引擎</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-29
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/02/29/jade-template-engine/"
+             data-title="Jade 模板引擎">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近在改一个 Hexo 的主题 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="noopener">apollo</a>。然后看到这个主题用的是叫做 Jade 的模版引擎写的。之前了解过几个模版引擎 ejs，swig 什么的，但是这些都是在原有的 HTML 中插标签，看起来有点乱。看到 Jade 后就深深的被它那如同 Python 的缩进语法深深吸引了，遂上网学习一发。</p>
+<p>Jade 是 JavaScript 实现的，供 Node 使用，原生支持 Express。但也有 PHP，Python 等其他语言的实现。（要是 HTML 模版用 Jade，CSS 用 Styl，后端用 Python，那岂不是很好玩~全是缩进缩进缩进=。=）</p>
+<h3 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h3><p>添加文档类型可以通过 <code>!!!</code>  或者 <code>doctype</code> 来添加。</p>
+          <div class="read-more">
+            <a href="/2016/02/29/jade-template-engine/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/02/20/python-multithreaded-preliminary/">Python 多线程初步了解</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-20
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/02/20/python-multithreaded-preliminary/"
+             data-title="Python 多线程初步了解">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这两天在写 <a href="https://www.github.com/ahonn/Nada" target="_blank" rel="noopener">Nada</a> 的下载功能，遇到一个问题，在下载歌曲的时候整个界面都会卡住，必须等待下载完成才能够恢复，因为写的时候是直接顺序执行的，没有多线程。之前在写播放功能的时候是参考了别人的代码，自己其实对多线程部分不是很了解。然后趁着晚上了解一下 Python 的 thread 和 treading 模块。</p>
+<h2 id="Python-多线程支持"><a href="#Python-多线程支持" class="headerlink" title="Python 多线程支持"></a>Python 多线程支持</h2><p>Pyhton 标准库提供了 thread 和 threading 模块来支持多线程，这意味着不需要重新下载这两个模块，只需要在代码中 import 这两个模块就可以了。</p>
+<h2 id="thread-模块"><a href="#thread-模块" class="headerlink" title="thread 模块"></a>thread 模块</h2><p>thread 模块是以低级、原始的方式来处理和控制线程，提供了一个简单的锁（相对于 threading 模块的锁的感觉来说的确是比较简单）。相对于 threading 模块来说，thread 模块更加灵活。</p>
+          <div class="read-more">
+            <a href="/2016/02/20/python-multithreaded-preliminary/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2016/01/23/python-curses-module/">Python curses 模块</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-01-23
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2016/01/23/python-curses-module/"
+             data-title="Python curses 模块">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>Python 中的 curses 模块封装了 C 语言的 curses。curses 是一个能够提供基于文本终端窗口功能的动态库。它可以创建和管理一个窗口，使用8中不同的颜色，提供鼠标以及键盘支持。与 Tkinter 不同的是 curses 是基于终端的。</p>
+<p><strong>curses 支持 Unix/Linux 系统，目前不支持 Windows</strong><br>
+          <div class="read-more">
+            <a href="/2016/01/23/python-curses-module/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015/12/31/2015-summary/">2015 总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-31
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2015/12/31/2015-summary/"
+             data-title="2015 总结">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>记录 2015，计划 2016</p>
+</blockquote>
+<h2 id="关于生活"><a href="#关于生活" class="headerlink" title="关于生活"></a>关于生活</h2><p>对2015 年的春节并没什么印象，现在也想不起来那时候在做什么了。大概是在游戏中度日吧，回想那段日子，现在还真是觉得那时候在浪费时间呢。</p>
+<p>接着呢就是大一的第二个学期的到来。数据结构，对这门课还挺感兴趣呢，学起来也觉得还 ok。大概在 3 月，被老师推荐去了学校刚刚开始搞得 ACM 集训队。开始重新看起了 C，但是依旧还是会沉浸在游戏中。</p>
+<p>就这样在做题，训练与游戏中到了五一。回家之后不知道是那根筋不对，开始对 Linux 感兴趣了，把电脑上的游戏删了，把系统换成了 Ubuntu。假期期间换了无数 Linux 发行版，也开始慢慢了解开源。于是，我开始玩起了 Ubuntu。假期结束接着的是 ACM 的各种比赛，去了广州的各大高校，参加了在中大举办的广东省程序设计比赛，打了打酱油。看到了很多虽然同是大一的大牛，差距是那么的大。</p>
+<p>就这样我又默默的水过了一个学期，唯一值得纪念的就是去了中大打了酱油吧。</p>
+<p>大二。刚开始对课程里的人机交互还是充满期待的，但是后面我发现我错了，这只是一门网页设计与推广某个所谓创业平台的课。所以说，像这样的大学，虽然也不乏良师，但大部分还是靠的自学。</p>
+          <div class="read-more">
+            <a href="/2015/12/31/2015-summary/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015/12/21/how-can-i-prevent-sql-injection-in-php/">在 PHP 中如何预防 SQL 注入</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-21
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2015/12/21/how-can-i-prevent-sql-injection-in-php/"
+             data-title="在 PHP 中如何预防 SQL 注入">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>翻译自 Stack Overflow: <a href="http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php" target="_blank" rel="noopener">How can I prevent SQL-injection in PHP?</a> 中的高票答案</p>
+</blockquote>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如果用户输入的数据没有经过修正，那么应用将会很容易受到 SQL 注入攻击，像下面的这个例子一样：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$unsafe_variable = $_POST[<span class="string">'user_input'</span>];</span><br><span class="line"></span><br><span class="line">mysql_query(<span class="string">"INSERT INTO `table` (`column`) VALUES ('$unsafe_variable')"</span>);</span><br></pre></td></tr></table></figure></p>
+          <div class="read-more">
+            <a href="/2015/12/21/how-can-i-prevent-sql-injection-in-php/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015/12/19/simple-use-of-the-php-curl-library/">PHP cURL 库的简单使用</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-19
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2015/12/19/simple-use-of-the-php-curl-library/"
+             data-title="PHP cURL 库的简单使用">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>之前写 PHP 的爬虫的时候就有用到 cURl 扩展，然后前几天在写 <code>zhihu-php</code> 的时候也用到了这个，也觉得这个也是用得比较多的一个东西，所以就上网又学习了一下，就顺手把它写下来了。</p>
+</blockquote>
+<p>cURL 是一个功能强大的库，支持很多不同的协议、选项，能提供 URL 请求相关的各种细节信息。常用于网页、数据采集。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>可以通过 <code>phpinfo()</code> 来输出 PHP 的配置信息，搜索查看是否开启了 cURL 库。</p>
+<p><strong>windows</strong></p>
+<ul>
+<li>将 PHP 安装文件夹下的 <code>php_curl.dll</code>，<code>libeay32.dll</code>，<code>ssleay.dll</code> 复制到 <code>system32</code> 文件夹下。</li>
+<li>将 PHP.ini 中的 <code>extension=php_curl.dll</code> 前的 <code>;</code> 分号去掉。</li>
+<li>重启服务器。
+          <div class="read-more">
+            <a href="/2015/12/19/simple-use-of-the-php-curl-library/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/">知乎用户动态监控爬虫</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-25
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/technology/">技术文章</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/"
+             data-title="知乎用户动态监控爬虫">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>根据极客学院的Python爬虫教程写的一个单线程简易爬虫。可以监控知乎用户动态，当有新动态时发送邮件通知。</p>
+</blockquote>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>根据要关注的知乎用户的主页URL，使用requests模块获取整个用户主页的html。</li>
+<li>根据用户主页及其html代码，定位所需要的最新动态的位置。</li>
+<li>使用正则表达式比配到需要的数据。</li>
+<li>拼接数据，判断是否已经保持在文件中，即判断是否为新动态。</li>
+<li>若是新动态，使用python的smtplib模块发送收件到设置的邮箱中并保存到本地文件，否则略过。</li>
+</ul>
+          <div class="read-more">
+            <a href="/2015/11/25/the-crawler-of-zhihu-user-dynamic-monitoring/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/">phpmyadmin 缺少 mcrypt 扩展</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-22
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2015/11/22/phpmyadmin-lack-mcrypt-extension/"
+             data-title="phpmyadmin 缺少 mcrypt 扩展">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>记录，以便下次所需。</p>
+</blockquote>
+<p>今天重装了腾讯云上面的服务器，安装的是Ubuntu server 14.04。搞完apache2 + mysql + PHP 后，安装了phpmyadmin来作为数据库管理。<br>登录之后发现报错：缺少 mcrypt 扩展。上网查了一下，发现需要安装php-mcrypt、libmcrypt、libmcrypt-devel这三个。</p>
+<h4 id="安装mcrypt"><a href="#安装mcrypt" class="headerlink" title="安装mcrypt"></a>安装mcrypt</h4><pre><code>sudo apt-get install php-mcrypt libmcrypt libmcrypt-devel
+</code></pre><p>安装后重启apache2服务器后发现依然报错，后面在网上找到了解决办法。原来是在<code>/etc/php5/apache2/conf.d</code>下缺少一个<code>20-mcrypt.ini</code>。该文件是<code>mcrypt.ini</code>的链接。<br>但是不知道是不是因为是版本不同的关系，这个文件的路径与搜索到的解决方案中不同。我的路径是：<code>/etc/php5/mods-available/mcrypt.ini</code><br>
+          <div class="read-more">
+            <a href="/2015/11/22/phpmyadmin-lack-mcrypt-extension/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2015/08/30/sudoers-is-world-writable/">sudoers is world writable</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-08-30
+        </span>
+        
+          <span class="post-category">
+            
+              <a href="/categories/thinking/">思考总结</a>
+            
+          </span>
+        
+        
+        <span class="post-visits"
+             data-url="/2015/08/30/sudoers-is-world-writable/"
+             data-title="sudoers is world writable">
+          阅读次数 0
+        </span>
+        
+      </div>
+    </header>
+
+    
+    
+
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p>记录以避免再次犯错</p>
+</blockquote>
+<h2 id="前因"><a href="#前因" class="headerlink" title="前因"></a>前因</h2><p>今天修改.bashrc中的环境配置时，不小心把$PATH删除了。后来发现后添加回去后Terminal中出现如下错误：</p>
+<pre><code>sudo: /etc/sudoers is world writable
+sudo: no valid sudoers sources found, quitting
+</code></pre>
+          <div class="read-more">
+            <a href="/2015/08/30/sudoers-is-world-writable/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+      
+      
+  <nav class="pagination">
+    
+      <a class="prev" href="/page/4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/page/6/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+    
+  </section>
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:ahonn95@outlook.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/ahonn" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://www.zhihu.com/people/ahonn/activities" class="iconfont icon-zhihu" title="zhihu"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Ahonn</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+  
+
+
+
+  
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/pjax/jquery.pjax.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/nprogress/nprogress.min.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.10.1"></script>
+
+  </body>
+</html>
