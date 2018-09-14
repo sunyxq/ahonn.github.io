@@ -259,7 +259,7 @@
 </blockquote>
 <p>上面这句来自 <a href="https://www.zhihu.com/question/20167122/answer/14199022" target="_blank" rel="noopener">「带 BOM 的 UTF-8」和「无 BOM 的 UTF-8」有什么区别？网页代码一般使用哪个？</a> 的回答。我想补充一下，更可恶的事情是 BOM 在 CSS 中。</p>
 <p>由于在文件开头多出了一个 BOM，使得压缩后的所有样式都失效了。一开始我尝试在文件最开头加上 <code>@charset &quot;utf-8&quot;</code>，但是并没有什么用。不过发现了在加上 <code>@charset &quot;utf-8&quot;</code> 后，变成了这样：</p>
-<p><img src="http://ahonn-me.oss-cn-beijing.aliyuncs.com/images/tnh93.jpg" alt="BOM"></p>
+<p><img src="https://ahonn-me.oss-cn-beijing.aliyuncs.com/images/tnh93.jpg" alt="BOM"></p>
 <p>多出来的一个小红点，鼠标移上去显示 <code>&quot;\ufeff&quot;</code>。找到罪魁祸首了，搜索 <code>&quot;\ufeff&quot;</code> 发现有篇关于 JavaScript 中处理 BOM 的文章：<a href="https://imququ.com/post/bom-and-javascript-trim.html" target="_blank" rel="noopener">BOM 和 JavaScript 中的 trim</a>。</p>
 <p>最后得到解决方案，在编译后的样式中进行替换，移除 <code>\ufeff</code>:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css = css.replace(<span class="string">"\ufeff"</span>, <span class="string">""</span>);</span><br></pre></td></tr></table></figure>
