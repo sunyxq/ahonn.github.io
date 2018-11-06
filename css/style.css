@@ -622,11 +622,6 @@ h6 {
     font-family: Athelas, STHeiti, Microsoft Yahei, serif; }
   .post .post-content .headerlink:hover {
     border-bottom: 0; }
-  .post .post-content .headerlink::before {
-    content: "";
-    margin-right: 5px;
-    font-size: 1.1em;
-    color: #c05b4d; }
   .post .post-content a {
     color: #c05b4d;
     word-break: break-all; }

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.ahonn.me/about/index.html</loc>
+    
+    <lastmod>2018-11-06T13:19:53.806Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.ahonn.me/2018/09/15/javascript-functional-programming-notes/</loc>
     
     <lastmod>2018-09-14T16:21:17.000Z</lastmod>
@@ -331,21 +338,7 @@
   </url>
   
   <url>
-    <loc>http://www.ahonn.me/about/index.html</loc>
-    
-    <lastmod>2017-11-26T03:18:21.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.ahonn.me/2017/06/29/vim-plugin-ctrlsf/</loc>
-    
-    <lastmod>2017-08-30T10:22:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.ahonn.me/2015/08/30/sudoers-is-world-writable/</loc>
     
     <lastmod>2017-08-30T10:22:28.000Z</lastmod>
     
@@ -360,6 +353,13 @@
   
   <url>
     <loc>http://www.ahonn.me/2017/06/23/arrived-in-hangzhou/</loc>
+    
+    <lastmod>2017-08-30T10:22:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.ahonn.me/2015/08/30/sudoers-is-world-writable/</loc>
     
     <lastmod>2017-08-30T10:22:28.000Z</lastmod>
     
